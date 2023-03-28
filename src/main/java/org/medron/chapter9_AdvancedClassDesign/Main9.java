@@ -73,6 +73,19 @@ public class Main9 {
     ~ class Georgette implements Poodle {
         public void play() {}
     }
+    ø if we have 2 abstract and 2 incompatible methods subclass can not compile
+
+    ~ interface LongEars {
+        int softSkin();
+    }
+    ~ interface LongNose {
+        void softSkin();
+    }
+    ~ interface Donkey extends LongEars, LongNose {}  DOES NOT COMPILE
+    ~ public class Penguin implements LongEars, LongNose {}  DOES NOT COMPILE
+
+
+
 
 
 
