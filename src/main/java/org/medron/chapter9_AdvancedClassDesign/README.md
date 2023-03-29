@@ -1,14 +1,16 @@
 # Oracle-Certification Chapter 9-Advanced Class Design
 #“You take the blue pill – the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill – you stay in Wonderland and I show you how deep the rabbit-hole goes.”
-ø An abstract class is most commonly used when you want another class to inherit properties of a particular class, but you
-want the subclass to fill in some implementation details.
-~ public class abstract Jackal{}  DOES NOT COMPILE
-~ public int abstract howl();  DOES NOT COMPILE
 
     ø If you mark something abstract, you are intending for someone else to extend or implement it. But, if you mark something final,
     ø you are preventing anyone from extending or implementing it. These concepts are in direct conflict with each other.
     ~ public abstract final class Tortoise {}  DOES NOT COMPILE
     ~ public abstract final void walk();  DOES NOT COMPILE
+
+    ø An abstract class is most commonly used when you want another class to inherit properties of a particular class, but you
+    want the subclass to fill in some implementation details.
+    ~ public class abstract Jackal{}  DOES NOT COMPILE
+    ~ public int abstract howl();  DOES NOT COMPILE
+
 
 
     ø A method cannot be marked as both abstract and private. This rule makes sense if you think about it. How would you define a
