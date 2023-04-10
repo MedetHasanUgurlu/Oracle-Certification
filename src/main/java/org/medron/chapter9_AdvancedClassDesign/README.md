@@ -1,6 +1,6 @@
 # Oracle-Certification Chapter 9-Advanced Class Design
-#“You take the blue pill – the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill – you stay in Wonderland and I show you how deep the rabbit-hole goes.”
-
+### “You take the blue pill – the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill – you stay in Wonderland and I show you how deep the rabbit-hole goes.”
+###### Morpheus
     ø If you mark something abstract, you are intending for someone else to extend or implement it. But, if you mark something final,
     ø you are preventing anyone from extending or implementing it. These concepts are in direct conflict with each other.
     ~ public abstract final class Tortoise {}  DOES NOT COMPILE

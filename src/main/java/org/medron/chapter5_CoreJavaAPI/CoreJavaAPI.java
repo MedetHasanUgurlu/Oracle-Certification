@@ -1,13 +1,26 @@
 package org.medron.chapter5_CoreJavaAPI;
 
+import java.util.Arrays;
+
 public class CoreJavaAPI {
-    public static void main(String[] args) {
+    public static void main(String args) {
         StringBuilder stringBuilder = new StringBuilder();
         for(char a = 'a';a<='z';a++){
             stringBuilder.append(a);
         }
         System.out.println(stringBuilder);
         //Stringbuffer slower than StringBuilder so we should use instead of it.
+        String x = "El psy congroo";
+        String y = "El psy congroo";
+        if (x==y){
+            System.out.println("Equal");
+        }
+        String[] bugs = {"cricket","beetle","ladybug"};
+
+        System.out.println(Arrays.compare(new int[]{1,2,7},new int[]{1,2,4}));
+
+
+
 
     }
     /*
