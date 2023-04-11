@@ -141,4 +141,4 @@
     ~ public class Ticket implements Paper {}
     }
 
-[«««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
+[«« Go Back ««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
