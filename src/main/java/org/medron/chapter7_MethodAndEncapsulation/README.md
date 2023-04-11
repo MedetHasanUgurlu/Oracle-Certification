@@ -67,3 +67,5 @@ Java has a concept called type erasure where generics are used
 only at compile time. That means the compiled code looks like
 this:
 ![img_6.png](img_6.png)
+
+[«««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 

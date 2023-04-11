@@ -50,3 +50,5 @@ referenced if they are effectively final.
 ![img_10.png](images/img_10.png)
 ***
 
+[«««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
+

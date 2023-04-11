@@ -140,3 +140,5 @@
     ~ private interface Paper {}
     ~ public class Ticket implements Paper {}
     }
+
+[«««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
