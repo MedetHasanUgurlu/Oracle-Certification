@@ -7,6 +7,14 @@
     <groupId>org.medron</groupId>
     <artifactId>OracleCertification</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
