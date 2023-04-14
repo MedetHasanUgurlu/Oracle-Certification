@@ -46,7 +46,10 @@
   zero
   
 
+***
     int answer = 11 / 0;
+***
+
 * **ArrayIndexOutOfBoundsException** You know by now that array indexes start with 0 and go up to 1
   less than the length of the array
 
