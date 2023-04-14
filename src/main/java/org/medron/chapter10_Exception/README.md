@@ -103,7 +103,7 @@
 * Java provides another structure
   to handle this more gracefully called a multi-catch block. A
   multi-catch block allows multiple exception types to be caught
-  by the same catch block
+  by the same catch block \
 
 
     public static void main(String[] args) {
