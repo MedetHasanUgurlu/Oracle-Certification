@@ -9,3 +9,4 @@
 * [Lambda and Functional Interface](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter6_LambdaAndFunctionalInterface)
 * [Advanced Class Design](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter9_AdvancedClassDesign)
 * [Method and Encapsulation](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter7_MethodAndEncapsulation)
+* [Exception](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter10_Exception)
