@@ -147,8 +147,8 @@ Home constructor
       }
     }
 
-**Result**
-0-10-BestZoo-z \
+**Result** \
+0-10-BestZoo-z 
 
 **Order of Initialize**
 1) Super class to child
@@ -199,9 +199,182 @@ Home constructor
       new Okapi(2);
       }
     }
-**Result**\
+**Result**\ 
 AFBECHG \
 BECHG
+
+* The fly() method is overloaded in the subclass Eagle,
+  since the signature changes from a no-argument method
+  to a method with one int argument. Because the method
+  is being overloaded and not overridden, the return type
+  can be changed from void to int.
+  The eat() method is overridden in the subclass Eagle,
+  since the signature is the same as it is in the parent class
+  Bird—they both take a single argument int. Because the
+  method is being overridden, the return type of the method
+  in the Eagle class must be compatible with the return type
+  for the method in the Bird class. In this example, the
+  return type int is not a subtype of void; therefore, the
+  compiler will throw an exception on this method
+  definition.
+
+
+    public class Bird {
+      public void fly() {
+        System.out.println("Bird is flying");
+      }
+      public void eat(int food) {
+        System.out.println("Bird is eating "+food+" units of food");
+      }
+    }
+
+    public class Eagle extends Bird {
+      public int fly(int height) {
+        System.out.println("Bird is flying at "+height+" meters");
+        return height;
+      }
+      public int eat(int food) { // DOES NOT COMPILE
+        System.out.println("Bird is eating "+food+" units of food");
+        return food;
+      }
+    }
+
+* The third rule says that overriding a method cannot declare
+  new checked exceptions or checked exceptions broader than
+  the inherited method.
+  
+
+    public class Reptile {
+      protected void sleepInShell() throws IOException {}
+      protected void hideInShell() throws NumberFormatException {}
+      protected void exitShell() throws FileNotFoundException {}
+      }
+
+    public class GalapagosTortoise extends Reptile {
+      public void sleepInShell() throws FileNotFoundException {}
+      public void hideInShell() throws IllegalArgumentException {}
+      public void exitShell() throws IOException {} // DOES NOT COMPILE
+    }
+
+* The fourth and final rule around overriding a method is
+  probably the most complicated, as it requires knowing the
+  relationships between the return types. The overriding method
+  must use a return type that is covariant with the return type of
+  the inherited method.
+  
+      public class Rhino {
+        protected CharSequence getName() {
+          return "rhino";
+        }
+        protected String getColor() {
+          return "grey, black, or white";
+        }
+      }
+  
+      class JavanRhino extends Rhino {
+        public String getName() {
+          return "javan rhino";
+        }
+        public CharSequence getColor() { // DOES NOT COMPILE
+           return "grey";
+        }
+      }
+String
+implements the CharSequence interface, making String a
+subtype of CharSequence. Therefore, the return type of
+getName() in JavanRhino is covariant with the return type of
+getName() in Rhino.
+
+
+* you learned that you cannot overload methods by
+changing the generic type due to type erasure. To review, only
+one of the two methods is allowed in a class because type
+erasure will reduce both sets of arguments to (List input).
+
+
+    public class LongTailAnimal {
+      protected void chew(List<Object> input) {}
+      protected void chew(List<Double> input) {} // DOES NOT COMPILE
+    }
+* same reason, you also can’t overload a generic method
+  in a parent class.
+    
+
+    public class LongTailAnimal {
+      protected void chew(List<Object> input) {}
+    }
+    public class Anteater extends LongTailAnimal {
+      protected void chew(List<Double> input) {} // DOES NOT COMPILE
+    }
+* They are considered
+overloaded methods, not overridden methods, because the
+signature is not the same. Type erasure does not change the
+fact that one of the method arguments is a List and the other is
+an ArrayList.
+
+   
+    public class LongTailAnimal {
+      protected void chew(List<Object> input) {}
+    }
+    public class Anteater extends LongTailAnimal {
+      protected void chew(ArrayList<Double> input) {}
+    }
+* generic wildcards
+
+
+    void sing1(List<?> v) {} // unbounded wildcard
+    void sing2(List<? super String> v) {} // lower bounded wildcard
+    void sing3(List<? extends String> v) {} // upper bounded wildcard
+
+* The Monkey class compiles because ArrayList is a subtype of
+  List. The play() method in the Goat class does not compile,
+  though. For the return types to be covariant, the generic type
+  parameter must match. Even though String is a subtype of
+  CharSequence, it does not exactly match the generic type defined
+  in the Mammal class. Therefore, this is considered an invalid
+  override.
+
+
+    public class Mammal {
+      public List<CharSequence> play() { ... }
+      public CharSequence sleep() { ... }
+    } 
+
+    public class Monkey extends Mammal {
+      public ArrayList<CharSequence> play() { ... }
+    }
+
+    public class Goat extends Mammal {
+      public List<String> play() { ... } // DOES NOT COMPILE
+      public String sleep() { ... }
+    }
+
+* method final, you forbid a child class from
+  replacing this method. This rule is in place both when you
+  override a method and when you hide a method. In other
+  words, you cannot hide a static method in a child class if it is
+  marked final in the parent class.
+
+
+    public class Bird {
+      public final boolean hasFeathers() {
+        return true;
+      }
+      public final static void flyAway() {}
+        }
+      public class Penguin extends Bird {
+        public final boolean hasFeathers() { // DOES NOT COMPILE
+          return false;
+        }
+      public final static void flyAway() {} // DOES NOT COMPILE
+      }
+
+
+
+
+
+
+
 
 
 
