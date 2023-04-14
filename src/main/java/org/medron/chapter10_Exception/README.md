@@ -25,8 +25,7 @@
   The types of exceptions are important. Be sure to closely study
   everything in Table 10.1. Remember that a Throwable is either
   an Exception or an Error. You should not catch Throwable
-* 
-  directly in your code.\
+
 ### RUNTIME EXCEPTİON
 1) ArithmeticException
 2) ArrayIndexOutOfBoundsException
@@ -36,7 +35,7 @@
 6) NumberFormatException
 
 
-
+***
     try {
       throw new RuntimeException();
       throw new ArrayIndexOutOfBoundsException(); // DOES NOT   COMPILE
@@ -56,6 +55,7 @@
 
       int[] countsOfMoose = new int[3];
       System.out.println(countsOfMoose[-1]);
+***
 * **ClassCastException**
 
 
@@ -68,11 +68,11 @@
     String type = "moose";
     Object obj = type;
     Integer number = (Integer) obj;
-
+***
 ### CHECKED EXCEPTION
 1) IOException
 2) FileNotFoundException
-
+***
 ### ERROR
 1) **ExceptionInInitializerError** Thrown when a static initializer
    throws an exception and does not handle it
@@ -81,7 +81,7 @@
    method typically calls itself without end.)
 3) **NoClassDefFoundError** Thrown when a class that the code uses
    is available at compile time but not runtime
-
+***
 * spesific to global
 
 
@@ -95,10 +95,11 @@
         }catch (RuntimeException e){ DO NOT COMPILE
             
         }
-  }
+      }
+
 ![img.png](img.png)
 
-
+***
 * Java provides another structure
   to handle this more gracefully called a multi-catch block. A
   multi-catch block allows multiple exception types to be caught
@@ -112,6 +113,7 @@
         System.out.println("Missing or invalid input");
       }
     }
+***
 * Java intends multi-catch to be used for exceptions that aren’t
   related, and it prevents you from specifying redundant types in
   a multi-catch.
@@ -121,9 +123,10 @@
     try {
       throw new IOException();
     } catch (FileNotFoundException | IOException p) {} // DOES NOT COMPILE
+***
 * order does not matter for a multicatch block within a single catch expression.
 
-
+***
 
 * *Go slowly. It’s tricky*
 
@@ -148,10 +151,10 @@
       }
       return result.toString();
     }
-
+***
 **Result**\
 before_catch_finally_done 
-
+***
 * The problem is that NoMoreCarrotsException is a checked
   exception. Checked exceptions must be handled or declared.
   The code would compile if you changed the main() method to
@@ -166,7 +169,7 @@ before_catch_finally_done
       private static void eatCarrot() throws NoMoreCarrotsException {
       }
     }
-
+***
 * You might have noticed that eatCarrot() didn’t actually throw
   an exception; it just declared that it could. This is enough for
   the compiler to require the caller to handle or declare the
@@ -185,7 +188,7 @@ before_catch_finally_done
         System.out.print("sad rabbit");
       }
     }
-
+***
 
 * When a class overrides a method from a superclass
   or implements a method from an interface, it’s not allowed to
@@ -201,7 +204,7 @@ before_catch_finally_done
       public void hop() throws CanNotHopException { } // DOES NOT COMPILE
     }
 
-
+***
 *An overridden method in a subclass is allowed to declare fewer
 exceptions than the superclass or interface. This is legal
 because callers are already handling them.
@@ -215,8 +218,8 @@ because callers are already handling them.
       public void hop() {
       }
     }
-
-*a class is allowed to declare a subclass of an
+***
+* a class is allowed to declare a subclass of an
 exception type. The idea is the same. The superclass or
 interface has already taken care of a broader type.
 
@@ -227,7 +230,7 @@ interface has already taken care of a broader type.
     class Bunny extends Hopper {  
       public void hop() throws CanNotHopException { }
     }
-
+***
 * Print Exception
 
     
@@ -251,6 +254,6 @@ cannot hop\
 java.lang.RuntimeException: cannot hop\
 at Handling.hop(Handling.java:15)\
 at Handling.main(Handling.java:7)\
-
+***
 
 [«« Go Back ««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
