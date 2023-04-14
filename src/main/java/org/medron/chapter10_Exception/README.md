@@ -81,7 +81,6 @@
 3) **NoClassDefFoundError** Thrown when a class that the code uses
    is available at compile time but not runtime
 <br>
-4) 
 * spesific to global
 
 <br>
