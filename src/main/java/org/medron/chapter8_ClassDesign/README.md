@@ -369,9 +369,64 @@ an ArrayList.
       public final static void flyAway() {} // DOES NOT COMPILE
       }
 
+* Even
+  though there is only one object created by the main() method,
+  both variables exist independently of each other. The output
+  changes depending on the reference variable used.
+
+
+    class Carnivore {
+      protected boolean hasFur = false;
+    }
+    public class Meerkat extends Carnivore {
+      protected boolean hasFur = true;
+
+    public static void main(String[] args) {
+      Meerkat m = new Meerkat();
+      Carnivore c = m;
+      System.out.println(m.hasFur);
+      System.out.println(c.hasFur);
+      }
+    }\
+**Result**\
+true\
+false
+1. Casting a reference from a subtype to a supertype doesn’t
+   require an explicit cast.
+2. Casting a reference from a supertype to a subtype requires an
+   explicit cast.
+3. The compiler disallows casts to an unrelated class.
+4. At runtime, an invalid cast of a reference to an unrelated type
+   results in a ClassCastException being thrown.
+
+
+    List<Integer>  list = new ArrayList<>(); //Implicit Cast
+    ArrayList<Integer> arrayList = (ArrayList<Integer>) list; //Explicit Cast
+![img_1.png](img_1.png)
+
+* code will
+  compile, it will throw a ClassCastException at runtime since
+  the object being referenced is not an instance of the Capybara
+  class.
+
+
+    public class Rodent {
+    }
+    public class Capybara extends Rodent {
+      public static void main(String[] args) {
+        Rodent rodent = new Rodent();
+        Capybara capybara = (Capybara)rodent; // ClassCastException
+      }
+    }
+* can
+  be used to check whether an object belongs to a particular class
+  or interface and to prevent ClassCastExceptions at runtime.
 
 
 
+    if(eagle instanceof Bird){
+      System.out.println("Yeap");
+    }
 
 
 
