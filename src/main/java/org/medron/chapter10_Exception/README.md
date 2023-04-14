@@ -41,23 +41,23 @@
       throw new ArrayIndexOutOfBoundsException(); // DOES NOT   COMPILE
     } catch (Exception e) {
     }
-***
+
 **ArithmeticException** Thrown when code attempts to divide by
   zero
-  
+<br>
 
 
     int answer = 11 / 0;
-***
+
 
 * **ArrayIndexOutOfBoundsException** You know by now that array indexes start with 0 and go up to 1
   less than the length of the array
-
+  <br>
       int[] countsOfMoose = new int[3];
       System.out.println(countsOfMoose[-1]);
-***
-* **ClassCastException**
 
+* **ClassCastException**
+  <br>
 
 
 
@@ -68,11 +68,10 @@
     String type = "moose";
     Object obj = type;
     Integer number = (Integer) obj;
-***
 ### CHECKED EXCEPTION
 1) IOException
 2) FileNotFoundException
-***
+   <br>
 ### ERROR
 1) **ExceptionInInitializerError** Thrown when a static initializer
    throws an exception and does not handle it
@@ -81,9 +80,11 @@
    method typically calls itself without end.)
 3) **NoClassDefFoundError** Thrown when a class that the code uses
    is available at compile time but not runtime
-***
+<br>
+4) 
 * spesific to global
 
+<br>
 
     public void visit(String place){
       try {
@@ -114,23 +115,24 @@
         System.out.println("Missing or invalid input");
       }
     }
-***
+
 * Java intends multi-catch to be used for exceptions that aren’t
   related, and it prevents you from specifying redundant types in
   a multi-catch.
-
+<br>
 
   
     try {
       throw new IOException();
     } catch (FileNotFoundException | IOException p) {} // DOES NOT COMPILE
-***
+
 * order does not matter for a multicatch block within a single catch expression.
 
-***
+
 
 * *Go slowly. It’s tricky*
 
+<br>
 
     public String exceptions() {
       StringBuilder result = new StringBuilder();
@@ -152,13 +154,13 @@
       }
       return result.toString();
     }
-***
 **Result**\
-before_catch_finally_done 
-***
+before_catch_finally_done
+<br>
 * The problem is that NoMoreCarrotsException is a checked
   exception. Checked exceptions must be handled or declared.
   The code would compile if you changed the main() method to
+<br>
 
     
     class NoMoreCarrotsException extends Exception {
@@ -170,11 +172,12 @@ before_catch_finally_done
       private static void eatCarrot() throws NoMoreCarrotsException {
       }
     }
-***
+
 * You might have noticed that eatCarrot() didn’t actually throw
   an exception; it just declared that it could. This is enough for
   the compiler to require the caller to handle or declare the
   exception.
+<br>
 
 
     public static void main(String[] args) throws NoMoreCarrotsException { 
@@ -189,11 +192,12 @@ before_catch_finally_done
         System.out.print("sad rabbit");
       }
     }
-***
+
 
 * When a class overrides a method from a superclass
   or implements a method from an interface, it’s not allowed to
   add new checked exceptions to the method signature.
+<br>
 
 
     class CanNotHopException extends Exception {
@@ -205,11 +209,11 @@ before_catch_finally_done
       public void hop() throws CanNotHopException { } // DOES NOT COMPILE
     }
 
-***
-*An overridden method in a subclass is allowed to declare fewer
+
+* An overridden method in a subclass is allowed to declare fewer
 exceptions than the superclass or interface. This is legal
 because callers are already handling them.
-
+<br>
 
 
     class Hopper {
@@ -219,10 +223,11 @@ because callers are already handling them.
       public void hop() {
       }
     }
-***
+
 * a class is allowed to declare a subclass of an
 exception type. The idea is the same. The superclass or
 interface has already taken care of a broader type.
+<br>
 
 
     class Hopper {
@@ -231,8 +236,9 @@ interface has already taken care of a broader type.
     class Bunny extends Hopper {  
       public void hop() throws CanNotHopException { }
     }
-***
+
 * Print Exception
+<br>
 
     
     public static void main(String[] args) {
@@ -255,6 +261,6 @@ cannot hop\
 java.lang.RuntimeException: cannot hop\
 at Handling.hop(Handling.java:15)\
 at Handling.main(Handling.java:7)\
-***
+<br>
 
 [«« Go Back ««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
