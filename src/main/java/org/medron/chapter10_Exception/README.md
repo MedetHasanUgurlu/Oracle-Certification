@@ -42,7 +42,7 @@
       throw new ArrayIndexOutOfBoundsException(); // DOES NOT   COMPILE
     } catch (Exception e) {
     }
-* **ArithmeticException** Thrown when code attempts to divide by
+**ArithmeticException** Thrown when code attempts to divide by
   zero
   
 
