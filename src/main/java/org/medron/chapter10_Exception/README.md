@@ -55,6 +55,9 @@
 * **ClassCastException**
 
 
+
+
+
     String type = "moose";
     Integer number = (Integer) type; // DOES NOT COMPILE
 
