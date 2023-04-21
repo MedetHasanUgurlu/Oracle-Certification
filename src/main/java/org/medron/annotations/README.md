@@ -116,51 +116,100 @@ Remember, parentheses are optional only if no values are included.
 
 > ![img.png](img.png)
 > ![img_1.png](img_1.png)
+
+
 * Annotations support a shorthand notation for providing an
   array that contains a single element.
 
-<p><img src="img_2.png" height="400"></p>
+> ![img_2.png](img_2.png)
 
-![img_2.png](img_2.png)
 * It might not surprise you that we can combine both of our
     recent rules for shorthand notations.
-* ![img_3.png](img_3.png)
-* ![img_4.png](img_4.png)
+
+> ![img_3.png](img_3.png)
+> ![img_4.png](img_4.png)
+
+
 * Learning the ElementType Values
-![img_5.png](img_5.png)
-![img_6.png](img_6.png)
-* Even though the java.lang package is imported
-  automatically by the compiler, the java.lang.annotation
-  package is not. Therefore, import statements are required
-  for many of the examples in the remainder of this chapter.
-![img_7.png](images/img_7.png)
+
+<table>
+<th>ElementType value</th>
+<th>Applies to</th>
+<tr>
+<td>TYPE</td>
+<td>Classes, interfaces, enums, annotations</td>
+</tr>
+<tr>
+<td>FIELD</td>
+<td>Instance and static variables, enum values</td>
+</tr>
+<tr>
+<td>METHOD</td>
+<td>Method declarations</td>
+</tr>
+<tr>
+<td>PARAMETER</td>
+<td>Constructor,Method, Lambda</td>
+</tr>
+<tr>
+<td>CONSTRUCTOR</td>
+<td>Constructor declarations</td>
+</tr>
+<tr>
+<td>LOCAL_VARIABLE</td>
+<td>Local Variables</td>
+</tr>
+<tr>
+<td>ANNOTATION_TYPE</td>
+<td>Annotations</td>
+</tr>
+<tr>
+<td>PACKAGE*</td>
+<td>Packages declared in package-info.java</td>
+</tr>
+<tr>
+<td>TYPE_PARAMETER</td>
+<td>Parameterized types, generic declarations</td>
+</tr>
+<tr>
+<td>TYPE_USE</td>
+<td>Able to be applied anywhere there is Java's type declared.</td>
+</tr>
+<tr>
+<td>MODULE*</td>
+<td>Modules</td>
+</tr>
+</table>
+
+
+
+
+
 * Values for the @Retention annotation
-![img_8.png](images/img_8.png)
-* In fact, you can generate Javadoc files for any class you write!
-  Better yet, you can add additional metadata, including
-  comments and annotations, that have no impact on your code
-  but provide more detailed and user‐friendly Javadoc files.
-![img_9.png](images/img_9.png)
+> ![img_7.png](images/img_7.png)
+> ![img_8.png](images/img_8.png)
+
 * Javadoc has its own annotations that are used solely in
   generating data within a Javadoc file.
-![img_10.png](images/img_10.png)
-* Another marker annotation you should know for the exam is
-  @Inherited. When this annotation is applied to a class,
+> ![img_10.png](images/img_10.png)
+
+
+* Another marker annotation you should know for the exam is **@Inherited**. 
+When this annotation is applied to a class,
   subclasses will inherit the annotation information found in the
   parent class.
-![img_11.png](images/img_11.png)
-* as it actually
+> ![img_11.png](images/img_11.png)
+* It actually
   requires creating two annotations. The @Repeatable annotation
   is used when you want to specify an annotation more than once
   on a type.
-  our first rule: without the @Repeatable annotation,
-  an annotation can be applied only once. So, let's add the
-  @Repeatable annotation.
-* * as written, the Zoo class does not compile.
-![img_12.png](images/img_12.png)
-![img_13.png](images/img_13.png)
-![img_14.png](images/img_14.png)
-![img_7.png](img_7.png)
+
+* The Zoo class does not compile.
+> ![img_12.png](images/img_12.png)
+> ![img_13.png](images/img_13.png)
+> ![img_14.png](images/img_14.png)
+> ![img_7.png](img_7.png)
+
 * The repeatable annotation must be declared with @Repeatable
   and contain a value that refers to the containing type
   annotation.
@@ -217,8 +266,41 @@ Remember, parentheses are optional only if no values are included.
   the Smooth interface contains two abstract methods, although
   since one matches the signature of a method in
   java.lang.Object, it does compile.
-![img_8.png](img_8.png)
-* ![img_9.png](img_9.png)
+> ![img_8.png](img_8.png)
 
-
-<p align="center"> <img src="img_9.png"></p> 
+<table>
+  <th>Annotation</th>
+  <th>Marker annotation</th>  
+  <th>Type of value()</th>
+  <th>Optional Members</th>
+  <tr>
+    <td>@Override</td>
+    <td>Yes</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>@FunctionalInterface</td>
+    <td>Yes</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>@Deprecated</td>
+    <td>No</td>
+    <td>-</td>
+    <td>String since() boolean forRemoval()</td>
+  </tr>
+  <tr>
+    <td>@SuppressWarnings</td>
+    <td>No</td>
+    <td>String[]</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>@SafeVarargs</td>
+    <td>Yes</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+</table>
