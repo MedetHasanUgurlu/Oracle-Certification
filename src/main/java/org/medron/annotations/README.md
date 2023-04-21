@@ -81,37 +81,41 @@ Remember, parentheses are optional only if no values are included.
   of an annotation must be a non‐ null constant
   expression.
 > ![img_3.png](images/img_3.png)
-* The height() element does not compile. While primitive types
+* The **height()** element does not compile. While primitive types
   like int and long are supported, wrapper classes like Integer
-  and Long are not. The generalInfo() element also does not
-  compile. The type String[] is supported, as it is an array of
-  String values, but String[][] is not.
-  The size() and exercise() elements both compile, with one
+  and Long are not. **The generalInfo()** element also does not
+  compile. The type _String[] is supported_, as it is an array of
+  String values, but _~~String[][] is not~~_.
+  The **size()** and **exercise()** elements both compile, with one
   being an enum and the other being an annotation. To set a
-  default value for exercise(), we use the @Exercise annotation.
+  default value for **exercise()**, we use the @Exercise annotation.
   Remember, this is the only way to create an annotation value.
-  Unlike instantiating a class, the new keyword is never used to
-  create an annotation.
-  Finally, the friendlyBear() element does not compile. The type
+  Unlike instantiating a class, **the new keyword is never used to
+  create an annotation**.
+  Finally, the **friendlyBear()** element does not compile. The type
   of friendlyBear() is Bear (not Class). Even if Bear were
   changed to an interface, the friendlyBear() element would still
   not compile since it is not one of the supported types.
-![img_4.png](images/img_4.png)
+
+> ![img_4.png](images/img_4.png)
+
+
+
 * Like abstract interface methods, annotation elements are
-  implicitly abstract and public, whether you declare them that
+  implicitly **_abstract and public_**, whether you declare them that
   way or not.
-![img_5.png](images/img_5.png)
-* Yep, just like interface variables, annotation variables are
-  implicitly public, static, and final. These constant variables
-  are not considered elements, though
-![img_6.png](images/img_6.png)
+> ![img_5.png](images/img_5.png)
+
+* Yep, just like _**interface variables, annotation variables are
+  implicitly public, static, and final**_.
+> ![img_6.png](images/img_6.png)
 * @Alert. Remember, a marker annotation is one that does not
   contain any elements.
 * The annotation declaration must contain an element named
-  value(), which may be optional or required.
+  **value()**, which may be optional or required.
 
-![img.png](img.png)
-![img_1.png](img_1.png)
+> ![img.png](img.png)
+> ![img_1.png](img_1.png)
 * Annotations support a shorthand notation for providing an
   array that contains a single element.
 ![img_2.png](img_2.png)
