@@ -50,8 +50,7 @@ annotations as implementations of these interfaces.
     }
 
 
-* Remember, parentheses are optional
-  only if no values are included.
+* Remember, parentheses are optional only if no values are included.
 
     
     @Exercise(hoursPerDay=3) 
