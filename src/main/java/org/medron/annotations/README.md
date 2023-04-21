@@ -70,12 +70,12 @@ Remember, parentheses are optional only if no values are included.
 
 > ![img.png](images/img.png)
 
-* For an element to be optional, rather than required, it must
+For an element to be optional, rather than required, it must
   include a default value. Let's update our annotation to include
   an optional value.
 
-![img_1.png](images/img_1.png)
-![img_2.png](images/img_2.png)
+> ![img_1.png](images/img_1.png)
+> ![img_2.png](images/img_2.png)
 * The default value of an annotation cannot be just any
   value. Similar to case statement values, the default value
   of an annotation must be a non‐ null constant
