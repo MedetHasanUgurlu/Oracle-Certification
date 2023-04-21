@@ -53,7 +53,6 @@ annotations as implementations of these interfaces.
 * Remember, parentheses are optional
   only if no values are included.
 
-<br>
     
     @Exercise(hoursPerDay=3) 
     public class Cheetah{
