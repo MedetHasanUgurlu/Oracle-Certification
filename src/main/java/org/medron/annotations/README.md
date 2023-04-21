@@ -20,9 +20,9 @@ manage data about our application.
   behavior at runtime.
 
 * marker annotation, since it does not contain any elements
+<br>
 
-
-    public @interface Exercise {    
+>    public @interface Exercise {    
     }  
 * We have mixed. That is fine.
 
