@@ -1,58 +1,54 @@
 # Annotations
-* What exactly is metadata? Metadata is data that provides
-  information about other data. Imagine our zoo is having a sale
+* _**Metadata**_ is data that provides information about other data. Imagine our zoo is having a sale
   on tickets. The attribute data includes the price, the expiration
   date, and the number of tickets purchased. In other words, the
   attribute data is the transactional information that makes up
   the ticket sale and its contents.
-  On the other hand, the metadata includes the rules, properties,
-  or relationships surrounding the ticket sales. Patrons must buy
-  at least one ticket, as a sale of zero or negative tickets is silly.
-  Maybe the zoo is having a problem with scalpers, so they add a
-  rule that each person can buy a maximum of five tickets a day.
-  These metadata rules describe information about the ticket sale
-  but are not part of the ticket sale.
-* r first rule about annotations: annotations
-  function a lot like interfaces. In this example, annotations
-  allow us to mark a class as a ZooAnimal without changing its
-  inheritance structure.
 
-* That brings us to our second rule about annotations:
-annotations establish relationships that make it easier to
+### Rule
+
+1) Annotations function a lot like interfaces, annotations
+  allow us to mark without changing its inheritance structure.
+2) Annotations establish relationships that make it easier to
 manage data about our application.
-* *our third rule about annotations:
-  an annotation ascribes custom information on the declaration
+3) The Annotation ascribes custom information on the declaration
   where it is defined.
-* There's one final rule about annotations you should be familiar
-  with: annotations are optional metadata and by themselves
+4) Annotations are optional metadata and by themselves
   do not do anything. This means you can take a project filled
   with thousands of annotations and remove all of them, and it
   will still compile and run, albeit with potentially different
   behavior at runtime.
-* public @interface Exercise {}  The
-  Exercise annotation is referred to as a marker annotation,
-  since it does not contain any elements
-* 
-@Exercise() public class Cheetah {}
-@Exercise public class Slot h {}
-@Exercise
-public class ZooEmployee {}
-Oh no, we've mixed animals and zoo employees! That's
-perfectly fine.
 
+* marker annotation, since it does not contain any elements
+
+
+    public @interface Exercise {    
+    }  
+* We have mixed. That is fine.
+
+
+
+    @Exercise() 
+    public class Cheetah {}
+    @Exercise 
+    public class Sloth {}
+    @Exercise
+    public class ZooEmployee {}
+
+
+
+
+
+* It looks a lot like an abstract method.Behind the scenes,
+the JVM is creating elements as interface methods and
+annotations as implementations of these interfaces. 
 <br>
-  
+
+
     public @interface Exercise {
       int hoursPerDay();
     }
-*The syntax for the hoursPerDay() element may seem a little
-strange at first. It looks a lot like an abstract method, although
-we're calling it an element (or attribute). Remember,
-annotations have their roots in interfaces. Behind the scenes,
-the JVM is creating elements as interface methods and
-annotations as implementations of these interfaces. Luckily,
-you don't need to worry about those details; the compiler does
-that for you.
+
 
 * Remember, parentheses are optional
   only if no values are included.
@@ -72,7 +68,7 @@ that for you.
     }
   
 
-![img.png](images/img.png)
+> ![img.png](images/img.png)
 
 * For an element to be optional, rather than required, it must
   include a default value. Let's update our annotation to include
@@ -130,11 +126,89 @@ that for you.
   automatically by the compiler, the java.lang.annotation
   package is not. Therefore, import statements are required
   for many of the examples in the remainder of this chapter.
-![img_7.png](img_7.png)
+![img_7.png](images/img_7.png)
 * Values for the @Retention annotation
-![img_8.png](img_8.png)
+![img_8.png](images/img_8.png)
 * In fact, you can generate Javadoc files for any class you write!
   Better yet, you can add additional metadata, including
   comments and annotations, that have no impact on your code
   but provide more detailed and user‐friendly Javadoc files.
-![img_9.png](img_9.png)
+![img_9.png](images/img_9.png)
+* Javadoc has its own annotations that are used solely in
+  generating data within a Javadoc file.
+![img_10.png](images/img_10.png)
+* Another marker annotation you should know for the exam is
+  @Inherited. When this annotation is applied to a class,
+  subclasses will inherit the annotation information found in the
+  parent class.
+![img_11.png](images/img_11.png)
+* as it actually
+  requires creating two annotations. The @Repeatable annotation
+  is used when you want to specify an annotation more than once
+  on a type.
+  our first rule: without the @Repeatable annotation,
+  an annotation can be applied only once. So, let's add the
+  @Repeatable annotation.
+* * as written, the Zoo class does not compile.
+![img_12.png](images/img_12.png)
+![img_13.png](images/img_13.png)
+![img_14.png](images/img_14.png)
+![img_7.png](img_7.png)
+* The repeatable annotation must be declared with @Repeatable
+  and contain a value that refers to the containing type
+  annotation.
+* The containing type annotation must include an element
+  named value(), which is a primitive array of the repeatable
+  annotation type.
+<table>
+  <tr>
+    <th>Annotation</th>
+    <th>Marker Annotation</th>
+    <th>Type of value()</th>
+    <th>Default compiler behavior (if annotation not present)</th>
+  </tr>
+  <tr>
+    <td>@Target</td>
+    <td>No</td>
+    <td>Array of Element Type</td>
+    <td>Annotation able to be applied to all locations except TYPE_USE and TYPE_PARAMETER</td>
+  </tr>
+  <tr>
+    <td>@Retention</td>
+    <td>No</td>
+    <td>Retention Policy</td>
+    <td>RetentionPolicy.CLASS</td>
+  </tr>
+  <tr>
+    <td>@Documented</td>
+    <td>Yes</td>
+    <td>—</td>
+    <td>Annotations are not included in the generated Javadoc.</td>
+  </tr>
+  <tr>
+    <td>@Inherited</td>
+    <td>Yes</td>
+    <td>—</td>
+    <td>Annotations in supertypes are not inherited.</td>
+  </tr>
+  <tr>
+    <td>@Repeatable</td>
+    <td>No</td>
+    <td>Annotation</td>
+    <td>Annotation can not be repeated.</td>
+  </tr>
+
+</table>
+
+* The Reptile declaration does not compile, because the
+  @FunctionalInterface annotation can be applied only to
+  interfaces. The Slimy interface does not compile, because it
+  does not contain any abstract methods. The Scaley interface
+  compiles, as it contains exactly one abstract method.
+  The Rough interface does not compile, because it contains two
+  abstract methods, one of which it inherits from Scaley. Finally,
+  the Smooth interface contains two abstract methods, although
+  since one matches the signature of a method in
+  java.lang.Object, it does compile.
+![img_8.png](img_8.png)
+* ![img_9.png](img_9.png)
