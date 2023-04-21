@@ -218,6 +218,7 @@ When this annotation is applied to a class,
   annotation type.
 <br>
 
+<div align="center">
 <table>
   <tr>
     <th>Annotation</th>
@@ -257,6 +258,7 @@ When this annotation is applied to a class,
   </tr>
 
 </table>
+</div>
 <br>
 * The Reptile declaration does not compile, because the
   @FunctionalInterface annotation can be applied only to
@@ -271,6 +273,7 @@ When this annotation is applied to a class,
 
 > ![img_8.png](img_8.png)
 
+<div align="center">
 <table>
   <th>Annotation</th>
   <th>Marker annotation</th>  
@@ -307,3 +310,4 @@ When this annotation is applied to a class,
     <td>-</td>
   </tr>
 </table>
+</div>
