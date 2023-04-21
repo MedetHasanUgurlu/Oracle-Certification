@@ -56,6 +56,22 @@ that for you.
 
 * Remember, parentheses are optional
   only if no values are included.
+
+<br>
+    
+    @Exercise(hoursPerDay=3) 
+    public class Cheetah{
+    }
+
+    @Exercise hoursPerDay=0 
+    public class Cheetah{                     DOES NOT COMPILE
+    }
+    
+    @Exercise                                 DOES NOT COMPILE
+    public class Cheetah{
+    }
+  
+
 ![img.png](images/img.png)
 
 * For an element to be optional, rather than required, it must
