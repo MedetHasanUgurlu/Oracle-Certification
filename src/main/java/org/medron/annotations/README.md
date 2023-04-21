@@ -216,6 +216,8 @@ When this annotation is applied to a class,
 * The containing type annotation must include an element
   named value(), which is a primitive array of the repeatable
   annotation type.
+<br>
+
 <table>
   <tr>
     <th>Annotation</th>
@@ -255,7 +257,7 @@ When this annotation is applied to a class,
   </tr>
 
 </table>
-
+<br>
 * The Reptile declaration does not compile, because the
   @FunctionalInterface annotation can be applied only to
   interfaces. The Slimy interface does not compile, because it
@@ -266,6 +268,7 @@ When this annotation is applied to a class,
   the Smooth interface contains two abstract methods, although
   since one matches the signature of a method in
   java.lang.Object, it does compile.
+
 > ![img_8.png](img_8.png)
 
 <table>
