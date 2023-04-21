@@ -118,6 +118,7 @@ Remember, parentheses are optional only if no values are included.
 > ![img_1.png](img_1.png)
 * Annotations support a shorthand notation for providing an
   array that contains a single element.
+<p><img src="img_2.png" height="400"></p>
 ![img_2.png](img_2.png)
 * It might not surprise you that we can combine both of our
     recent rules for shorthand notations.
