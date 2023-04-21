@@ -131,7 +131,7 @@ Remember, parentheses are optional only if no values are included.
 
 
 * Learning the ElementType Values
-
+<div align="center">
 <table>
 <th>ElementType value</th>
 <th>Applies to</th>
@@ -180,7 +180,7 @@ Remember, parentheses are optional only if no values are included.
 <td>Modules</td>
 </tr>
 </table>
-
+</div>
 
 
 
