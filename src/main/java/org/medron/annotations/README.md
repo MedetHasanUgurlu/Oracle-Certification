@@ -68,19 +68,19 @@ Remember, parentheses are optional only if no values are included.
     }
   
 
-> ![img.png](images/img.png)
+> ![img.png](png/images/img.png)
 
 * For an element to be optional, rather than required, it must
   include a default value. Let's update our annotation to include
   an optional value.
 
-> ![img_1.png](images/img_1.png)
-> ![img_2.png](images/img_2.png)
+> ![img_1.png](png/images/img_1.png)
+> ![img_2.png](png/images/img_2.png)
 * The default value of an annotation cannot be just any
   value. Similar to case statement values, the default value
   of an annotation must be a non‐ null constant
   expression.
-> ![img_3.png](images/img_3.png)
+> ![img_3.png](png/images/img_3.png)
 * The **height()** element does not compile. While primitive types
   like int and long are supported, wrapper classes like Integer
   and Long are not. **The generalInfo()** element also does not
@@ -97,37 +97,37 @@ Remember, parentheses are optional only if no values are included.
   changed to an interface, the friendlyBear() element would still
   not compile since it is not one of the supported types.
 
-> ![img_4.png](images/img_4.png)
+> ![img_4.png](png/images/img_4.png)
 
 
 
 * Like abstract interface methods, annotation elements are
   implicitly **_abstract and public_**, whether you declare them that
   way or not.
-> ![img_5.png](images/img_5.png)
+> ![img_5.png](png/images/img_5.png)
 
 * Yep, just like _**interface variables, annotation variables are
   implicitly public, static, and final**_.
-> ![img_6.png](images/img_6.png)
+> ![img_6.png](png/images/img_6.png)
 * @Alert. Remember, a marker annotation is one that does not
   contain any elements.
 * The annotation declaration must contain an element named
   **value()**, which may be optional or required.
 
-> ![img.png](img.png)
-> ![img_1.png](img_1.png)
+> ![img.png](png/images/h/images2/img.png)
+> ![img_1.png](png/images/h/images2/img_1.png)
 
 
 * Annotations support a shorthand notation for providing an
   array that contains a single element.
 
-> ![img_2.png](img_2.png)
+> ![img_2.png](png/images/h/images2/img_2.png)
 
 * It might not surprise you that we can combine both of our
     recent rules for shorthand notations.
 
-> ![img_3.png](img_3.png)
-> ![img_4.png](img_4.png)
+> ![img_3.png](png/images/h/images2/img_3.png)
+> ![img_4.png](png/images/h/images2/img_4.png)
 
 
 * Learning the ElementType Values
@@ -186,29 +186,29 @@ Remember, parentheses are optional only if no values are included.
 
 
 * Values for the @Retention annotation
-> ![img_7.png](images/img_7.png)
-> ![img_8.png](images/img_8.png)
+> ![img_7.png](png/images/img_7.png)
+> ![img_8.png](png/images/img_8.png)
 
 * Javadoc has its own annotations that are used solely in
   generating data within a Javadoc file.
-> ![img_10.png](images/img_10.png)
+> ![img_10.png](png/images/img_10.png)
 
 
 * Another marker annotation you should know for the exam is **@Inherited**. 
 When this annotation is applied to a class,
   subclasses will inherit the annotation information found in the
   parent class.
-> ![img_11.png](images/img_11.png)
+> ![img_11.png](png/images/img_11.png)
 * It actually
   requires creating two annotations. The @Repeatable annotation
   is used when you want to specify an annotation more than once
   on a type.
 
 * The Zoo class does not compile.
-> ![img_12.png](images/img_12.png)
-> ![img_13.png](images/img_13.png)
-> ![img_14.png](images/img_14.png)
-> ![img_7.png](img_7.png)
+> ![img_12.png](png/images/img_12.png)
+> ![img_13.png](png/images/img_13.png)
+> ![img_14.png](png/images/img_14.png)
+> ![img_7.png](png/images/h/images2/img_7.png)
 
 * The repeatable annotation must be declared with @Repeatable
   and contain a value that refers to the containing type
@@ -271,7 +271,7 @@ When this annotation is applied to a class,
   since one matches the signature of a method in
   java.lang.Object, it does compile.
 
-> ![img_8.png](img_8.png)
+> ![img_8.png](png/images/h/images2/img_8.png)
 
 <div align="center">
 <table>
