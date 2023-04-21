@@ -70,7 +70,7 @@ Remember, parentheses are optional only if no values are included.
 
 > ![img.png](images/img.png)
 
-For an element to be optional, rather than required, it must
+* For an element to be optional, rather than required, it must
   include a default value. Let's update our annotation to include
   an optional value.
 
@@ -80,7 +80,7 @@ For an element to be optional, rather than required, it must
   value. Similar to case statement values, the default value
   of an annotation must be a non‐ null constant
   expression.
-![img_3.png](images/img_3.png)
+> ![img_3.png](images/img_3.png)
 * The height() element does not compile. While primitive types
   like int and long are supported, wrapper classes like Integer
   and Long are not. The generalInfo() element also does not
