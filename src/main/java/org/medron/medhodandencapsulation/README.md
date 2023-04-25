@@ -9,7 +9,7 @@
   method.
 ![img_1.png](img_1.png)
 
-
+<br>
 
 <div style="padding: 25px;margin: 5px;background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(200,219,63,1) 100%)">
 <p style="font-family: Unispace">
@@ -21,7 +21,7 @@ public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT 
 
 
 </div>
-
+<br>
 
 ****
 * private: Only accessible within the same class
