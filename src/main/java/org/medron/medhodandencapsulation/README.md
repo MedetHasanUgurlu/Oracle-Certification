@@ -8,6 +8,21 @@
   you are allowed to have only one varargs parameter per
   method.
 ![img_1.png](img_1.png)
+
+
+
+<div style="padding: 25px;margin: 5px;background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(200,219,63,1) 100%)">
+<p style="font-family: Unispace">
+public void walk1(int... nums){} <br>
+public void walk1(int start,int... nums){} <br>
+public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
+public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
+</p>
+
+
+</div>
+
+
 ****
 * private: Only accessible within the same class
 * Default (package-private) access: private plus other classes in the same package
