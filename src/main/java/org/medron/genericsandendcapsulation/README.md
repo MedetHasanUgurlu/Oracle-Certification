@@ -356,7 +356,11 @@ Be careful when you see null in relation to autoboxing.
 **_What do you think this code outputs?_**
 
 ![img_7.png](img_7.png)
-> It actually outputs [1]. Let's walk through why that is. On lines
+<details>
+<summary>Click for result</summary>
+
+```
+It actually outputs [1]. Let's walk through why that is. On lines
 24 through 26, we add three Integer objects to numbers. The
 one on line 24 relies on autoboxing to do so, but it gets added
 just fine. At this point, numbers contains [1, 3, 5].
@@ -367,14 +371,10 @@ removed. On line 27, Java sees a matching signature for int, so
 it doesn't need to autobox the call to the method. Now numbers
 contains [1, 5]. Line 28 calls the other remove() method, and it
 removes the matching object, which leaves us with just [1].
+```
+</details>
+
 
 ### Using the Diamond Operator
 
 
-<details>
-<summary>Click to toggle contents of `code`</summary>
-
-```
-CODE!
-```
-</details>
