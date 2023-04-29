@@ -376,5 +376,105 @@ removes the matching object, which leaves us with just [1].
 
 
 ### Using the Diamond Operator
+* In the past, we would write code using generics like
+
+
+    List<Integer> list1 = new ArrayList<Integer>(); 
+
+> Luckily, the diamond operator, <>, was added to the language.
+  The diamond operator is a shorthand notation that allows you
+  to omit the generic type from the right side of a statement when
+  the type can be inferred. It is called the diamond operator
+  because <> looks like a diamond.
+
+    List<Integer> list1 = new ArrayList<>();
+
+
+**_What do you think this code outputs?_**
+![img_8.png](img_8.png)
+    
+    List<> list = new ArrayList<Integer>();
+    Map<> map = new HashMap<String, Integer>();
+
+
+<details>
+<summary>Click for result</summary>
+
+```
+DOES NOT COMPILE
+The diamond operator cannot be used as the type in a variable
+declaration. It can be used only on the right side of an
+assignment operation.
+```
+</details>
+
+### Using Lists, Sets, Maps, and Queues
+![img_9.png](img_9.png)
+
+#### DELETING WHILE LOOPING
+* Java does not allow removing elements from a list while
+  using the enhanced for loop.
+    
+
+    Collection<String> birds = new ArrayList<>();
+    birds.add("hawk");
+    birds.add("hawk");
+    birds.add("hawk");
+    for (String bird : birds) // ConcurrentModificationException
+    birds.remove(bird);
+
+#### removeIf()
+* The removeIf() method removes all elements that match a
+  condition.
+
+
+    boolean removeIf(Predicate<? super E> filter)
+
+* It uses a Predicate, which takes one parameter and returns a
+  boolean.
+
+        List<String> bags = new ArrayList<>();
+        bags.add("Book");
+        bags.add("Pencil");
+        bags.add("Eraser");
+        bags.add("Beans");
+        bags.add("Ruler");
+        bags.removeIf(s -> s.startsWith("B"));
+        bags.forEach(System.out::println);
+
+###### Result
+**Pencil\
+Eraser\
+Ruler**
+
+**_How would you replace with a method reference?_**
+<details>
+<summary>Click for result</summary>
+
+```
+
+Trick question—you can't. The removeIf() method takes a Predicate.
+We can pass only one value with this method reference. Since
+startsWith takes a literal, it needs to be specified “the long
+way.”
+
+```
+</details>
+
+**_Let's try one more example that does use a method reference._**
+
+![img_10.png](img_10.png)
+<details>
+<summary>Click for result</summary>
+
+```
+
+we remove any empty String objects from the set.
+The comment on that line shows the lambda equivalent of the
+method reference. Line 15 shows that the removeIf() method
+successfully removed one element from the list.”
+
+```
+</details>
 
 

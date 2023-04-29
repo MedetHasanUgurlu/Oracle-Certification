@@ -52,10 +52,24 @@ public class Main {
         var x = trickyMricky.apply(5);
 
         List<Integer> integers = new ArrayList<>();
-        integers.add(null);
+        integers.add(1);
         integers.add(2);
-        integers.stream().forEach(System.out::println);
-        int a = integers.get(0);
+        integers.add(2);
+        integers.add(4);
+
+
+        integers.removeIf(integer -> integer%2==0);
+        integers.forEach(System.out::println);
+
+        List<String> bags = new ArrayList<>();
+        bags.add("Book");
+        bags.add("Pencil");
+        bags.add("Eraser");
+        bags.add("Beans");
+        bags.add("Ruler");
+        bags.removeIf(s -> s.startsWith("B"));
+        bags.forEach(System.out::println);
+
 
 
 
