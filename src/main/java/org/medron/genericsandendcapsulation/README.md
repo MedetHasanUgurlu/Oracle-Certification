@@ -110,6 +110,7 @@ Additionally, Java knows to pass that parameter to the method.
 * A method reference doesn't have to take any parameters. In
   this example, we use a Supplier, which takes zero parameters
   and returns a value
+
 ![img_2.png](img_2.png)
 
 
