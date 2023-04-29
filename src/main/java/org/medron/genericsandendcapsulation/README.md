@@ -131,7 +131,6 @@ method reference on an instance of the Random class.
   knowing the instance in advance.
 ![img_3.png](img_3.png)
 
-````
 
 
         Predicate<String> isEmptyLambda = s -> s.isEmpty();
@@ -139,7 +138,7 @@ method reference on an instance of the Random class.
         System.out.println(isEmptyMethodRef.test(""));
         System.out.println(isEmptyLambda.test(""));
         
-````
+
 
 ###### Result
 **true\
