@@ -2,13 +2,20 @@
 ![img.png](img.png)
 
 <br>
-    
-    <span style="color: red">sadas</span>
-
+```html    
+<span style="color: red">sadas</span>
+<p style="font-family: Unispace">
+public void walk1(int... nums){} <br>
+public void walk1(int start,int... nums){} <br>
+public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
+public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
+</p>
+```
 
 
 
 <br>
+
 * VarArgs
 
   A varargs parameter must
