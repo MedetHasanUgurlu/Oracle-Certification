@@ -12,7 +12,10 @@ public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COM
 public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
 </p>
 ```
-
+> public void walk1(int... nums){} <br>
+public void walk1(int start,int... nums){} <br>
+public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
+public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
 
 
 <br>
