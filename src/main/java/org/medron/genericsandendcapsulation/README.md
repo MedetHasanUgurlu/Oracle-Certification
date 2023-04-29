@@ -413,8 +413,8 @@ assignment operation.
 
 #### DELETING WHILE LOOPING
 * Java does not allow removing elements from a list while
-  using the enhanced for loop.
-    
+  using the enhanced for loop. 
+<br>
 
 
     Collection<String> birds = new ArrayList<>();
@@ -427,13 +427,14 @@ assignment operation.
 #### removeIf()
 * The removeIf() method removes all elements that match a
   condition.
+<br>
 
 
     boolean removeIf(Predicate<? super E> filter)
 
 * It uses a Predicate, which takes one parameter and returns a
   boolean.
-
+<br>
 
         List<String> bags = new ArrayList<>();
         bags.add("Book");
