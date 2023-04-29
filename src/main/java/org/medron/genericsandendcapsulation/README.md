@@ -131,19 +131,14 @@ method reference on an instance of the Random class.
   knowing the instance in advance.
 ![img_3.png](img_3.png)
 
-````java
+````
 
-import java.util.*;
-import java.util.function.*;
 
-public class Main {
-  public static void main(String[] args) {
-      Predicate<String> isEmptyLambda = s -> s.isEmpty();
-      Predicate<String> isEmptyMethodRef = String::isEmpty;
-      System.out.println(isEmptyMethodRef.test(""));
-      System.out.println(isEmptyLambda.test(""));
-  }
-}
+        Predicate<String> isEmptyLambda = s -> s.isEmpty();
+        Predicate<String> isEmptyMethodRef = String::isEmpty;
+        System.out.println(isEmptyMethodRef.test(""));
+        System.out.println(isEmptyLambda.test(""));
+        
 ````
 
 ###### Result
