@@ -130,7 +130,7 @@ method reference on an instance of the Random class.
   take any parameters. The trick is that we will do so without
   knowing the instance in advance.
 ![img_3.png](img_3.png)
-````html
+````java
 
         Predicate<String> isEmptyLambda = s -> s.isEmpty();
         Predicate<String> isEmptyMethodRef = String::isEmpty;
