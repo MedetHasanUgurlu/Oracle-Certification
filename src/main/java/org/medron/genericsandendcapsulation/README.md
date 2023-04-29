@@ -148,5 +148,100 @@ as the instance on which the method is called.
   references. We are going to use a functional interface called a
   BiPredicate, which takes two parameters and returns a
   boolean.
-  ![img_4.png](img_4.png)
-* 
+
+![img_4.png](img_4.png)
+
+        BiPredicate<String,String> isStartWithLambda = (s, s2) -> s.startsWith(s2);
+        BiPredicate<String,String> isStartWithMethod = String::startsWith;
+        System.out.println(isStartWithLambda.test("Kale","L"));
+        System.out.println(isStartWithMethod.test("Kale","L"));
+
+###### Result
+**false\
+false**
+
+> functional interface takes two parameters, Java has to
+figure out what they represent. The first one will always be the
+instance of the object for instance methods. Any others are to
+be method parameters.
+
+### CALLING CONSTRUCTORS
+* A constructor reference is a special type of method reference
+  that uses new instead of a method, and it instantiates an object.
+  It is common for a constructor reference to use a Supplier
+
+![img_5.png](img_5.png)
+
+        Supplier<List<String>> getListByLambda = () -> new ArrayList<>();
+        Supplier<List<String>> getListByMethodRef = ArrayList::new;
+
+        List<String> lambaList = getListByLambda.get();
+        lambaList.add("Mehmet");
+        System.out.println(lambaList);
+
+        List<String> methodList = getListByMethodRef.get();
+        methodList.add("Metehan");
+        System.out.println(methodList);
+
+###### Result
+**[Mehmet]\
+[Metehan]**
+
+
+> It expands like the method references you have seen so far. In
+the previous example, the lambda doesn't have any parameters.
+
+
+* Method references can be tricky.
+![img_6.png](img_6.png)
+
+
+    
+
+> This means you can't always determine which method can be
+called by looking at the method reference. Instead, you have to
+look at the context to see what parameters are used and if there
+is a return type. In this example, Java sees that we are passing
+an Integer parameter and calls the constructor of ArrayList
+that takes a parameter.
+
+<div align="center">
+<table>
+<th>Type</th>
+<th>Before ::</th>
+<th>After ::</th>
+<th>Example</th>
+
+<tr>
+<td>Static methods </td>
+<td>Class name</td>
+<td>Method name</td>
+<td>Collections::sort</td>
+</tr>
+
+<tr>
+<td>Instance methods on a particular object</td>
+<td>Instance variable name </td>
+<td>Method name</td>
+<td>str::startsWith</td>
+</tr>
+
+<tr>
+<td>Instance methods on a parameter </td>
+<td>Class name</td>
+<td>Method name</td>
+<td>String::isEmpty</td>
+</tr>
+<tr>
+<td>Constructor</td>
+<td>Class name</td>
+<td>new</td>
+<td>ArrayList::new</td>
+</tr>
+
+
+</table>
+</div>
+
+<br>
+

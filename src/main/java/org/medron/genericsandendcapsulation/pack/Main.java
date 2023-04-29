@@ -1,8 +1,6 @@
 package org.medron.genericsandendcapsulation.pack;
 import java.util.*;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
+import java.util.function.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -33,6 +31,28 @@ public class Main {
         Predicate<String> isEmptyMethodRef = String::isEmpty;
         System.out.println(isEmptyMethodRef.test(""));
         System.out.println(isEmptyLambda.test(""));
+
+        BiPredicate<String,String> isStartWithLambda = (s, s2) -> s.startsWith(s2);
+        BiPredicate<String,String> isStartWithMethod = String::startsWith;
+        System.out.println(isStartWithLambda.test("Kale","L"));
+        System.out.println(isStartWithMethod.test("Kale","L"));
+
+        Supplier<List<String>> getListByLambda = () -> new ArrayList<>();
+        Supplier<List<String>> getListByMethodRef = ArrayList::new;
+
+        List<String> lambaList = getListByLambda.get();
+        lambaList.add("Mehmet");
+        System.out.println(lambaList);
+
+        List<String> methodList = getListByMethodRef.get();
+        methodList.add("Metehan");
+        System.out.println(methodList);
+
+        Function<Integer, List<String>> trickyMricky = ArrayList::new;
+        var x = trickyMricky.apply(5);
+
+
+
 
 
     }
