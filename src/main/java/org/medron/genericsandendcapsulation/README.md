@@ -416,6 +416,7 @@ assignment operation.
   using the enhanced for loop.
     
 
+
     Collection<String> birds = new ArrayList<>();
     birds.add("hawk");
     birds.add("hawk");
