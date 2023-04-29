@@ -48,8 +48,16 @@ public class Main {
         methodList.add("Metehan");
         System.out.println(methodList);
 
-        Function<Integer, List<String>> trickyMricky = ArrayList::new;
+        IntFunction<List<String>> trickyMricky = ArrayList::new;
         var x = trickyMricky.apply(5);
+
+        List<Integer> integers = new ArrayList<>();
+        integers.add(null);
+        integers.add(2);
+        integers.stream().forEach(System.out::println);
+        int a = integers.get(0);
+
+
 
 
 

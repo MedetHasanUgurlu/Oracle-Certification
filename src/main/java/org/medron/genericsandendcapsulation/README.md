@@ -131,8 +131,7 @@ method reference on an instance of the Random class.
   knowing the instance in advance.
 ![img_3.png](img_3.png)
 
-
-
+  
         Predicate<String> isEmptyLambda = s -> s.isEmpty();
         Predicate<String> isEmptyMethodRef = String::isEmpty;
         System.out.println(isEmptyMethodRef.test(""));
@@ -164,6 +163,10 @@ as the instance on which the method is called.
 ###### Result
 **false\
 false**
+
+
+
+
 
 > functional interface takes two parameters, Java has to
 figure out what they represent. The first one will always be the
@@ -250,3 +253,128 @@ that takes a parameter.
 
 <br>
 
+
+### Using Wrapper Classes
+* With **_autoboxing_**, the compiler automatically converts a primitive to
+  the corresponding wrapper. 
+* Unsurprisingly, _**unboxing**_ is the
+  process in which the compiler automatically converts a
+  wrapper class back to a primitive.
+<div align="center">
+  <table>
+    <th>Primitive type</th>
+    <th>Wrapper class</th>
+    <th>Example of initializing</th>
+
+  <tr>
+    <td>boolean</td>
+    <td>Boolean</td>
+    <td>Boolean.valueOf(true)</td>
+  </tr>
+  
+  <tr>
+    <td>byte</td>
+    <td>Byte</td>
+    <td>Byte.valueOf((byte) 1)</td>
+  </tr>
+  
+  <tr>
+    <td>short</td>
+    <td>Short</td>
+    <td>Short.valueOf((short) 1)</td>
+  </tr>
+  
+  <tr>
+    <td>int</td>
+    <td>Integer</td>
+    <td>Integer.valueOf(1)</td>
+  </tr>
+  
+  <tr>
+    <td>long</td>
+    <td>Long</td>
+    <td>Long.valueOf(1)</td>
+  </tr>
+  
+  
+  <tr>
+    <td>float</td>
+    <td>Float</td>
+    <td>Float.valueOf((float)1.0)</td>
+  </tr>
+  
+  <tr>
+    <td>double</td>
+    <td>Double</td>
+    <td>Double.valueOf(1.0)</td>
+  </tr>
+  
+  <tr>
+    <td>char</td>
+    <td>Character</td>
+    <td>Character.valueOf('c')</td>
+  </tr>
+
+
+  </table>
+</div>
+
+<br>
+
+* There are two tricks in the space of autoboxing and unboxing.
+1) The first has to do with null values.
+
+        List<Integer> integers = new ArrayList<>();
+        integers.add(null);
+        integers.add(2);
+        integers.stream().forEach(System.out::println);
+        int a = integers.get(0);
+
+###### Result
+**null\
+2\
+Exception in thread "main" java.lang.NullPointerException**
+
+> We add a null to the list. This is legal because a null
+reference can be assigned to any reference variable.
+We try to unbox that null to an int primitive. This is a problem.
+Java tries to get the int value of null. Since calling any method
+on null gives a NullPointerException, that is just what we get.
+Be careful when you see null in relation to autoboxing.
+
+### WRAPPER CLASSES AND NULL
+* Speaking of null, one advantage of a wrapper class over a
+  primitive is that it can hold a null value. While null
+  values aren't particularly useful for numeric calculations,
+  they are quite useful in data‐based services. For example,
+  if you are storing a user's location data using (latitude,
+  longitude), it would be a bad idea to store a missing point
+  as (0,0) since that refers to an actual location off the cost
+  of Africa where the user could theoretically be.
+
+
+**_What do you think this code outputs?_**
+
+![img_7.png](img_7.png)
+> It actually outputs [1]. Let's walk through why that is. On lines
+24 through 26, we add three Integer objects to numbers. The
+one on line 24 relies on autoboxing to do so, but it gets added
+just fine. At this point, numbers contains [1, 3, 5].
+Line 27 contains the second trick. The remove() method is
+overloaded. One signature takes an int as the index of the
+element to remove. The other takes an Object that should be
+removed. On line 27, Java sees a matching signature for int, so
+it doesn't need to autobox the call to the method. Now numbers
+contains [1, 5]. Line 28 calls the other remove() method, and it
+removes the matching object, which leaves us with just [1].
+
+### Using the Diamond Operator
+
+
+<details>
+<summary>Click to toggle contents of `code`</summary>
+
+```
+CODE!
+```
+</details>
