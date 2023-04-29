@@ -17,6 +17,13 @@ public void walk1(int start,int... nums){} <br>
 public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
 public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
 
+<br>
+
+
+
+$$
+\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+$$
 
 <br>
 
