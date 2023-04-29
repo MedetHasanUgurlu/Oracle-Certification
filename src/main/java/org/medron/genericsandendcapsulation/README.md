@@ -433,6 +433,7 @@ assignment operation.
 * It uses a Predicate, which takes one parameter and returns a
   boolean.
 
+
         List<String> bags = new ArrayList<>();
         bags.add("Book");
         bags.add("Pencil");
