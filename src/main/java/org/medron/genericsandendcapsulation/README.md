@@ -673,7 +673,7 @@ and/or end of the list.
     <th>Description</th>
     <th>Throws exception on failure</th>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace">boolean add(E e)</span></td>
+      <td><span style="font-weight: bolder; font-family: Unispace,sans-serif">boolean add(E e)</span></td>
       <td>Adds an element to back of the queue and returns true or throws an exception</td>
     </tr>
     <tr>
