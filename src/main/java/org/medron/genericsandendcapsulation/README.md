@@ -665,46 +665,81 @@ and/or end of the list.
     Map.ofEntries(Map.entry("1","Kestane")).forEach((s, s2) -> System.out.println(s+" "+s2));
 
 
-![img_14.png](img_14.png)
 
 <div>
   <table>
     <th>Method</th>
     <th>Description</th>
-    <th>Throws exception on failure</th>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace,sans-serif">boolean add(E e)</span></td>
-      <td>Adds an element to back of the queue and returns true or throws an exception</td>
+      <td><span style="font-weight: bolder;">void  clear()</span></td>
+      <td>Removes all keys and values from the map.</td>
     </tr>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace">E element()</span></td>
-      <td>Returns next element or throws an exception if empty queue</td>
-      <td>Yes</td>
+      <td><span style="font-weight: bolder;">boolean containsKey(Object key)</span></td>
+      <td>Returns whether key is in a map.</td>
     </tr>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace">boolean offer(E e)</span></td>
-      <td>Adds an element to back of the queue and returns whether successful</td>
-      <td>No</td>
+      <td><span style="font-weight: bolder;">boolean containsValue(Object value)</span></td>
+      <td>Returns whether value is in map.</td>
     </tr>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace">E remove()</span></td>
-      <td>Removes and returns next element or throws an exception if empty queue."</td>
-      <td>Yes</td>
+      <td><span style="font-weight: bolder;">Set &lt Map.Entry &lt K,V &gt &gt entrySet() </span></td>
+      <td>Returns a Set of key/value pairs.</td>
     </tr>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace">E poll()</span></td>
-      <td>Removes and returns next element or returns null if empty queue</td>
-      <td>No</td>
+      <td><span style="font-weight: bolder;">void forEach(BiConsumer(K key, V value))</span></td>
+      <td>Loop through each key/value pair.</td>
     </tr>
     <tr>
-      <td><span style="font-weight: bolder; font-family: Unispace">E peek()</span></td>
-      <td>Returns next element or returns null if empty queue</td>
-      <td>No</td>
+      <td><span style="font-weight: bolder;">V get(Object key)</span></td>
+      <td>Returns the value mapped by key or null if none is mapped.</td>
     </tr>
-
- <caption><span style="font-weight: bold">List methods</span></caption>
+    <tr>
+      <td><span style="font-weight: bolder;">V getOrDefault(Object key, V defaultValue)</span></td>
+      <td>Returns the value mapped by the key or the default value if none is mapped.</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder;">boolean isEmpty()</span></td>
+      <td>Returns whether the map is empty.</td>
+    </tr>
+    <caption><span style="font-weight: bold">Map methods</span></caption>
   </table>
 </div>
+
+#### entrySet()
+* Another way of going through all the data in a map is to get the
+  key/value pairs in a Set. Java has a static interface inside Map
+  called Entry. It provides methods to get the key and value of
+  each pair.
+<br>
+
+
+    map.entrySet().forEach(e -> System.out.println(e.getKey() + e.getValue()));
+#### getOrDefault()
+* The get() method returns null if the requested key is not in
+  map. Sometimes you prefer to have a different value returned.
+  Luckily, the getOrDefault() method makes this easy. Let's
+  compare the two methods.
+
+
+
+```diff
+! **_What do you expect?_**
+```
+![img_15.png](img_15.png)
+<details>
+<summary>Click for result</summary>
+
+```
+
+X marks the spot
+X marks the spot
+Y marks the null
+Y marks the
+”
+
+```
+</details>
 
 
 
