@@ -724,7 +724,7 @@ and/or end of the list.
 
 
 ```diff
-! **_What do you expect?_**
++ EXERCISE-3
 ```
 ![img_15.png](img_15.png)
 <details>
