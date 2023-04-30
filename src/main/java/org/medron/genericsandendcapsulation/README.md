@@ -512,25 +512,25 @@ and/or end of the list.
   <tr>
     <td>Arrays.asList(x)</td>
     <td>Returns fixed size list backed by an array.</td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
-    <td><span style="font-weight: bold;color: greenyellow">Yes</span></td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
+    <td><span style="font-weight: bold;color: greenyellow;">Yes</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
   </tr>
 
   <tr>
     <td>List.of(x)</td>
     <td>Returns immutable list.</td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
   </tr>
 
   <tr>
     <td>List.copyOf(collection)</td>
     <td>Returns an immutable list with copy of original collection's values</td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
-    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
+    <td><span style="color: red;font-weight: normal">No</span></td>
   </tr>
 
   </table>
@@ -577,16 +577,135 @@ and/or end of the list.
 
 <br>
 
-`#f03c15` Bu metin **red** renkte olacak
+### Comparing Set Implementations
+* A HashSet stores its elements in a hash table, which means the
+  keys are a hash and the values are an Object. This means that it
+  uses the hashCode() method of the objects to retrieve them
+  more efficiently.
+* A TreeSet stores its elements in a sorted tree structure. The
+  main benefit is that the set is always in **sorted order**. The trade‐
+  off is that adding and checking whether an element exists take
+  longer than with a HashSet, especially as the tree grows larger.
 
-<span style="color:green;">Bu başlık yeşil renkte olmayacak</span>
-```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
-```
-- ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) `#f03c15`
-- ![#c5f015](https://placehold.co/15x15/c5f015/c5f015.png) `#c5f015`
-- ![#1589F0](https://placehold.co/15x15/1589F0/1589F0.png) `#1589F0`
+
+### USING THE QUEUE INTERFACE
+* Unless stated otherwise, a queue is assumed to be FIFO (first‐
+  in, first‐out). Some queue implementations change this to use a
+  different order. You can envision a FIFO queue as shown in
+  Figure 14.5. The other format is LIFO (last‐in, first‐out), which
+  is commonly referred to as a stack. In Java, though, both can
+  be implemented with the Queue interface.
+
+### Comparing Queue Implementations
+* You saw LinkedList earlier in the List section. In addition to
+  being a list, it is a double‐ended queue. A double‐ended queue
+  is different from a regular queue in that you can insert and
+  remove elements from both the front and back of the queue.
+<div>
+  <table>
+    <th>Method</th>
+    <th>Description</th>
+    <th>Throws exception on failure</th>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">boolean add(E e)</span></td>
+      <td>Adds an element to back of the queue and returns true or throws an exception</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E element()</span></td>
+      <td>Returns next element or throws an exception if empty queue</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">boolean offer(E e)</span></td>
+      <td>Adds an element to back of the queue and returns whether successful</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E remove()</span></td>
+      <td>Removes and returns next element or throws an exception if empty queue."</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E poll()</span></td>
+      <td>Removes and returns next element or returns null if empty queue</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E peek()</span></td>
+      <td>Returns next element or returns null if empty queue</td>
+      <td>No</td>
+    </tr>
+
+ <caption><span style="font-weight: bold">List methods</span></caption>
+  </table>
+
+</div>
+
+### USING THE MAP INTERFACE 
+* You do need to know that TreeMap is
+  sorted.
+
+### MAP.OF() AND MAP.COPYOF()
+* Just like List and Set, there is a helper method to create a
+  Map. 
+<br>
+
+
+    Map.of("key1", "value1", "key2", "value2");
+* Unlike List and Set, this is less than ideal. Suppose you
+  miscount and leave out a value.
+<br>
+
+
+    Map.of("key1", "value1", "key2"); // INCORRECT
+> This code compiles but throws an error at runtime.
+
+    Map.ofEntries(Map.entry("key1", "value1"),Map.entry("key1", "value1"));
+    Map.ofEntries(Map.entry("1","Kestane")).forEach((s, s2) -> System.out.println(s+" "+s2));
+
+
+![img_14.png](img_14.png)
+
+<div>
+  <table>
+    <th>Method</th>
+    <th>Description</th>
+    <th>Throws exception on failure</th>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">boolean add(E e)</span></td>
+      <td>Adds an element to back of the queue and returns true or throws an exception</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E element()</span></td>
+      <td>Returns next element or throws an exception if empty queue</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">boolean offer(E e)</span></td>
+      <td>Adds an element to back of the queue and returns whether successful</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E remove()</span></td>
+      <td>Removes and returns next element or throws an exception if empty queue."</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E poll()</span></td>
+      <td>Removes and returns next element or returns null if empty queue</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder; font-family: Unispace">E peek()</span></td>
+      <td>Returns next element or returns null if empty queue</td>
+      <td>No</td>
+    </tr>
+
+ <caption><span style="font-weight: bold">List methods</span></caption>
+  </table>
+</div>
+
+
+
+

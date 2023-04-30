@@ -58,9 +58,6 @@ public class Main {
         integers.add(4);
 
 
-        integers.removeIf(integer -> integer%2==0);
-        integers.forEach(System.out::println);
-
         List<String> bags = new ArrayList<>();
         bags.add("Book");
         bags.add("Pencil");
@@ -70,12 +67,23 @@ public class Main {
         bags.removeIf(s -> s.startsWith("B"));
         bags.forEach(System.out::println);
 
+        integers.replaceAll(integer -> integer*2);
+        integers.forEach(System.out::println);
+
+        TreeSet<String> animals = new TreeSet<>();
+        animals.add("pandas");
+        animals.add("lion");
+        animals.add("zebras");
+
+        TreeSet<Integer> integerTreeSet = new TreeSet<>();
+        integerTreeSet.add(1);
+        integerTreeSet.add(6);
+        integerTreeSet.add(4);
+        integerTreeSet.forEach(System.out::println);
 
 
-        String[] array = new String[] {"a", "b", "c"};
-        List<String> asList = Arrays.asList(array); // [a, b, c]
-        List<String> of = List.of(array); // [a, b, c]
-        List<String> copy = List.copyOf(asList); // [a, b, c]
+
+
 
 
 
