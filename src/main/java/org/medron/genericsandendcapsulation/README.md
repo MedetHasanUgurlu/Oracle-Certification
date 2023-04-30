@@ -481,3 +481,96 @@ successfully removed one element from the list.”
 </details>
 
 
+### Comparing List Implementations
+* The main benefit of an ArrayList is that you can look up any
+element in constant time. Adding or removing an element is
+slower than accessing an element. This makes an ArrayList a
+good choice when you are reading more often than (or the same
+amount as) writing to the ArrayList.
+* A LinkedList is special because it implements both List and
+Queue. It has all the methods of a List. It also has additional
+methods to facilitate adding or removing from the beginning
+and/or end of the list.
+* The main benefits of a LinkedList are that you can access, add,
+  and remove from the beginning and end of the list in constant
+  time. The trade‐off is that dealing with an arbitrary index takes
+  linear time. This makes a LinkedList a good choice when you'll
+  be using it as Queue.
+<br>
+
+  
+
+<div align="center">
+  <table>
+ <caption><span style="font-weight: bold">Factory methods to create a List</span></caption>
+    <th>Method</th>
+    <th>Description</th>
+    <th>Can Add Elements?</th>
+    <th>Can Replace Elements?</th>
+    <th>Can Delete Elements?</th>
+
+  <tr>
+    <td>Arrays.asList(x)</td>
+    <td>Returns fixed size list backed by an array.</td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="font-weight: bold;color: greenyellow">Yes</span></td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+  </tr>
+
+  <tr>
+    <td>List.of(x)</td>
+    <td>Returns immutable list.</td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+  </tr>
+
+  <tr>
+    <td>List.copyOf(collection)</td>
+    <td>Returns an immutable list with copy of original collection's values</td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+    <td><span style="color: red;font-weight: bold">No</span></td>
+  </tr>
+
+  </table>
+</div>
+
+<br>
+
+
+
+<br>
+<div>
+  <table>
+    <th>Method</th>
+    <th>Description</th>
+    <tr>
+      <td><span style="font-weight: bolder">boolean add(E element)</span></td>
+      <td>Adds element to end </td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder">void add(int index,E element)</span></td>
+      <td>Adds element at index and movers the rest</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder">E get(int index)</span></td>
+      <td>Returns element at index</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder">E remove(int index)</span></td>
+      <td>Removes an element at index and moves the rest toward the front</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder">void replaceAll(UnaryOperator&lt E&gt op)</span></td>
+      <td>Replaces each element in the list with the result of the operator</td>
+    </tr>
+    <tr>
+      <td><span style="font-weight: bolder">E set(int index, E e)</span></td>
+      <td>Replaces element at index and returns original. Throws IndexOutOfBoundsException if the index is larger than the maximum one set</td>
+    </tr>
+
+ <caption><span style="font-weight: bold">List methods</span></caption>
+  </table>
+
+</div>
