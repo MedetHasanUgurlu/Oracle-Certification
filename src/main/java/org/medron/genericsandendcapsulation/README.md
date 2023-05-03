@@ -741,6 +741,291 @@ Y marks the
 ```
 </details>
 
+#### merge()
+* The merge() method adds logic of what to choose. Suppose we
+  want to choose the ride with the longest name. We can write
+  code to express this by passing a mapping function to the
+  merge() method.
+<br>
+
+        Map<String,String> favorites = new HashMap<>();
+        BiFunction<String,String,String> mapper = (s, s2) -> s+"-"+s2;
+        favorites.put("Medet","Running");
+        favorites.put("Metehan","Football");
+        favorites.merge("Metehan","Basketball",mapper);
+        System.out.println(favorites.get("Metehan"));
+
+
+![img_16.png](img_16.png)
+
+
+<div>
+  <table>
+    <th>If Key .... </th>
+    <th>Mapping function returns</th>
+    <th>Result</th>
+    <tr>
+      <td>Has a null value in map</td>
+      <td>N/A (mapping function not called)</td>
+      <td>Update key's value in map with value parameter.</td>
+    </tr>
+    <tr>
+      <td>Has a non‐null value in map</td>
+      <td>null</td>
+      <td>Remove key from map.</td>
+    </tr>
+    <tr>
+      <td>Has a non‐null value in map</td>
+      <td>A non‐null value</td>
+      <td>Set key to mapping function result.</td>
+    </tr>
+    <tr>
+      <td>Is not in map</td>
+      <td>N/A (mapping function not called)</td>
+      <td>Add key with value parameter to map directly without calling mapping function.</td>
+    </tr>
+    <caption><span style="font-weight: bold">Behavior of the merge() method</span></caption>
+  </table>
+</div>
+
+### COMPARING COLLECTION TYPES
+
+<div>
+  <table>
+    <th>Type </th>
+    <th>Can contain duplicate elements?</th>
+    <th>Elements always ordered?</th>
+    <th>Has keys and values?</th>
+    <th>Must add/remove in specific order?</th>
+    <tr>
+      <td>List</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Map</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Queue</td>
+      <td>Yes</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Set</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <caption><span style="font-weight: bold"> Java Collections Framework types</span></caption>
+  </table>
+</div>
+
+<div>
+  <table>
+    <th>Type </th>
+    <th>Java Collections Framework interface</th>
+    <th>Sorted</th>
+    <th>Calls hashCode</th>
+    <th>Calls compareTo</th>
+    <tr>
+      <td>ArrayList</td>
+      <td>List</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>HashMap</td>
+      <td>Map</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>HashSet</td>
+      <td>Set</td>
+      <td>No</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>LinkedList</td>
+      <td>List, Queue</td>
+      <td>No</td>
+      <td>No</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>TreeMap</td>
+      <td>Map</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>TreeSet</td>
+      <td>Set</td>
+      <td>Yes</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <caption><span style="font-weight: bold"> Collection Attributes</span></caption>
+  </table>
+</div>
+
+### Sorting Data
+* Remember that numbers sort before letters, and
+  uppercase letters sort before lowercase letters.
+<br>
+
+* You can also sort objects that you create yourself. Java provides
+  an interface called Comparable. If your class implements
+  Comparable, it can be used in these data structures that require
+  comparison. There is also a class called Comparator, which is
+  used to specify that you want to use a different order than the
+  object itself provides.
+<br>
+### CREATING A COMPARABLE CLASS
+
+    public interface Comparable<T> {
+      int compareTo(T o);
+    }
+
+* Any object can be Comparable.
+
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class Duck implements Comparable<Duck>{
+      private int id;
+      private String name;
+  
+      @Override
+      public int compareTo(Duck o) {
+        return id - o.getId();
+      }
+    }
+<br>
+
+      public static void main(String[] args) {
+        Duck duck1 = new Duck(4,"Merop");
+        Duck duck2 = new Duck(2,"Losap");
+        ArrayList<Duck> ducks = new ArrayList<>();
+        ducks.add(duck1);
+        ducks.add(duck2);
+        ducks.forEach(System.out::println);
+        System.out.println("After sort");
+        Collections.sort(ducks);
+        ducks.forEach(System.out::println);
+      }
+<br>
+
+<details>
+<summary>Click for result</summary>
+
+```
+Duck(id=4, name=Merop)
+Duck(id=2, name=Losap)
+After sort
+Duck(id=2, name=Losap)
+Duck(id=4, name=Merop)
+”
+
+```
+</details>
+
+
+
+
+* There are three rules to know.
+1) The number 0 is returned when the current object is equivalent
+to the argument to compareTo().
+2) A negative number (less than 0) is returned when the current
+object is smaller than the argument to compareTo().
+3) A positive number (greater than 0) is returned when the
+current object is larger than the argument to compareTo().
+
+### Keeping compareTo() and equals() Consistent
+* A natural
+  ordering that uses compareTo() is said to be consistent with
+  equals if, and only if, x.equals(y) is true whenever
+  x.compareTo(y) equals 0.
+
+### COMPARING DATA WITH A COMPARATOR
+* Sometimes you want to sort an object that did not implement
+  Comparable, or you want to sort objects in different ways at
+  different times.
+<br>
+
+
+    @FunctionalInterface
+    public interface Comparator<T> {
+      int compare(T o1, T o2);
+    }
+
+    Comparator<Duck> duckComparator = (o1, o2) -> o1.getId()-o2.getId();
+    Collections.sort(ducks,duckComparator);
+    System.out.println("After sort");
+    ducks.forEach(System.out::println);  
+
+> we do show the import to
+call attention to the fact that Comparable and Comparator are in
+different packages, namely, java.lang versus java.util,
+respectively. That means Comparable can be used without an
+import statement, while Comparator cannot.
+
+> IS COMPARABLE A FUNCTIONAL INTERFACE?
+We said that Comparator is a functional interface because
+it has a single abstract method. Comparable is also a
+functional interface since it also has a single abstract
+method. However, using a lambda for Comparable would
+be silly. The point of Comparable is to implement it inside
+the object being compared.
+
+<div>
+  <table>
+    <th>Difference</th>
+    <th>Comparable</th>
+    <th>Comparator</th>
+    <tr>
+      <td>Package name</td>
+      <td>java.lang</td>
+      <td>java.util</td>
+    </tr>
+    <tr>
+      <td>Interface must be implemented by class comparing?</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Method name in interface</td>
+      <td>compareTo()</td>
+      <td>compare:()</td>
+    </tr>
+    <tr>
+      <td>Number of parameters</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Common to declare using a lambda</td>
+      <td>No</td>
+      <td>Yes</td>
+    </tr>
+    <caption><span style="font-weight: bold"> Comparison of Comparable and Comparator</span></caption>
+  </table>
+</div>
+
 
 
 
