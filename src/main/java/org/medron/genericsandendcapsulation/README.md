@@ -541,7 +541,7 @@ and/or end of the list.
 
 
 <br>
-<div>
+<div align="center">
   <table>
     <th>Method</th>
     <th>Description</th>
@@ -601,7 +601,7 @@ and/or end of the list.
   being a list, it is a double‐ended queue. A double‐ended queue
   is different from a regular queue in that you can insert and
   remove elements from both the front and back of the queue.
-<div>
+<div align="center">
   <table>
     <th>Method</th>
     <th>Description</th>
@@ -666,7 +666,7 @@ and/or end of the list.
 
 
 
-<div>
+<div align="center">
   <table>
     <th>Method</th>
     <th>Description</th>
@@ -759,7 +759,7 @@ Y marks the
 ![img_16.png](img_16.png)
 
 
-<div>
+<div align="center">
   <table>
     <th>If Key .... </th>
     <th>Mapping function returns</th>
@@ -790,7 +790,7 @@ Y marks the
 
 ### COMPARING COLLECTION TYPES
 
-<div>
+<div align="center">
   <table>
     <th>Type </th>
     <th>Can contain duplicate elements?</th>
@@ -829,7 +829,7 @@ Y marks the
   </table>
 </div>
 
-<div>
+<div div align="center">
   <table>
     <th>Type </th>
     <th>Java Collections Framework interface</th>
@@ -992,7 +992,7 @@ method. However, using a lambda for Comparable would
 be silly. The point of Comparable is to implement it inside
 the object being compared.
 
-<div>
+<div align="center">
   <table>
     <th>Difference</th>
     <th>Comparable</th>
@@ -1052,6 +1052,194 @@ public class MultiFieldComparator implements Comparator<Squirrel> {
 }
 ```
 </details>
+<details>
+<summary>Click for result Good Way</summary>
+
+```
+Comparator<Squirrel> squirrelComparator = Comparator.comparing(Squirrel::getSpecies).thenComparingInt(Squirrel::getWeight);
+```
+</details>
+
+<div align="center">
+  <table>
+    <th>Method</th>
+    <th>Description</th>
+    <tr>
+      <td>comparing(function)</td>
+      <td>Compare by the results of a function that returns any Object (or object autoboxed into an Object).</td>
+    </tr>
+    <tr>
+      <td>comparingDouble(function)</td>
+      <td>Compare results of function then returns boolean.</td>
+    </tr>
+    <tr>
+      <td>comparingInt(function)</td>
+      <td>Compare the result of function then returns int</td>
+    </tr>
+    <tr>
+      <td>comparingLong(function)</td>
+      <td>Compare the result of function then returns long</td>
+    </tr>
+    <tr>
+      <td>naturalOrder()</td>
+      <td>Sort using the order specified by the Comparable implementation on the object itself.</td>
+    </tr>
+    <tr>
+      <td>reverseOrder()</td>
+      <td>reverse of the naturalOrder()</td>
+    </tr>
+    <caption><span style="font-weight: bold"> Helper static methods for building a Comparator</span></caption>
+  </table>
+</div>
+
+<div align="center">
+  <table>
+    <th>Method</th>
+    <th>Description</th>
+    <tr>
+      <td>reversed()</td>
+      <td>Reverse card</td>
+    </tr>
+    <tr>
+      <td>thenComparing(function)</td>
+      <td>If the previous comparator returns 0 use this.</td>
+    </tr>
+    <tr>
+      <td>thenComparingInt(function)</td>
+      <td>Compare the result of function then returns int</td>
+    </tr>
+    <tr>
+      <td>thenComparingLong(function)</td>
+      <td>Compare the result of function then returns long</td>
+    </tr>
+    <caption><span style="font-weight: bold"> Helper default methods for building a Comparator </span></caption>
+  </table>
+</div>
 
 
+### Generics
+└┴┬ E -> element \
+└┴┬ K -> key \
+└┴┬ V -> value \
+└┴┬ N -> number \
+└┴┬ T -> data \
 
+* Class Level
+<br>
+
+
+    @Getter
+    @Setter
+    public class SizeLimitedCrate <T,U>{
+      private T data;
+      private U units;
+
+      public SizeLimitedCrate(T data, U units) {
+          this.data = data;
+          this.units = units;
+      }
+    }
+
+* Interface Level
+<br>
+
+
+    public interface Shippable<T> {
+      void ship(T t);
+    }
+
+* Method Level
+<br>
+
+
+    public class Handler {
+      public static <T> void prepare(T t) {
+        System.out.println("Preparing " + t);
+      }
+      public static <T> Crate<T> ship(T t) {
+        System.out.println("Shipping " + t);
+        return new Crate<T>();
+      }
+    }
+
+
+ ```diff
+- Which line does not compline?
+```
+![img_22.png](img_22.png)
+<details>
+<summary>Click for result</summary>
+
+```
+Line 3 shows the formal parameter type immediately before the
+return type of void. Line 4 shows the return type being the
+formal parameter type. It looks weird, but it is correct. Line 5
+omits the formal parameter type, and therefore it does not
+compile.
+```
+</details>
+* When you have a method declare a generic parameter type, it is
+independent of the class generics. Take a look at this class that
+declares a generic T at both levels
+
+    public class Crate<T> {
+      public <T> T tricky(T t) {
+        return t;
+      }
+    }
+
+
+### BOUNDING GENERIC TYPES
+
+* A wildcard generic type is an unknown generic type
+  represented with a question mark ( ?)
+
+
+<div align="center">
+  <table>
+    <th>Type of bound</th>
+    <th>Syntax</th>
+    <th>Example</th>
+    <tr>
+      <td>Unbounded wildcard</td>
+      <td>?</td>
+      <td>List &lt ? &gt a = new ArrayList &lt String &gt(); </td>
+    </tr>
+    <tr>
+      <td>Wildcard with upper bound</td>
+      <td>? extends type</td>
+      <td>List &lt ? extends Exception &gt a = new ArrayList &lt RuntimeException &gt(); </td>
+    </tr>
+    <tr>
+      <td>Wildcard with lower bound</td>
+      <td>? super type</td>
+      <td>List &lt ? super Exception &gt a = new ArrayList &lt Object &gt(); </td>
+    </tr>
+    <caption><span style="font-weight: bold"> Types of bound </span></caption>
+  </table>
+</div>
+
+ ```diff
+- When you have subclasses and superclasses, lower
+  bounds can get tricky.
+```
+
+![img_25.png](img_25.png)
+
+<details>
+<summary>Click for result</summary>
+
+```
+Line 3 references a List that could be List<IOException>
+or List<Exception> or List<Object>. Line 4 does not
+compile because we could have a List<IOException> and
+an Exception object wouldn't fit in there.
+Line 5 is fine. IOException can be added to any of those
+types. Line 6 is also fine. FileNotFoundException can also
+be added to any of those three types. This is tricky because
+FileNotFoundException is a subclass of IOException, and
+the keyword says super. What happens is that Java says,
+“Well, FileNotFoundException also happens to be an
+IOException, so everything is fine.”
+```
+</details>
