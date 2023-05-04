@@ -1036,8 +1036,7 @@ the object being compared.
 
 
 ```diff
-- If two squirrels are from the same species, we want to sort the one
-that weighs the least first.
+- If two squirrels are from the same species, we want to sort the one that weighs the least first.
 ```
 <details>
 <summary>Click for result Bad Way</summary>
