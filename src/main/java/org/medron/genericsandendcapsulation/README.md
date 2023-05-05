@@ -75,7 +75,7 @@ deferred execution with a functional interface.
 ### CALLING STATIC METHODS
 * The Collections class has a static method that can be used for
   sorting.
-![img.png](img.png)
+![img.png](imgs/img.png)
     
 
     List<Integer> list = new ArrayList<>();
@@ -100,7 +100,7 @@ Additionally, Java knows to pass that parameter to the method.
   parameter and returns a boolean. Conveniently, a Predicate is a
   functional interface that takes one parameter and returns a
   boolean.
-![img_1.png](img_1.png)
+![img_1.png](imgs/img_1.png)
 
 
     String s = sc.nextLine();
@@ -111,7 +111,7 @@ Additionally, Java knows to pass that parameter to the method.
   this example, we use a Supplier, which takes zero parameters
   and returns a value
 
-![img_2.png](img_2.png)
+![img_2.png](imgs/img_2.png)
 
 
         Supplier<Integer> lambdaSupplier = () -> random.nextInt();
@@ -129,7 +129,7 @@ method reference on an instance of the Random class.
 * This time, we are going to call an instance method that doesn't
   take any parameters. The trick is that we will do so without
   knowing the instance in advance.
-![img_3.png](img_3.png)
+![img_3.png](imgs/img_3.png)
 
   
         Predicate<String> isEmptyLambda = s -> s.isEmpty();
@@ -153,7 +153,7 @@ as the instance on which the method is called.
   BiPredicate, which takes two parameters and returns a
   boolean.
 
-![img_4.png](img_4.png)
+![img_4.png](imgs/img_4.png)
 
         BiPredicate<String,String> isStartWithLambda = (s, s2) -> s.startsWith(s2);
         BiPredicate<String,String> isStartWithMethod = String::startsWith;
@@ -178,7 +178,7 @@ be method parameters.
   that uses new instead of a method, and it instantiates an object.
   It is common for a constructor reference to use a Supplier
 
-![img_5.png](img_5.png)
+![img_5.png](imgs/img_5.png)
 
         Supplier<List<String>> getListByLambda = () -> new ArrayList<>();
         Supplier<List<String>> getListByMethodRef = ArrayList::new;
@@ -201,7 +201,7 @@ the previous example, the lambda doesn't have any parameters.
 
 
 * Method references can be tricky.
-![img_6.png](img_6.png)
+![img_6.png](imgs/img_6.png)
 
 
     
@@ -355,7 +355,7 @@ Be careful when you see null in relation to autoboxing.
 
 **_What do you think this code outputs?_**
 
-![img_7.png](img_7.png)
+![img_7.png](imgs/img_7.png)
 <details>
 <summary>Click for result</summary>
 
@@ -391,7 +391,7 @@ removes the matching object, which leaves us with just [1].
 
 
 **_What do you think this code outputs?_**
-![img_8.png](img_8.png)
+![img_8.png](imgs/img_8.png)
     
     List<> list = new ArrayList<Integer>();
     Map<> map = new HashMap<String, Integer>();
@@ -409,7 +409,7 @@ assignment operation.
 </details>
 
 ### Using Lists, Sets, Maps, and Queues
-![img_9.png](img_9.png)
+![img_9.png](imgs/img_9.png)
 
 #### DELETING WHILE LOOPING
 * Java does not allow removing elements from a list while
@@ -466,7 +466,7 @@ way.”
 
 **_Let's try one more example that does use a method reference._**
 
-![img_10.png](img_10.png)
+![img_10.png](imgs/img_10.png)
 <details>
 <summary>Click for result</summary>
 
@@ -726,7 +726,7 @@ and/or end of the list.
 ```diff
 + EXERCISE-3
 ```
-![img_15.png](img_15.png)
+![img_15.png](imgs/img_15.png)
 <details>
 <summary>Click for result</summary>
 
@@ -756,7 +756,7 @@ Y marks the
         System.out.println(favorites.get("Metehan"));
 
 
-![img_16.png](img_16.png)
+![img_16.png](imgs/img_16.png)
 
 
 <div align="center">
@@ -1166,7 +1166,7 @@ Comparator<Squirrel> squirrelComparator = Comparator.comparing(Squirrel::getSpec
  ```diff
 - Which line does not compline?
 ```
-![img_28.png](img_28.png)
+![img_28.png](imgs/img_28.png)
 <details>
 <summary>Click for result</summary>
 
@@ -1224,7 +1224,7 @@ declares a generic T at both levels
 ```
 
 
-![img_29.png](img_29.png)
+![img_29.png](imgs/img_29.png)
 
 <details>
 <summary>Click for result</summary>
@@ -1249,7 +1249,7 @@ IOException, so everything is fine.”
  ```diff
 - Now be careful—this one is extra tricky.
 ```
-![img_30.png](img_30.png)
+![img_30.png](imgs/img_30.png)
 
 <details>
 <summary>Click for result</summary>
