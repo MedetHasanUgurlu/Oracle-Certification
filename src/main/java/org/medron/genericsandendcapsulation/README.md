@@ -121,7 +121,7 @@ deferred execution with a functional interface.
 > Since the methods on Random are instance methods, we call the
 method reference on an instance of the Random class.
 
-### CALLING INSTANCE METHODS ON A PARAMETER
+### Calling Istance Methods on A Parameter
 * This time, we are going to call an instance method that doesn't
   take any parameters. The trick is that we will do so without
   knowing the instance in advance.
@@ -246,11 +246,9 @@ that takes a parameter.
 
 
 ### Using Wrapper Classes
-* With **_autoboxing_**, the compiler automatically converts a primitive to
-  the corresponding wrapper. 
-* Unsurprisingly, _**unboxing**_ is the
-  process in which the compiler automatically converts a
-  wrapper class back to a primitive.
+* **_autoboxing_** primitive -> wrapper. 
+* _**unboxing**_ is wrapper -> primitive.
+
 <div align="center">
   <table>
     <th>Primitive type</th>
@@ -333,18 +331,14 @@ Java tries to get the int value of null. Since calling any method
 on null gives a NullPointerException, that is just what we get.
 Be careful when you see null in relation to autoboxing.
 
-### WRAPPER CLASSES AND NULL
-* Speaking of null, one advantage of a wrapper class over a
-  primitive is that it can hold a null value. While null
-  values aren't particularly useful for numeric calculations,
-  they are quite useful in data‐based services. For example,
-  if you are storing a user's location data using (latitude,
-  longitude), it would be a bad idea to store a missing point
-  as (0,0) since that refers to an actual location off the cost
-  of Africa where the user could theoretically be.
+### Wrapper Classes And Null
+
+* The Main advantage of using null in a wrapper is we can hold null value. For instance, in data-based services, we should use null some conditions.
 
 
-**_What do you think this code outputs?_**
+```diff
+- What do you think this code outputs?
+```
 
 ![img_7.png](imgs/img_7.png)
 <details>
