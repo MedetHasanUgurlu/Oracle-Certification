@@ -15,4 +15,4 @@
 * [Chapter 11: Modules](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/modules)
 * [Chapter 13: Annotations](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/annotations)
 * [Chapter 14: Generics and Collections](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/genericsandendcapsulation)
-* [Chapter 16: Exceptions, Assertions, and Localization]()
+* [Chapter 16: Exceptions, Assertions, and Localization](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/exceptionsassertionslocalization)
