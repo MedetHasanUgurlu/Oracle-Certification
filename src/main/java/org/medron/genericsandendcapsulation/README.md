@@ -375,8 +375,11 @@ removes the matching object, which leaves us with just [1].
     List<Integer> list1 = new ArrayList<>();
 
 
-**_What do you think this code outputs?_**
-![img_8.png](imgs/img_8.png)
+```diff
+- What do you think this code outputs?
+```
+
+![img.png](img.png)
     
     List<> list = new ArrayList<Integer>();
     Map<> map = new HashMap<String, Integer>();
@@ -394,7 +397,7 @@ assignment operation.
 </details>
 
 ### Using Lists, Sets, Maps, and Queues
-![img_9.png](imgs/img_9.png)
+![img_1.png](img_1.png)
 
 #### DELETING WHILE LOOPING
 * Java does not allow removing elements from a list while
@@ -467,13 +470,8 @@ successfully removed one element from the list.”
 
 
 ### Comparing List Implementations
-* The main benefit of an ArrayList is that you can look up any
-element in constant time. Adding or removing an element is
-slower than accessing an element. This makes an ArrayList a
-good choice when you are reading more often than (or the same
-amount as) writing to the ArrayList.
-* A LinkedList is special because it implements both List and
-Queue. It has all the methods of a List. It also has additional
+* ArrayList is a good choice when you are reading.
+* A LinkedList implements both List and Queue. It has all the methods of a List. It has additional
 methods to facilitate adding or removing from the beginning
 and/or end of the list.
 * The main benefits of a LinkedList are that you can access, add,
@@ -564,28 +562,15 @@ and/or end of the list.
 
 ### Comparing Set Implementations
 * A HashSet stores its elements in a hash table, which means the
-  keys are a hash and the values are an Object. This means that it
-  uses the hashCode() method of the objects to retrieve them
-  more efficiently.
-* A TreeSet stores its elements in a sorted tree structure. The
-  main benefit is that the set is always in **sorted order**. The trade‐
-  off is that adding and checking whether an element exists take
-  longer than with a HashSet, especially as the tree grows larger.
+  keys are a hash and the values are an Object. 
+* A TreeSet stores its elements in a sorted tree structure. 
 
 
-### USING THE QUEUE INTERFACE
-* Unless stated otherwise, a queue is assumed to be FIFO (first‐
-  in, first‐out). Some queue implementations change this to use a
-  different order. You can envision a FIFO queue as shown in
-  Figure 14.5. The other format is LIFO (last‐in, first‐out), which
-  is commonly referred to as a stack. In Java, though, both can
-  be implemented with the Queue interface.
+### Using The Queue Interface
+* FIFO (first‐ in, first‐out). 
+* LIFO (last‐in, first‐out), which is commonly referred to as a stack. In Java, though, both can
 
-### Comparing Queue Implementations
-* You saw LinkedList earlier in the List section. In addition to
-  being a list, it is a double‐ended queue. A double‐ended queue
-  is different from a regular queue in that you can insert and
-  remove elements from both the front and back of the queue.
+
 <div align="center">
   <table>
     <th>Method</th>
@@ -627,13 +612,11 @@ and/or end of the list.
 
 </div>
 
-### USING THE MAP INTERFACE 
-* You do need to know that TreeMap is
-  sorted.
+### Using The Map Interface 
+* You do need to know that TreeMap is sorted.
 
-### MAP.OF() AND MAP.COPYOF()
-* Just like List and Set, there is a helper method to create a
-  Map. 
+### Map.Of() and Map.CopyOf()
+* Just like List and Set, there is a helper method to create a Map. 
 <br>
 
 
@@ -709,7 +692,7 @@ and/or end of the list.
 
 
 ```diff
-+ EXERCISE-3
+- EXERCISE-3
 ```
 ![img_15.png](imgs/img_15.png)
 <details>
@@ -727,10 +710,7 @@ Y marks the
 </details>
 
 #### merge()
-* The merge() method adds logic of what to choose. Suppose we
-  want to choose the ride with the longest name. We can write
-  code to express this by passing a mapping function to the
-  merge() method.
+* The merge() method adds logic of what to choose. 
 <br>
 
         Map<String,String> favorites = new HashMap<>();
@@ -741,7 +721,7 @@ Y marks the
         System.out.println(favorites.get("Metehan"));
 
 
-![img_16.png](imgs/img_16.png)
+
 
 
 <div align="center">
@@ -773,7 +753,7 @@ Y marks the
   </table>
 </div>
 
-### COMPARING COLLECTION TYPES
+### Comparing Collection Types
 
 <div align="center">
   <table>
@@ -868,18 +848,11 @@ Y marks the
 </div>
 
 ### Sorting Data
-* Remember that numbers sort before letters, and
-  uppercase letters sort before lowercase letters.
+* numbers > letters 
+* uppercase letters > lowercase letters.
 <br>
 
-* You can also sort objects that you create yourself. Java provides
-  an interface called Comparable. If your class implements
-  Comparable, it can be used in these data structures that require
-  comparison. There is also a class called Comparator, which is
-  used to specify that you want to use a different order than the
-  object itself provides.
-<br>
-### CREATING A COMPARABLE CLASS
+### Creating A Comparable Class
 
     public interface Comparable<T> {
       int compareTo(T o);
@@ -941,12 +914,11 @@ object is smaller than the argument to compareTo().
 current object is larger than the argument to compareTo().
 
 ### Keeping compareTo() and equals() Consistent
-* A natural
-  ordering that uses compareTo() is said to be consistent with
+* A natural ordering that uses compareTo() is said to be consistent with
   equals if, and only if, x.equals(y) is true whenever
   x.compareTo(y) equals 0.
 
-### COMPARING DATA WITH A COMPARATOR
+### Comparing Data With A Comparator
 * Sometimes you want to sort an object that did not implement
   Comparable, or you want to sort objects in different ways at
   different times.
@@ -963,13 +935,9 @@ current object is larger than the argument to compareTo().
     System.out.println("After sort");
     ducks.forEach(System.out::println);  
 
-> we do show the import to
-call attention to the fact that Comparable and Comparator are in
-different packages, namely, java.lang versus java.util,
-respectively. That means Comparable can be used without an
-import statement, while Comparator cannot.
 
-> IS COMPARABLE A FUNCTIONAL INTERFACE?
+
+### Is Comparable A Functional Interface?
 We said that Comparator is a functional interface because
 it has a single abstract method. Comparable is also a
 functional interface since it also has a single abstract
@@ -1011,7 +979,7 @@ the object being compared.
   </table>
 </div>
 
-### COMPARING MULTIPLE FIELDS
+### Comparing Multiple Fields
 
 
     public class Squirrel {
@@ -1174,10 +1142,10 @@ declares a generic T at both levels
     }
 
 
-### BOUNDING GENERIC TYPES
+### Bounding Generic Types
 
 * A wildcard generic type is an unknown generic type
-  represented with a question mark ( ?)
+  represented with a question mark ?
 
 
 <div align="center">
