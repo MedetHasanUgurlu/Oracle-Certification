@@ -72,11 +72,11 @@ deferred execution with a functional interface.
   3) Instance methods on a parameter to be determined at runtime 
   4) Constructors 
 
-### CALLING STATIC METHODS
+### Calling Static Methods
 * The Collections class has a static method that can be used for
   sorting.
 ![img.png](imgs/img.png)
-    
+<br>
 
     List<Integer> list = new ArrayList<>();
     list.add(3);
