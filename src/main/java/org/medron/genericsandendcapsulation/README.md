@@ -1166,7 +1166,7 @@ Comparator<Squirrel> squirrelComparator = Comparator.comparing(Squirrel::getSpec
  ```diff
 - Which line does not compline?
 ```
-![img_22.png](img_22.png)
+![img_28.png](img_28.png)
 <details>
 <summary>Click for result</summary>
 
@@ -1220,11 +1220,11 @@ declares a generic T at both levels
 </div>
 
  ```diff
-- When you have subclasses and superclasses, lower
-  bounds can get tricky.
+- When you have subclasses and superclasses, lower  bounds can get tricky.
 ```
 
-![img_25.png](img_25.png)
+
+![img_29.png](img_29.png)
 
 <details>
 <summary>Click for result</summary>
@@ -1243,3 +1243,27 @@ the keyword says super. What happens is that Java says,
 IOException, so everything is fine.”
 ```
 </details>
+
+
+
+ ```diff
+- Now be careful—this one is extra tricky.
+```
+![img_30.png](img_30.png)
+
+<details>
+<summary>Click for result</summary>
+
+```
+This method, third(), does not compile. <B extends A> says
+that you want to use B as a type parameter just for this method
+and that it needs to extend the A class. Coincidentally, B is also
+the name of a class. It isn't a coincidence. It's an evil trick.
+Within the scope of the method, B can represent class A, B, or C,
+because all extend the A class. Since B no longer refers to the B
+class in the method, you can't instantiate it.
+
+```
+</details>
+
+
