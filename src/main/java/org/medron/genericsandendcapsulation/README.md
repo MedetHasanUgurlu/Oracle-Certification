@@ -91,15 +91,11 @@ deferred execution with a functional interface.
 5**
 
 
-> we reference a method with one parameter, and
-Java knows that it's like a lambda with one parameter.
-Additionally, Java knows to pass that parameter to the method.
 
-### CALLING INSTANCE METHODS ON A PARTICULAR OBJECT
-* The String class has a startsWith() method that takes one
-  parameter and returns a boolean. Conveniently, a Predicate is a
-  functional interface that takes one parameter and returns a
-  boolean.
+
+### Calling Instance Methods on A Particular Object
+* The startsWith() method takes one parameter and returns the boolean, Predicate functional interface too. We can use method reference. 
+
 ![img_1.png](imgs/img_1.png)
 
 
@@ -112,7 +108,7 @@ Additionally, Java knows to pass that parameter to the method.
   and returns a value
 
 ![img_2.png](imgs/img_2.png)
-
+<br>
 
         Supplier<Integer> lambdaSupplier = () -> random.nextInt();
         Supplier<Integer> methodRef = random::nextInt;
@@ -143,10 +139,8 @@ method reference on an instance of the Random class.
 **true\
 true**
 
-> It looks like a static method, but it isn't. Instead, Java
-knows that isEmpty() is an instance method that does not take
-any parameters. Java uses the parameter supplied at runtime
-as the instance on which the method is called.
+> Java knows that isEmpty() is an instance method. Java uses the parameter supplied at runtime
+
 
 * You can even combine the two types of instance method
   references. We are going to use a functional interface called a
@@ -154,6 +148,7 @@ as the instance on which the method is called.
   boolean.
 
 ![img_4.png](imgs/img_4.png)
+<br>
 
         BiPredicate<String,String> isStartWithLambda = (s, s2) -> s.startsWith(s2);
         BiPredicate<String,String> isStartWithMethod = String::startsWith;
@@ -167,16 +162,12 @@ false**
 
 
 
+> Some functional interface takes two parameters; Java should know which is instance or parameter. First one is instance and another one is parameter.
 
-> functional interface takes two parameters, Java has to
-figure out what they represent. The first one will always be the
-instance of the object for instance methods. Any others are to
-be method parameters.
 
-### CALLING CONSTRUCTORS
-* A constructor reference is a special type of method reference
-  that uses new instead of a method, and it instantiates an object.
-  It is common for a constructor reference to use a Supplier
+### Calling Constructors
+* We usually use Supplier.
+
 
 ![img_5.png](imgs/img_5.png)
 
@@ -197,7 +188,7 @@ be method parameters.
 
 
 > It expands like the method references you have seen so far. In
-the previous example, the lambda doesn't have any parameters.
+the previous example, **the lambda doesn't have any parameters.**
 
 
 * Method references can be tricky.
