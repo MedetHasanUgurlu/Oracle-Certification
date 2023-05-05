@@ -6,6 +6,7 @@
 
 ![2376015.jpg](./2376015.jpg)
 ***
+* [Chapter 14:Chapter 14: Generics and Collections](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/genericsandendcapsulation)
 * [Core Java](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter5_CoreJavaAPI)
 * [Lambda and Functional Interface](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter6_LambdaAndFunctionalInterface)
 * [Advanced Class Design](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter9_AdvancedClassDesign)
