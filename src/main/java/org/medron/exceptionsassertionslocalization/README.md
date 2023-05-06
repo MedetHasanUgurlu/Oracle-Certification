@@ -39,7 +39,10 @@
  ```diff
 - Why does the following not compile?
 ```
-![img_3.png](img_3.png)
+<div align="center">
+    <img src="img_3.png">
+</div>
+
 
 <details>
 <summary>Click for result</summary>
@@ -55,7 +58,10 @@ in a compilation error.
  ```diff
 - Ordering of exceptions in consecutive catch blocks matters too. Why does the following not compile?
 ```
-![img_4.png](img_4.png)
+<div align="center">
+    <img src="img_4.png">
+</div>
+
 
 <details>
 <summary>Click for result</summary>
@@ -133,9 +139,23 @@ can be referred to as the explicit finally block.
 The second rule you should be familiar with is: a try‐with‐
 resources statement can include multiple resources, which are
 closed in the reverse order in which they are declared.
-![img_5.png](img_5.png) \
+
+<div align="center">
+    <img src="img_5.png">
+</div>
+
+
 When executed, this code prints the following:
-![img_6.png](img_6.png)
+<div align="center">
+    <img src="img_6.png">
+</div>
+
+
+### Why You Should Be Using Try-With-Resources Statements
+<div align="center">
+    <img src="img_7.png">
+</div>
+
 
   
 
