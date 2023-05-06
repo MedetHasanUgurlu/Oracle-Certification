@@ -133,7 +133,7 @@ can be referred to as the explicit finally block.
 The second rule you should be familiar with is: a try‐with‐
 resources statement can include multiple resources, which are
 closed in the reverse order in which they are declared.
-![img_5.png](img_5.png)
+![img_5.png](img_5.png) \
 When executed, this code prints the following:
 ![img_6.png](img_6.png)
 
