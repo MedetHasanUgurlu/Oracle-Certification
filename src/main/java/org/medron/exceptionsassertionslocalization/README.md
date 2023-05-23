@@ -316,7 +316,158 @@ Exception in thread "main" java.time.DateTimeException: \
 Unable to extract ZoneId from temporal 2020-10-20T06:15:30
 
 
+<div align="center">
+  <table>
+<th>Symbol</th>
+<th>LocalDate</th>
+<th>LocalTime</th>
+<th>LocalDateTime</th>
+<th>ZonedDateTime</th>
+    <tr>
+      <td>y(year:20, 2020)</td>
+      <td align="center">+</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>M(month:1, 01, Jan, January)</td>
+      <td align="center">+</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>d(day:5, 05)</td>
+      <td align="center">+</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>h(hour:9, 09)</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>m(minute:45)</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>s(second:52)</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>a(a.m/p.m:AM, PM)</td>
+      <td align="center"></td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>z(timeZoneName:Eastern Standard Time, EST)</td>
+      <td align="center"></td>
+      <td align="center"></td>
+      <td align="center"></td>
+      <td align="center">+</td>
+    </tr>
+    <tr>
+      <td>Z(timeZoneOffset:‐0400)</td>
+      <td align="center"></td>
+      <td align="center"></td>
+      <td align="center"></td>
+      <td align="center">+</td>
+    </tr>
+  </table>
+</div>
 
+
+### Selecting a format() Method
+    var dateTime = LocalDateTime.of(2020, Month.OCTOBER, 20, 6, 15, 30);
+    var formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy hh:mm:ss");
+    System.out.println(dateTime.format(formatter));                         ===> 10/20/2020 06:15:30
+    System.out.println(formatter.format(dateTime));                         ===> 10/20/2020 06:15:30
+
+### Adding Custom Text Values
+    var dt = LocalDateTime.of(2020, Month.OCTOBER, 20, 6, 15, 30);
+    var f1 = DateTimeFormatter.ofPattern("MMMM dd, yyyy ");
+    var f2 = DateTimeFormatter.ofPattern(" hh:mm");
+    System.out.println(dt.format(f1) + "at" + dt.format(f2));
+
+**Result** \
+October 20, 2020 at 06:15
+
+> ' &nbsp;' escaping character
+
+## Supporting Internationalization and Localization
+
+Localization support multiple locale and language.
+
+    Locale locale = new Locale("en_EN")
+    Locale locale2 = new Locale("en","EN");
+    Locale locale3 = new Locale("en");
+
+### Formatting Numbers
+
+    int attendeesPerYear = 3_200_000;
+    int attendeesPerMonth = attendeesPerYear / 12;
+    var us = NumberFormat.getInstance(Locale.US);
+    System.out.println(us.format(attendeesPerMonth));
+    var gr = NumberFormat.getInstance(Locale.GERMANY);
+    System.out.println(gr.format(attendeesPerMonth));
+    var ca = NumberFormat.getInstance(Locale.CANADA_FRENCH);
+    System.out.println(ca.format(attendeesPerMonth));
+
+**Result** \
+266,666 \
+266.666 \
+266 666 
+
+Formatting currency
+
+    double price = 48;
+    var myLocale = NumberFormat.getCurrencyInstance(new Locale("tr","TR"));
+    System.out.println(myLocale.format(price));
+**Result** \
+₺48,00
+
+* TIP: In real world we use int or BigDecimal. Doing math using double is dangerous.Don't want to lose your penny.
+
+### Parsing Numbers
+    String s = "40.45";
+    var en = NumberFormat.getInstance(Locale.US);
+    System.out.println(en.parse(s)); // 40.45
+    var fr = NumberFormat.getInstance(Locale.FRANCE);
+    System.out.println(fr.parse(s)); // 40
+
+> In USA dot(.) can use in numbers however french dont use.
+
+    String income = "$92,807.99";
+    var cf = NumberFormat.getCurrencyInstance();
+    double value = (Double) cf.parse(income);
+    System.out.println(value);  
+**Result** \
+92807.99
+
+
+### Writing a Custom Number Formatter
+    double d = 1234567.467;
+    NumberFormat f1 = new DecimalFormat("###,###,###.0");
+    System.out.println(f1.format(d));                     ====> 1,234,567.5
+    
+    NumberFormat f2 = new DecimalFormat("000,000,000.00000");
+    System.out.println(f2.format(d));                     ====> 001,234,567.46700
+    
+    NumberFormat f3 = new DecimalFormat("$#,###,###.##");
+    System.out.println(f3.format(d));                     ====> $1,234,567.47
 
 
 
