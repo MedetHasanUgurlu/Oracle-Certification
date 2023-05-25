@@ -26,6 +26,7 @@
 </div>
 
 ### Thread pool
+ExecutorService threadlerin kaçar kaçar çalışacağını belirler. Bellekten kazanç sağlar.
 
     ExecutorService executor = Executors.newFixedThreadPool(3);
     executor.submit(new Thread(...);
@@ -65,3 +66,10 @@ Semophere controls the amount of thread which uses methods.\
 <img src="img_6.png">
 <img src="img_7.png">
 </div>
+
+### Callable and Future
+> return value, that's all.
+<div align="center">
+<img src="img_8.png">
+</div>
+
