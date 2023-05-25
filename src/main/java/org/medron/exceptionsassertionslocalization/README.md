@@ -469,5 +469,35 @@ Formatting currency
     NumberFormat f3 = new DecimalFormat("$#,###,###.##");
     System.out.println(f3.format(d));                     ====> $1,234,567.47
 
+## CREATING A RESOURCE BUNDLE
+
+**Zoo_en.properties** \
+hello = Hello \
+open = The zoo is open
+
+**Zoo_fr.properties** \
+hello = Bonjour \
+open = Le zoo est ouvert \
+
+We can use a resource bundle which includes different language support text.
+<br>
+
+    public static void main(String[] args) {
+      Locale us = new Locale("en","US");
+      Locale france = new Locale("fr","FR");
+      printWelcomeMessage(us);
+    }
+    public static void printWelcomeMessage(Locale locale){
+        ResourceBundle rb = ResourceBundle.getBundle("Zoo",locale);
+        System.out.println(rb.getString("hello")+ ", " + rb.getString("open"));
+    }
+    
+<br>
+
+## FORMATTING MESSAGES
+
+
+
+
 
 
