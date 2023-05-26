@@ -95,3 +95,13 @@ Semophere controls the amount of thread which uses methods.\
 <img src="img_12.png">
 </div>
 
+### ScheduledExecutorService schedule() vs scheduleAtFixedRateTime()
+> The Only difference in between them is rerunning count, schedule() run one time after the given delay. 
+>
+
+<div align="center">
+<img src="img_13.png">
+</div>
+
+
+
