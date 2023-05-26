@@ -26,7 +26,11 @@
 </div>
 
 ### Thread pool
-ExecutorService threadlerin kaçar kaçar çalışacağını belirler. Bellekten kazanç sağlar.
+ExecutorService threadlerin kaçar kaçar çalışacağını belirler. Bellekten kazanç sağlar. \
+THreadlerin yönetilmesi için iyi bir servis. \
+main() method is still an independent thread from the
+ExecutorService.
+> main() method is still an independent thread from the ExecutorService.
 
     ExecutorService executor = Executors.newFixedThreadPool(3);
     executor.submit(new Thread(...);
@@ -35,9 +39,19 @@ ExecutorService threadlerin kaçar kaçar çalışacağını belirler. Bellekten
     executor.submit(new Thread(...);
 
     executor.shutdown();
+> Only 3 executors will work another thread waits.
 
 
-> Only 2 executors will work another thread waits.
+<div align="center">
+<img src="img_9.png">
+</div> 
+
+_executor.shutdown()_ does not actually stop any task however _**executor.shutdownNow()**_ stops when we called.
+
+### submit vs execute
+<div align="center">
+<img src="img_10.png">
+</div>
 
 ### wait and notify
 >   wait() yellow light \
@@ -71,5 +85,13 @@ Semophere controls the amount of thread which uses methods.\
 > return value, that's all.
 <div align="center">
 <img src="img_8.png">
+<img src="img_11.png">
+</div>
+
+### invokeAll vs invokeAny
+> invokeAll() returns Future list however invokeAny() returns only one value.
+
+<div align="center">
+<img src="img_12.png">
 </div>
 
