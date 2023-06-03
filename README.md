@@ -10,7 +10,7 @@
 * [Chapter 6: Lambdas and Functional Interfaces](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter6_LambdaAndFunctionalInterface)
 * [Chapter 7: Methods and Encapsulation](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter7_MethodAndEncapsulation)
 * [Chapter 8: Class Design](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/classdesign)
-* [Chapter 9: Advanced Class Design](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter9_AdvancedClassDesign)
+* [Chapter 9: Advanced Class Design](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/advancedclassdesign)
 * [Chapter 10: Exceptions](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/chapter10_Exception)
 * [Chapter 11: Modules](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/modules)
 * [Chapter 13: Annotations](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/annotations)

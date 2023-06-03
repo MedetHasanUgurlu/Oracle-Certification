@@ -104,4 +104,40 @@ Semophere controls the amount of thread which uses methods.\
 </div>
 
 
+## Thread Safety
+
+<div align="center">
+<img src="img_14.png">
+</div>
+
+<div align="center">
+<img src="img_15.png">
+</div>
+
+### Atomic Class
+* AtomicBoolean 
+* AtomicInteger
+* AtomicLong
+
+
+    private AtomicInteger sheepCount = new AtomicInteger(0);
+    private void incrementAndReport() {
+        System.out.print(sheepCount.incrementAndGet()+" ");
+    }
+
+### SYNCHRONIZING ON METHODS
+> two methods are the same.
+<div align="center">
+<img src="img_16.png">
+</div> 
+
+## UNDERSTANDING THE LOCK FRAMEWORK
+### ReentrantLock
+<div align="center">
+<img src="img_17.png">
+</div> 
+> tryLock() lock elde edilmişse true elde edilmemi
+
+
+
 
