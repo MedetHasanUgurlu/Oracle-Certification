@@ -252,8 +252,9 @@ environment.
 
 ### parallelStream() vs stream()
 
-
-![img_21.png](img_21.png)
+<div align="center">
+    <img src="img_21.png">
+</div>
 
 * as you can see, a result is not ordered we force to calculate ın order.
 > Result same as stream not efficient.
@@ -265,5 +266,36 @@ environment.
 
     List.of(1,2,3,4,5,6).stream().unordered();
 
+> On a serial stream, it prints Xwolf, but on a parallel stream the
+result is XwXoXlXf. As part of the parallel process, the identity is
+applied to multiple elements in the stream, resulting in very
+unexpected data.
 
+### Combining Results with collect()
+<div align="center">
+    <img src="img_22.png">
+</div>
+
+> Also, like reduce(), the accumulator and combiner operations
+must be able to process results in any order. In this manner,
+the three‐argument version of collect() can be performed as a
+parallel reduction
+
+    Stream<String> stream = Stream.of("w", "o", "l", "f").parallel();
+    SortedSet<String> set = stream.collect(ConcurrentSkipListSet::new,
+    Set::add,
+    Set::addAll);
+    System.out.println(set); // [f, l, o, w]
+
+# AVOIDING STATEFUL OPERATIONS
+
+<div align="center">
+    <img src="img_23.png">
+</div>
+
+* This implementation removes the stateful operation and relies
+  on the collector to assemble the elements. We could also use a
+  concurrent collector to parallelize the building of the list. The
+  goal is to write our code to allow for parallel processing and let
+  the JVM handle the rest.
 
