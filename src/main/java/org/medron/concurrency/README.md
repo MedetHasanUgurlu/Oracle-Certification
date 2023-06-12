@@ -135,9 +135,135 @@ Semophere controls the amount of thread which uses methods.\
 ### ReentrantLock
 <div align="center">
 <img src="img_17.png">
-</div> 
-> tryLock() lock elde edilmişse true elde edilmemi
+</div>
 
+> tryLock() lock elde edilmişse true elde edilmemişse false döner.
+> lock metodu anahtarı bekler try lock ise anlık anhatarın alınıp alınmadığını döner.
+
+### Duplicate Lock Requests 
+
+    Lock lock = new ReentrantLock();
+    if(lock.tryLock()) {
+        try {
+            lock.lock();
+            System.out.println("Lock obtained, entering protected code");
+        } finally {
+        lock.unlock();
+        }
+    }
+> It is critical that you release a lock the same number of times it
+is acquired. For calls with tryLock(), you need to call unlock()
+only if the method returned true.
+
+### ORCHESTRATING TASKS WITH A CYCLICBARRIER
+![img_18.png](img_18.png)
+
+### Using Concurrent Collections
+
+![img_19.png](img_19.png)
+
+> Immutable objects can be accessed by any number of
+threads and do not require synchronization. By definition,
+they do not change, so there is no chance of a memory
+consistency error.
+
+<div align="center">
+<table>
+  <th>Class Name</th>
+  <th>Java Collection Framework Interface</th>  
+  <th>Elements Ordered</th>
+  <th>Sorted</th>
+  <th>Blocking</th>
+  <tr>
+    <td>ConcurrentHashMap</td>
+    <td>ConcurrentMap</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>ConcurrentLinkedQueue</td>
+    <td>Queue</td>
+    <td>+</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>ConcurrentSkipListMap</td>
+    <td>ConcurrentMap, SortedMap, NavigableMap</td>
+    <td>+</td>
+    <td>+</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>ConcurrentSkipListSet</td>
+    <td>SortedSet, NavigableSet</td>
+    <td>+</td>
+    <td>+</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>CopyOnWriteArrayList</td>
+    <td>List</td>
+    <td>+</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>CopyOnWriteArraySet</td>
+    <td>Set</td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>LinkedBlockingQueue</td>
+    <td>BlockingQueue</td>
+    <td>+</td>
+    <td>-</td>
+    <td>+</td>
+  </tr>
+
+  <caption>Concurrent collection classes</caption>
+</table>
+</div>
+
+### CopyOnWriteArrayList
+Bir listede iterasyon yaparken o listeye ayriyeten eleman eklediğimizde hata alırız. \
+Bundan dolayı immutable olan CopyOnWriteArrayList kullanabiliriz.
+<div align="center">
+<img src="img_20.png">
+</div>
+
+## Working with Parallel Streams
+The number of threads available in a parallel stream is
+proportional to the number of available CPUs in your
+environment.
+
+
+### Calling parallel() on an Existing Stream
+
+    Stream<Integer> s1 = List.of(1,2).stream();
+    Stream<Integer> s2 = s1.parallel();
+
+### Calling parallelStream() on a Collection Object
+
+    Stream<Integer> s3 = List.of(1,2).parallelStream();
+
+### parallelStream() vs stream()
+
+
+![img_21.png](img_21.png)
+
+* as you can see, a result is not ordered we force to calculate ın order.
+> Result same as stream not efficient.
+
+### CREATING UNORDERED STREAMS
+
+* Improve the performance if stream is not required to be ordered. Using unordered() with stream increases the performance.
+
+
+    List.of(1,2,3,4,5,6).stream().unordered();
 
 
 
