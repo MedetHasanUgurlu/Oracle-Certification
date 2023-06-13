@@ -1,0 +1,7 @@
+
+g	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òιόÿÿÿÿ8…€λ…1
+8
+java:S2438""Argument 1" is a "Thread".(ΡΗ8α•θ…1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(γλωό8Χ‘ι…1
+{
+java:S2142"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(δ Ή€8“€λ…1

@@ -1,0 +1,11 @@
+
+b
+java:S1192"GDefine a constant instead of duplicating this literal "Ugurlu" 3 times.(Ç€À‹ûÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(â®úÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ØŸ¦
+[
+java:S1612"@Replace this lambda with method reference 'System.out::println'.(ú±–¥úÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ú±–¥úÿÿÿÿ
+V
+java:S1612"@Replace this lambda with method reference 'System.out::println'.(¯õ¤ö
+N	java:S106"9Replace this use of System.out or System.err by a logger.(¯õ¤ö

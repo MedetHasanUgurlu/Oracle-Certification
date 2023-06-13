@@ -1,0 +1,6 @@
+
+S
+java:S1854"6Remove this useless assignment to local variable "us".(“¤“8Ó…Ö‹…1
+D
+java:S1481"'Remove this unused "us" local variable.(“¤“8Ö…Ö‹…1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(×÷Ö8Û·™‹…1

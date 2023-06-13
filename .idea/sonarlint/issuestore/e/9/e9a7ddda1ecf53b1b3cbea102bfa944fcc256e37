@@ -1,0 +1,12 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ü„–Ôüÿÿÿÿ
+t
+java:S1171
+"YMove the contents of this initializer to a standard constructor or to field initializers.(ÒÌâ–øÿÿÿÿ
+N	java:S106"9Replace this use of System.out or System.err by a logger.(ª—õ
+S
+java:S1854"8Remove this useless assignment to local variable "home".(â•õîúÿÿÿÿ
+D
+java:S1481")Remove this unused "home" local variable.(â•õîúÿÿÿÿ
+>
+java:S1068"(Remove this unused "room" private field.(ÑıÃß

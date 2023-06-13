@@ -1,0 +1,10 @@
+
+U
+java:S1854":Remove this useless assignment to local variable "hippo1".(ðõÎ˜ùÿÿÿÿ
+O
+java:S1854"9Remove this useless assignment to local variable "hippo".(þÿûÆ
+V	java:S125"<This block of commented-out lines of code should be removed.(†í—¦þÿÿÿÿ
+@
+java:S1481"*Remove this unused "hippo" local variable.(þÿûÆ
+F
+java:S1481"+Remove this unused "hippo1" local variable.(ðõÎ˜ùÿÿÿÿ

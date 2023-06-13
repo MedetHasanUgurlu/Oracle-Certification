@@ -1,0 +1,35 @@
+
+r	java:S117#"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–óÛ¸ûÿÿÿÿ8Êî…1
+r	java:S117$"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©«âÀÿÿÿÿÿ8Ëî…1
+X
+java:S2222(";Unlock this lock along all executions paths of this method.(ÆĞĞì8éî…1
+]
+java:S2222'";Unlock this lock along all executions paths of this method.(šñìÃûÿÿÿÿ8éî…1
+
+java:S4144?"_Update this method so that its implementation is not identical to "threadFunction1" on line 54.(Áäìüÿÿÿÿ8Ï‡ğ…1
+V
+java:S1854":Remove this useless assignment to local variable "random".(¼İÅf8íî…1
+G
+java:S1481"+Remove this unused "random" local variable.(¼İÅf8ïî…1
+T	java:S106"9Replace this use of System.out or System.err by a logger.(˜—›,8ğî…1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ü­âİûÿÿÿÿ8ğî…1
+I
+java:S1125*"'Remove the unnecessary boolean literal.(ÚãÔ®ûÿÿÿÿ8óî…1
+I
+java:S1125*"'Remove the unnecessary boolean literal.(ÚãÔ®ûÿÿÿÿ8óî…1
+D
+java:S1125-"'Remove the unnecessary boolean literal.(ÔŠ²“8óî…1
+D
+java:S11250"'Remove the unnecessary boolean literal.(¨Á…Á8ôî…1
+O
+java:S11358"2Complete the task associated to this TODO comment.(ÓñàÍ8ğÉî…1
+O
+java:S1135A"2Complete the task associated to this TODO comment.(ÓñàÍ8Ü‡ğ…1
+Q
+java:S1128"/Remove this unused import 'java.sql.SQLOutput'.(ê¤òÃùÿÿÿÿ8û‰§…1
+N
+java:S1068",Remove this unused "account1" private field.(®Ú¡üÿÿÿÿ8÷î…1
+I
+java:S1068",Remove this unused "account2" private field.(êëşÏ8÷î…1
+L
+java:S1068"*Remove this unused "random" private field.(¡•îåşÿÿÿÿ8û‰§…1

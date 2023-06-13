@@ -1,0 +1,33 @@
+
+W
+java:S18544"5Remove this useless assignment to local variable "x".(¨ÿÆãøÿÿÿÿ8Í¶Òƒı0
+X
+java:S1854"6Remove this useless assignment to local variable "sc".(ğÛ²¸øÿÿÿÿ8Î¶Òƒı0
+I
+java:S1481"'Remove this unused "sc" local variable.(ğÛ²¸øÿÿÿÿ8Ò¶Òƒı0
+]	java:S125	"<This block of commented-out lines of code should be removed.(Æ¿¨Ãÿÿÿÿÿ8Ô¶Òƒı0
+`
+java:S1612">Replace this lambda with method reference 'Collections::sort'.(á›Ôïûÿÿÿÿ8Ù¶Òƒı0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(Ú¾¬ûÿÿÿÿ8Ú¶Òƒı0
+s
+java:S4276"QRefactor this code to use the more specialised Functional Interface 'IntSupplier'(š€ª¢ıÿÿÿÿ8Û¶Òƒı0
+]	java:S125"<This block of commented-out lines of code should be removed.(ˆÉáûûÿÿÿÿ8Û¶Òƒı0
+^
+java:S1612"<Replace this lambda with method reference 'random::nextInt'.(š€ª¢ıÿÿÿÿ8Û¶Òƒı0
+n
+java:S4276"QRefactor this code to use the more specialised Functional Interface 'IntSupplier'(¢şøÊ8Ü¶Òƒı0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(¯¯ÿÑ8Ü¶Òƒı0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ãºäÀøÿÿÿÿ8Ü¶Òƒı0
+U	java:S106 "9Replace this use of System.out or System.err by a logger.(€Â‹ä8Ş¶Òƒı0
+Z	java:S106!"9Replace this use of System.out or System.err by a logger.(ÄÃçÍúÿÿÿÿ8Ş¶Òƒı0
+[
+java:S1612#"?Replace this lambda with method reference 'String::startsWith'.(ê“ÑA8à¶Òƒı0
+U	java:S106%"9Replace this use of System.out or System.err by a logger.(·¹–8á¶Òƒı0
+Z	java:S106&"9Replace this use of System.out or System.err by a logger.(øª²€ûÿÿÿÿ8â¶Òƒı0
+Z	java:S106-"9Replace this use of System.out or System.err by a logger.(¼Ï„şÿÿÿÿ8ã¶Òƒı0
+Z	java:S1061"9Replace this use of System.out or System.err by a logger.(ğÔ¤Õûÿÿÿÿ8ä¶Òƒı0
+H
+java:S14814"&Remove this unused "x" local variable.(¨ÿÆãøÿÿÿÿ8å¶Òƒı0
+U	java:S106D"9Replace this use of System.out or System.err by a logger.( Ó¹È8ç¶Òƒı0
+Z	java:S106G"9Replace this use of System.out or System.err by a logger.(îÍ±©øÿÿÿÿ8ç¶Òƒı0
+Z	java:S106R"9Replace this use of System.out or System.err by a logger.(¼ÜƒØûÿÿÿÿ8é¶Òƒı0

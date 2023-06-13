@@ -1,0 +1,8 @@
+
+£
+java:S1186 "€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.( í„÷ûÿÿÿÿ8ö²è³ş0
+b
+java:S1854"FRemove this useless assignment to local variable "squirrelComparator".(ïõ¸k8ú²è³ş0
+S
+java:S1481"7Remove this unused "squirrelComparator" local variable.(ïõ¸k8³è³ş0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ìğ…Í8‚³è³ş0

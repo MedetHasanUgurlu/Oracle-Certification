@@ -133,23 +133,26 @@ Using close() method is enough. However, we prefer using try with resource.
             <td>Reads a single byte or returns ‐1 if no bytes were available</td> 
         </tr>
         <tr>
-            <td>All streams</td>
-            <td>void close()</td>
-            <td>Closes stream and releases resources</td> 
+            <td>InputStream</td>
+            <td>int read(byte[] b)</td>
+            <td>Reads values into a buffer.Returns number of bytes read</td> 
         </tr>
         <tr>
-            <td>All streams</td>
-            <td>void close()</td>
-            <td>Closes stream and releases resources</td> 
+            <td>Reader</td>
+            <td>int read(char[] c)</td>
+            <td>Reads values into a buffer.Returns number of bytes read</td> 
         </tr>
         <tr>
-            <td>All streams</td>
-            <td>void close()</td>
-            <td>Closes stream and releases resources</td> 
+            <td>InputStream</td>
+            <td>int read(byte[] b,int offset,int length)</td>
+            <td>Reads up to length values into a buffer starting from position offset. Returns number of bytes read </td> 
         </tr>
-       <tr>
-            <td>1,0</td>
-            <td>text, data</td>    
+        <tr>
+            <td>Reader</td>
+            <td>int read(char[] c,int offset,int length)</td>
+            <td>Reads up to length values into a buffer starting from position offset. Returns number of bytes read </td> 
         </tr>
     </table>
 </div>
+
+

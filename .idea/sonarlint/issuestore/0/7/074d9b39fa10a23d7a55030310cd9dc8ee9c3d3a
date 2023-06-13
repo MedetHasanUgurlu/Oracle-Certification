@@ -1,0 +1,16 @@
+
+e
+java:S1192""HDefine a constant instead of duplicating this literal "Metehan" 3 times.(ì£õ8ß·Ú‡ı0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(£çÈºûÿÿÿÿ8í©Ö‡ı0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(½ú§¥8í©Ö‡ı0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(£„ÑÄ8î©Ö‡ı0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(˜¥à§8î©Ö‡ı0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(£çÈºûÿÿÿÿ8î©Ö‡ı0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ÏÜ¥Ğ8î©Ö‡ı0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ì¾·Ïüÿÿÿÿ8î©Ö‡ı0
+U	java:S106"9Replace this use of System.out or System.err by a logger.(˜¥à§8ï©Ö‡ı0
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(£çÈºûÿÿÿÿ8ï©Ö‡ı0
+T	java:S106"9Replace this use of System.out or System.err by a logger.(ğ”†L8ğ©Ö‡ı0
+~
+java:S4276 "\Refactor this code to use the more specialised Functional Interface 'BinaryOperator<String>'(¹ä²şÿÿÿÿ8ñ©Ö‡ı0
+U	java:S106$"9Replace this use of System.out or System.err by a logger.(åÄ ë8áÙÙ‡ı0
