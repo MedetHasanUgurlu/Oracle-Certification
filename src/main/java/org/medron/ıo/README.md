@@ -40,12 +40,116 @@ Linux it is denoted with a single forward slash, /.
         System.out.print(ois.readObject());
     }
 
-new BufferedInputStream(new FileReader("z.txt")); // DOES NOT COMPILE (Stream and Reader mixed.) \
-new BufferedWriter(new FileOutputStream("z.txt")); // DOES NOT COMPILE (Stream and Reader mixed.)\
-new ObjectInputStream(new FileOutputStream("z.txt")); // DOES NOT COMPILE (InputStream and OutputStream mixed) \
-new BufferedInputStream(new InputStream()); // (can not create instance from interface) DOES NOT COMPILE
+    new BufferedInputStream(new FileReader("z.txt")); // DOES NOT COMPILE (Stream and Reader mixed.) \
+    new BufferedWriter(new FileOutputStream("z.txt")); // DOES NOT COMPILE (Stream and Reader mixed.)\
+    new ObjectInputStream(new FileOutputStream("z.txt")); // DOES NOT COMPILE (InputStream and OutputStream mixed) \
+    new BufferedInputStream(new InputStream()); // (can not create instance from interface) DOES NOT COMPILE
 
 
 <div align="center">
 <img src="img.png">
+</div>
+
+## READING AND WRITING DATA
+
+InputStream, OutputStream, Writer and Reader
+
+    public int read() throws IOException
+    public void write(int b) throws IOException
+
+> In both examples, ‐1 is used to indicate the end of the stream.
+
+    void copyStream(InputStream in, OutputStream out) throws IOException{
+        int b;
+        while ((b = in.read()) != -1) {
+            out.write(b);
+        }
+    }
+
+    void copyStream(Reader in, Writer out) throws IOException {
+        int b;
+        while ((b = in.read()) != -1) {
+            out.write(b);
+        }
+    }
+
+### CLOSING THE STREAM
+Using close() method is enough. However, we prefer using try with resource.
+
+    try( FileOutputStream fileWriter = new FileOutputStream(file)){
+        fileWriter.write(bytes);
+    }
+    
+<div align="center">
+<img src="img_1.png">
+</div>
+    
+
+### mark() and reset()
+
+    public void readData(InputStream is) throws IOException {
+    System.out.print((char) is.read()); // L
+    if (is.markSupported()) {
+    is.mark(100); // Marks up to 100 bytes
+    System.out.print((char) is.read()); // I
+    System.out.print((char) is.read()); // O
+    is.reset(); // Resets stream to position before I
+    }
+    System.out.print((char) is.read()); // I
+    System.out.print((char) is.read()); // O
+    System.out.print((char) is.read()); // N
+    }
+
+## WHY USE THE BUFFERED CLASSES?
+
+    void copyFileWithBuffer(File src, File dest) throws IOException {
+        try (var in = new BufferedInputStream(new FileInputStream(src));
+             var out = new BufferedOutputStream(new FileOutputStream(dest))) {
+            var buffer = new byte[1024];
+            int lengthRead;
+
+            while ((lengthRead = in.read(buffer))> 0) {
+                out.write(buffer, 0, lengthRead);
+            out.flush();
+            }
+        }
+    }
+
+## Concrete Class
+
+<div align="center">
+    <table>
+        <th>Stream Class</th>
+        <th>Method Name</th>
+        <th>Description</th>
+        <tr>
+            <td>All streams</td>
+            <td>void close()</td>
+            <td>Closes stream and releases resources</td> 
+        </tr>
+        <tr>
+            <td>All input streams</td>
+            <td>int read()</td>
+            <td>Reads a single byte or returns ‐1 if no bytes were available</td> 
+        </tr>
+        <tr>
+            <td>All streams</td>
+            <td>void close()</td>
+            <td>Closes stream and releases resources</td> 
+        </tr>
+        <tr>
+            <td>All streams</td>
+            <td>void close()</td>
+            <td>Closes stream and releases resources</td> 
+        </tr>
+        <tr>
+            <td>All streams</td>
+            <td>void close()</td>
+            <td>Closes stream and releases resources</td> 
+        </tr>
+       <tr>
+            <td>1,0</td>
+            <td>text, data</td>    
+        </tr>
+    </table>
 </div>
