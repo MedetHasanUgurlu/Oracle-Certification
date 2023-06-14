@@ -1,10 +1,23 @@
 package org.medron.ıo.pack2;
 
 import java.io.*;
+import java.util.Random;
 
 public class Test2 {
     public static void main(String[] args) throws IOException {
         File file = new File("C:\\Users\\mdths\\IdeaProjects\\Oracle Certification\\src\\main\\java\\org\\medron\\ıo\\pack\\test.txt");
+
+        byte[] bytes = new byte[256];
+        Random random = new Random();
+        for (int i = 0; i < 256; i++) {
+            bytes[i] = (byte) random.nextInt(2);
+        }
+        try(BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file))){
+            bufferedOutputStream.write(bytes);
+        }
+
+
+
 //        byte[] bytes = {1,0,1,1,0,0};
 //
 //        try( FileOutputStream fileWriter = new FileOutputStream(file)){
@@ -30,20 +43,20 @@ public class Test2 {
 
     }
 
-    public void copy(File src,File destination) throws IOException {
-        try(
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(src));
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(destination));
-        ){
-            byte[] bytes = new byte[1024];
-            int b ;
-            while ((b = bufferedInputStream.read(bytes)) != -1){
-                bufferedOutputStream.write(bytes,0,b);
-                bufferedOutputStream.flush();
-            }
-
-        }
-
-    }
+//    public void copy(File src,File destination) throws IOException {
+//        try(
+//                BufferedInputStream bufferedInputStream = new BufferedInputStream(new FileInputStream(src));
+//                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(destination));
+//        ){
+//            byte[] bytes = new byte[1024];
+//            int b ;
+//            while ((b = bufferedInputStream.read(bytes)) != -1){
+//                bufferedOutputStream.write(bytes,0,b);
+//                bufferedOutputStream.flush();
+//            }
+//
+//        }
+//
+//    }
 
 }

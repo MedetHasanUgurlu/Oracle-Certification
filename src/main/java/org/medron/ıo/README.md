@@ -156,3 +156,23 @@ Using close() method is enough. However, we prefer using try with resource.
 </div>
 
 
+## BUFFERING CHARACTER DATA
+
+    void copyTextFileWithBuffer(File src, File dest) throws IOException {
+
+        try (var reader = new BufferedReader(new FileReader(src));
+             var writer = new BufferedWriter(new FileWriter(dest))) {
+
+            String s;
+            while ((s = reader.readLine()) != null) {
+                writer.write(s);
+                writer.newLine();
+            }
+        }
+    }
+
+## SERIALIZING DATA
+
+**Serialization** is the process of converting an in‐memory object to a byte stream.\
+**Deserialization** is the process of converting from a byte stream into an object.
+
