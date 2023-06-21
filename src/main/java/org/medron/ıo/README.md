@@ -173,6 +173,36 @@ Using close() method is enough. However, we prefer using try with resource.
 
 ## SERIALIZING DATA
 
+<div align="center">
+<img src="img_3.png">
+</div>
+
 **Serialization** is the process of converting an in‐memory object to a byte stream.\
 **Deserialization** is the process of converting from a byte stream into an object.
 
+> Any field that is marked **_transient_** will not be saved to a stream when the class is serialized.
+
+### SERIALVERSIONUID
+
+     private static final long serialVersionUID = 1L;
+
+A static serialVersionUID variable in every class that implements Serializable. The version is stored with each object as part of serialization.
+Then, every time the class structure changes, this value is updated or incremented.
+
+
+Generally, we use transient for password. We don't want to include password in stream.
+
+### How to Make a Class-Serializable
+* The class must be marked Serializable.
+* Every instance member of the class is serializable, marked
+transient, or has a null value at the time of serialization.
+
+<div align="center">
+<img src="img_4.png">
+</div>
+
+### Storing Data with ObjectOutputStream and ObjectInputSt    ream
+The ObjectInputStream class is used to deserialize an object
+from a stream, while the ObjectOutputStream is used to serialize
+an object to a stream. They are high‐level streams that operate
+on existing streams.

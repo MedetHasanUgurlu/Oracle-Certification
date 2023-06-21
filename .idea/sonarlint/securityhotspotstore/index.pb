@@ -184,8 +184,6 @@ e
 5src/main/java/org/medron/concurrency/pack7/Sheep.java,3\0\3034c973ab81614eb4f652cac296430b7c7de25f
 f
 6src/main/java/org/medron/concurrency/pack7/Wallet.java,0\4\04903863640222a82a2a56c832216348da0fa559
-f
-6src/main/java/org/medron/advancedclassdesign/README.md,9\9\99963347ca96ade464e353177bbb2b0ab276a36f
 ^
 .src/main/java/org/medron/classdesign/README.md,f\7\f733c360ab78d1584a2d4c8c65234cfc41246b5d
 ^
@@ -512,3 +510,9 @@ Q.idea/sonarlint/securityhotspotstore/9/b/9b1e837961236d43fc5ff9def5db5d735e5050
 Q.idea/sonarlint/securityhotspotstore/9/8/986e63d21c83303f707fa5798ac4a43495f3e8ce,2\f\2f481f496abcbf71ee855ac249afbfdf36ecc065
 �
 Q.idea/sonarlint/securityhotspotstore/9/8/9847f60534889bea3eb20d9d4e4b34bd85e85cab,3\6\36c8879d0d400bd6a1a35fb0893b36353e3f55cd
+\
+,src/main/java/org/medron/ıo/pack/Test1.java,2\3\23e85d885871a677548b52457d2cb6f737a125d7
+]
+-src/main/java/org/medron/ıo/pack2/Test2.java,e\a\ea5c0bf9aaef771e25822d10b11239da2db86772
+Z
+*src/main/java/org/medron/ıo/pack/test.txt,6\4\64973368499d8784a96661b3990aa7ba858fbfad
