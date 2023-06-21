@@ -155,4 +155,8 @@ initialized with a value when they are declared.
 ø There are four types of nested classes you will need to know about: member inner classes, local classes,
     anonymous classes, and static nested classes.
 
+<div align="center">
+<img src="img_2.png">
+</div>
+
 [«« Go Back ««](https://github.com/MedetHasanUgurlu/Oracle-Certification) 
