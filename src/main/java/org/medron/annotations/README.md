@@ -1,9 +1,5 @@
 # Annotations
-* _**Metadata**_ is data that provides information about other data. Imagine our zoo is having a sale
-  on tickets. The attribute data includes the price, the expiration
-  date, and the number of tickets purchased. In other words, the
-  attribute data is the transactional information that makes up
-  the ticket sale and its contents.
+* _**Metadata**_ is data that provides information about other data. 
 
 ### Rule
 
@@ -29,19 +25,24 @@ manage data about our application.
 
 
     @Exercise() 
-    public class Cheetah {}
+    public class Cheetah {
+    }
+
     @Exercise 
-    public class Sloth {}
+    public class Sloth {
+    }
+
     @Exercise
-    public class ZooEmployee {}
+    public class ZooEmployee {
+    }
 
 
 
 
 
 * It looks a lot like an abstract method.Behind the scenes,
-the JVM is creating elements as interface methods and
-annotations as implementations of these interfaces. 
+the JVM is creating **elements as interface methods** and
+**_annotations as implementations of these interfaces_**. 
 <br>
 
 
