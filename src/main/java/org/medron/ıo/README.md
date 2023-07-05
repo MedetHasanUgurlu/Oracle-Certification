@@ -206,3 +206,42 @@ The ObjectInputStream class is used to deserialize an object
 from a stream, while the ObjectOutputStream is used to serialize
 an object to a stream. They are high‐level streams that operate
 on existing streams.
+
+    public ObjectInputStream(InputStream in) throws IOException
+    public ObjectOutputStream(OutputStream out) throws IOException
+
+for exam, you should know this method.
+
+    // ObjectInputStream
+    public Object readObject() throws IOException, ClassNotFoundException
+    // ObjectOutputStream
+    public void writeObject(Object obj) throws IOException
+
+Serialize the gorillas.
+
+    void saveToFile(List<Gorilla> gorillas, File file) throws Exception {
+
+        try(ObjectOutputStream outputStream = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(file)))){
+            for(Gorilla gorilla: gorillas){
+                outputStream.writeObject(gorilla);
+            }
+        }
+    }
+
+Deserialize the gorillas.
+
+    List<Gorilla> readFromFile(File file) throws Exception {
+        List<Gorilla> gorillas = new ArrayList<>();
+        try(ObjectInputStream objectInputStream = new ObjectInputStream(new BufferedInputStream(new FileInputStream(file)))){
+            while (true){
+                var object = objectInputStream.readObject();
+                if(object instanceof Gorilla){
+                    gorillas.add((Gorilla) object);
+                }
+            }
+        }catch (EOFException e){
+            e.printStackTrace();
+        }
+        return gorillas;
+    }
+

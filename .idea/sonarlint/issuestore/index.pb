@@ -78,8 +78,6 @@ g
 7src/main/java/org/medron/advancedclassdesign/Main9.java,8\1\817f622199088a4375d30363eea6c39e5a3383de
 d
 4src/main/java/org/medron/exception/pack2/Monkey.java,2\0\20fd4f065be1395ebc7f3e63e07381c64479a7c7
-[
-+src/main/java/org/medron/corejava/README.md,5\e\5e923fe9656a62644c2880bbf46ac3c5953ce9d0
 Z
 *src/main/java/org/medron/modules/README.md,1\2\12ba614aed1dda94e14e5ceef60cd227654aec6f
 d
@@ -317,10 +315,6 @@ G.idea/sonarlint/issuestore/9/3/93d620d9d0a818f4ea72639370f877d230b58e2e,4\f\4f
 w
 G.idea/sonarlint/issuestore/6/c/6c82ff54cf9c7b9121ea007ae8408f13ecb12f9b,d\d\dd1d1a1ff387224df6d8f18a2afc99080fdd2175
 w
-G.idea/sonarlint/issuestore/f/2/f204ccf0c6bbd696540abad605b730544f042504,e\3\e3ea2dd64a9e06ef388978ea97b4434e0c105cf9
-Å
-Q.idea/sonarlint/securityhotspotstore/f/2/f204ccf0c6bbd696540abad605b730544f042504,f\5\f5bb6c28ce2f743dea071685ddaa5046e2a7b874
-w
 G.idea/sonarlint/issuestore/2/b/2b8cc669857e89c871f78215b655197cc6a47062,8\6\86391e37a6c0d450b32d8963c74755adf65ab8f5
 w
 G.idea/sonarlint/issuestore/2/1/21b79fb66a61339f51770043da8a31196bc3962c,2\b\2b8a6de27e9fcd3a4b0a17d73817cc5fdc2e9db9
@@ -512,3 +506,7 @@ Z
 ,src/main/java/org/medron/ƒ±o/pack3/main.java,f\4\f49c79d9aa8c059cb1db626a6babb9bf138be66e
 f
 6src/main/java/org/medron/advancedclassdesign/README.md,9\9\99963347ca96ade464e353177bbb2b0ab276a36f
+^
+.src/main/java/org/medron/annotations/README.md,8\b\8b8ebfe75771596b9d4746f23b599b68cabc7c22
+^
+.src/main/java/org/medron/concurrency/README.md,f\2\f204ccf0c6bbd696540abad605b730544f042504
