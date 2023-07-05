@@ -201,7 +201,7 @@ transient, or has a null value at the time of serialization.
 <img src="img_4.png">
 </div>
 
-### Storing Data with ObjectOutputStream and ObjectInputSt    ream
+### Storing Data with ObjectOutputStream and ObjectInputStream
 The ObjectInputStream class is used to deserialize an object
 from a stream, while the ObjectOutputStream is used to serialize
 an object to a stream. They are high‐level streams that operate

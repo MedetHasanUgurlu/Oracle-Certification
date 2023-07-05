@@ -9,12 +9,12 @@
 ## THREAD OLUŞTURMA YONTEMLERI
 
 <div align="center">
-    <img src="img.png" alt="">
+    <img src="pack10/images/img.png" alt="">
 </div> 
 
 ### synchronized
 <div align="center">
-    <img src="img_1.png" alt="">
+    <img src="pack10/images/img_1.png" alt="">
 </div> 
 
 ### using multiple lock
@@ -22,7 +22,7 @@
     public final Object lock2 = new Object();
 
 <div align="center">
-<img src="img_2.png">
+<img src="pack10/images/img_2.png">
 </div>
 
 ### Thread pool
@@ -43,14 +43,14 @@ ExecutorService.
 
 
 <div align="center">
-<img src="img_9.png">
+<img src="pack10/images/img_9.png">
 </div> 
 
 _executor.shutdown()_ does not actually stop any task however _**executor.shutdownNow()**_ stops when we called.
 
 ### submit vs execute
 <div align="center">
-<img src="img_10.png">
+<img src="pack10/images/img_10.png">
 </div>
 
 ### wait and notify
@@ -58,14 +58,14 @@ _executor.shutdown()_ does not actually stop any task however _**executor.shutdo
 notify() green light
 
 <div align="center">
-<img src="img_3.png">
+<img src="pack10/images/img_3.png">
 </div>
 
 
 ### deadlock
 
 <div>
-<img src="img_5.png">
+<img src="pack10/images/img_5.png">
 </div>
 
 ### semaphore
@@ -77,22 +77,22 @@ Semophere controls the amount of thread which uses methods.\
     
 
 <div align="center">
-<img src="img_6.png">
-<img src="img_7.png">
+<img src="pack10/images/img_6.png">
+<img src="pack10/images/img_7.png">
 </div>
 
 ### Callable and Future
 > return value, that's all.
 <div align="center">
-<img src="img_8.png">
-<img src="img_11.png">
+<img src="pack10/images/img_8.png">
+<img src="pack10/images/img_11.png">
 </div>
 
 ### invokeAll vs invokeAny
 > invokeAll() returns Future list however invokeAny() returns only one value.
 
 <div align="center">
-<img src="img_12.png">
+<img src="pack10/images/img_12.png">
 </div>
 
 ### ScheduledExecutorService schedule() vs scheduleAtFixedRateTime()
@@ -100,18 +100,18 @@ Semophere controls the amount of thread which uses methods.\
 >
 
 <div align="center">
-<img src="img_13.png">
+<img src="pack10/images/img_13.png">
 </div>
 
 
 ## Thread Safety
 
 <div align="center">
-<img src="img_14.png">
+<img src="pack10/images/img_14.png">
 </div>
 
 <div align="center">
-<img src="img_15.png">
+<img src="pack10/images/img_15.png">
 </div>
 
 ### Atomic Class
@@ -128,13 +128,13 @@ Semophere controls the amount of thread which uses methods.\
 ### SYNCHRONIZING ON METHODS
 > two methods are the same.
 <div align="center">
-<img src="img_16.png">
+<img src="pack10/images/img_16.png">
 </div> 
 
 ## UNDERSTANDING THE LOCK FRAMEWORK
 ### ReentrantLock
 <div align="center">
-<img src="img_17.png">
+<img src="pack10/images/img_17.png">
 </div>
 
 > tryLock() lock elde edilmişse true elde edilmemişse false döner.
@@ -156,11 +156,11 @@ is acquired. For calls with tryLock(), you need to call unlock()
 only if the method returned true.
 
 ### ORCHESTRATING TASKS WITH A CYCLICBARRIER
-![img_18.png](img_18.png)
+![img_18.png](pack10/images/img_18.png)
 
 ### Using Concurrent Collections
 
-![img_19.png](img_19.png)
+![img_19.png](pack10/images/img_19.png)
 
 > Immutable objects can be accessed by any number of
 threads and do not require synchronization. By definition,
@@ -232,7 +232,7 @@ consistency error.
 Bir listede iterasyon yaparken o listeye ayriyeten eleman eklediğimizde hata alırız. \
 Bundan dolayı immutable olan CopyOnWriteArrayList kullanabiliriz.
 <div align="center">
-<img src="img_20.png">
+<img src="pack10/images/img_20.png">
 </div>
 
 ## Working with Parallel Streams
@@ -253,7 +253,7 @@ environment.
 ### parallelStream() vs stream()
 
 <div align="center">
-    <img src="img_21.png">
+    <img src="pack10/images/img_21.png">
 </div>
 
 * as you can see, a result is not ordered we force to calculate ın order.
@@ -273,7 +273,7 @@ unexpected data.
 
 ### Combining Results with collect()
 <div align="center">
-    <img src="img_22.png">
+    <img src="pack10/images/img_22.png">
 </div>
 
 > Also, like reduce(), the accumulator and combiner operations
@@ -290,7 +290,7 @@ parallel reduction
 # AVOIDING STATEFUL OPERATIONS
 
 <div align="center">
-    <img src="img_23.png">
+    <img src="pack10/images/img_23.png">
 </div>
 
 * This implementation removes the stateful operation and relies
