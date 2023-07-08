@@ -245,3 +245,152 @@ Deserialize the gorillas.
         return gorillas;
     }
 
+Test
+
+    var gorillas = new ArrayList<Gorilla>();
+    gorillas.add(new Gorilla("Grodd", 5, false));
+    gorillas.add(new Gorilla("Ishmael", 8, true));
+    File dataFile = new File("gorilla.data");
+    saveToFile(gorillas, dataFile);
+    var gorillasFromDisk = readFromFile(dataFile);
+    System.out.print(gorillasFromDisk);
+
+Result\
+[[name=Grodd, age=5, friendly=false],[name=Ishmael, age=8, friendly=true]]
+
+
+### PRINTING DATA
+PrintStream and PrintWriter are high‐level output print
+streams classes that are useful for writing text data to a stream.
+
+The print stream classes have the distinction of being the only
+I/O stream classes we cover that do not have corresponding
+input stream classes. And unlike other OutputStream classes,
+PrintStream does not have Output in its name.
+
+
+    public PrintStream(OutputStream out)
+    public PrintWriter(Writer out)
+
+> It may surprise you that you've been regularly using a
+PrintStream throughout this book. Both System.out and
+System.err are PrintStream objects. Likewise, System.in,
+often useful for reading user input, is an InputStream.
+We'll be covering all three of these objects in the next part
+of this chapter on user interactions.
+> 
+> 
+
+#### print()
+). The print
+stream classes include numerous overloaded versions of
+print(), which take everything from primitives and String
+values, to objects.
+
+The following sets of print/ write code are equivalent.
+
+    try (PrintWriter out = new PrintWriter("zoo.log")) {
+        out.write(String.valueOf(5)); // Writer method
+        out.print(5); // PrintWriter method
+
+        var a = new Chimpanzee();
+        out.write(a==null ? "null": a.toString()); // Writer method
+        out.print(a); // PrintWriter method
+    }
+
+#### println()
+The println() methods are especially helpful, as the line break
+character is dependent on the operating system. For example,
+in some systems a line feed symbol, \n, signifies a line break,
+whereas other systems use a carriage return symbol followed
+by a line feed symbol, \r\n, to signify a line break.
+
+#### format()
+Each print stream class
+includes a format() method, which includes an overloaded
+version that takes a Locale.
+
+    // PrintStream
+    public PrintStream format(String format, Object args…)
+    public PrintStream format(Locale loc, String format, Object args…)
+    // PrintWriter
+    public PrintWriter format(String format, Object args…)
+    public PrintWriter format(Locale loc, String format, Object args…)
+
+Example
+
+    String name = "Lindsey";
+    int orderId = 5;
+    
+    System.out.format("Hello "+name+", order "+orderId+" is ready");
+    System.out.format("Hello %s, order %d is ready", name, orderId);
+
+**Result**\
+Hello Lindsey, order 5 is ready
+
+<div align="center">
+<table>
+<thead>Common print stream format() symbols</thead>
+<th>Symbol</th>
+<th>Description</th>
+<tr>
+<td>%s</td>
+<td>Applies to any type, commonly String values</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>Applies to floating‐point values like float and double</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>Applies to integer values like int and long</td>
+</tr>
+<tr>
+<td>%n</td>
+<td>Inserts a line break using the system‐dependent line separator</td>
+</tr>
+</table>
+</div>
+
+    String name = "James";
+    double score = 90.25;
+    int total = 100;
+    System.out.format("%s:%n Score: %f out of %d", name, score, total);
+
+**Result**\
+James:\
+   Score: 90.250000 out of 100
+
+
+
+> Mixing data types may cause exceptions at runtime.
+
+    System.out.format("Food: %d tons", 2.0); //IllegalFormatConversionException
+##### USING FORMAT() WITH FLAGS
+
+In the previous example, the floating‐point number was printed as 90.250000.\
+By default, %f displays exactly six digits past the decimal.
+. If you want to display only one digit after the
+decimal, you could use %.1f instead of %f.
+
+    System.out.format("%s:%n Score: %.1f out of %d", name, score, total);
+**Result**\
+James:\
+Score: 90.3 out of 100
+
+> Method relies on rounding, rather than truncating when shortening numbers.
+
+The format() method also supports two additional
+features. You can specify the total length of output by
+using a number before the decimal symbol. By default, the
+method will fill the empty space with blank spaces. You
+can also fill the empty space with zeros, by placing a single
+zero before the decimal symbol.
+
+
+      var pi = 3.14159265359;
+      System.out.format("[%f]",pi); // [3.141593]
+      System.out.format("[%12.8f]",pi); // [ 3.14159265]
+      System.out.format("[%012f]",pi); // [00003.141593]
+      System.out.format("[%12.2f]",pi); // [ 3.14]
+      System.out.format("[%.3f]",pi); // [3.142]

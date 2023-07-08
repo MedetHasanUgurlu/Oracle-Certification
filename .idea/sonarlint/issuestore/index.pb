@@ -196,8 +196,6 @@ g
 7src/main/java/org/medron/concurrency/pack10/Test33.java,4\d\4d3bdb9c5b046076564df0354e50dee49c83f891
 g
 7src/main/java/org/medron/concurrency/pack10/Test34.java,6\c\6c82ff54cf9c7b9121ea007ae8408f13ecb12f9b
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 w
 G.idea/sonarlint/issuestore/1/0/102208dcf92d4c02221e8d386db9960f89666613,9\3\93d1626aeab2f9971ec739c09b43e7d6db6f47ef
 Å
@@ -291,8 +289,6 @@ Q.idea/sonarlint/securityhotspotstore/f/e/fe28baa02244b1fdb5f25ac8febdb8d03cce31
 Å
 Q.idea/sonarlint/securityhotspotstore/f/d/fd1f9dd320f377d8c4e76a79191188f980eccefc,d\c\dc2caef275abb5f7270782ce7d4f7023fd060507
 w
-G.idea/sonarlint/issuestore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,b\4\b4a0b63ce8560bbc5de0f9995c20cc861dc2adb3
-w
 G.idea/sonarlint/issuestore/4/d/4d3bdb9c5b046076564df0354e50dee49c83f891,7\1\7186ed4b34fec3dbb44e16ea44a7e7761fdb2e49
 Å
 Q.idea/sonarlint/securityhotspotstore/6/c/6c82ff54cf9c7b9121ea007ae8408f13ecb12f9b,2\b\2b4d0621d60c87b6d0922f6999c86bf46d4be69a
@@ -300,8 +296,6 @@ Q.idea/sonarlint/securityhotspotstore/6/c/6c82ff54cf9c7b9121ea007ae8408f13ecb12f
 Q.idea/sonarlint/securityhotspotstore/6/5/65a8a0ebf534f7a7a6aaee4067ccfea88a918d3e,4\5\45f16d4c20f7d61cd216f186d5127dca1ef09cdb
 Å
 Q.idea/sonarlint/securityhotspotstore/a/a/aa748402e84be7d89ad2bb2360376c18700d00b9,b\4\b44577dbadc5cd97e2f45d6d677225d559a2743a
-Å
-Q.idea/sonarlint/securityhotspotstore/8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d,1\0\10a03f31c4dce92cb371e761ce9429428bb6c176
 Å
 Q.idea/sonarlint/securityhotspotstore/9/3/93d620d9d0a818f4ea72639370f877d230b58e2e,4\9\49935a325f32339bc00bf2093699877d9474af4f
 Å
@@ -350,8 +344,6 @@ w
 G.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec,8\6\863e0292fd7e9b3e74dafd6cc01f73ba76346482
 Å
 Q.idea/sonarlint/securityhotspotstore/0/f/0f8f680a2fd550489cd5d69f827dc26b616770b1,e\6\e6226bf84aa74ae4905f737568aca284ebfe3ce2
-w
-G.idea/sonarlint/issuestore/5/e/5e923fe9656a62644c2880bbf46ac3c5953ce9d0,c\c\ccdfb9327a39b4bfb2d45738ea3864ae8165de1d
 Å
 Q.idea/sonarlint/securityhotspotstore/0/f/0fca1bb9c9457c0dc32c3959ab823926322b1916,e\3\e3c72c417804809ba7472a0e1717e71c7a78a636
 w
@@ -449,8 +441,6 @@ Q.idea/sonarlint/securityhotspotstore/4/0/4033d671c591573f1a5d08a0b983ec1eab692e
 Å
 Q.idea/sonarlint/securityhotspotstore/6/1/61323289b84f68dc9e8df692a696f2a91edd24de,9\d\9df85ba960b93c803d82343279fd34e2f10799ad
 Å
-Q.idea/sonarlint/securityhotspotstore/5/e/5e923fe9656a62644c2880bbf46ac3c5953ce9d0,1\7\17ce3f25daab5bcea0316ac995561a637f181aca
-Å
 Q.idea/sonarlint/securityhotspotstore/5/1/5185661cd87292bf46c6b247ca8910caee2906c2,9\c\9cb4c6024eac91423a0ce9fe06214787b121f3a9
 Å
 Q.idea/sonarlint/securityhotspotstore/4/a/4aadbce10444801eb63322b0eb1ae316e5100a19,4\5\459af5140c4d8dd58684cd845b12e00721d15356
@@ -502,11 +492,13 @@ Z
 *src/main/java/org/medron/ƒ±o/pack/test.txt,6\4\64973368499d8784a96661b3990aa7ba858fbfad
 ]
 -src/main/java/org/medron/ƒ±o/pack2/Test2.java,e\a\ea5c0bf9aaef771e25822d10b11239da2db86772
-\
-,src/main/java/org/medron/ƒ±o/pack3/main.java,f\4\f49c79d9aa8c059cb1db626a6babb9bf138be66e
 f
 6src/main/java/org/medron/advancedclassdesign/README.md,9\9\99963347ca96ade464e353177bbb2b0ab276a36f
 ^
 .src/main/java/org/medron/annotations/README.md,8\b\8b8ebfe75771596b9d4746f23b599b68cabc7c22
 ^
 .src/main/java/org/medron/concurrency/README.md,f\2\f204ccf0c6bbd696540abad605b730544f042504
+[
++src/main/java/org/medron/corejava/README.md,5\e\5e923fe9656a62644c2880bbf46ac3c5953ce9d0
+`
+0src/main/java/org/medron/corejava/pack/Test.java,9\5\953f59667d5e56eb0f6f1d41a7e2796ce3db18f5
