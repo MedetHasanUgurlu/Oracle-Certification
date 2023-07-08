@@ -380,7 +380,7 @@ Score: 90.3 out of 100
 
 > Method relies on rounding, rather than truncating when shortening numbers.
 
-The format() method also supports two additional
+ 
 features. You can specify the total length of output by
 using a number before the decimal symbol. By default, the
 method will fill the empty space with blank spaces. You
@@ -394,3 +394,140 @@ zero before the decimal symbol.
       System.out.format("[%012f]",pi); // [00003.141593]
       System.out.format("[%12.2f]",pi); // [ 3.14]
       System.out.format("[%.3f]",pi); // [3.142]
+
+**Sample PrintWriter Program**
+
+
+
+      File source = new File("zoo.log");
+      try (var out = new PrintWriter(new BufferedWriter(new FileWriter(source)))) {
+         out.print("Today's weather is: ");
+         out.println("Sunny");
+         out.print("Today's temperature at the zoo is: ");
+         out.print(1 / 3.0);
+         out.println('C');
+         out.format("It has rained %5.2f inches this year %d", 10.2, 2021);
+         out.println();
+         out.printf("It may rain %s more inches this year", 1.2);
+      }
+
+**Result**\
+Today's weather is: Sunny\
+Today's temperature at the zoo is: 0.3333333333333333C\
+It has rained 10.20 inches this year 2021\
+It may rain 1.2 more inches this year
+
+#### INPUTSTREAMREADER AND OUTPUTSTREAMWRITER
+Most of the time, you can't wrap byte and character
+streams with each other, although as we mentioned, there
+are exceptions. The InputStreamReader class wraps an
+InputStream with a Reader, while the OutputStreamWriter
+class wraps an OutputStream with a Writer.
+
+
+
+      try (Reader r = new InputStreamReader(System.in);
+         Writer w = new OutputStreamWriter(System.out)) {
+      }
+
+
+
+<div align="center">
+<h6>Diagram of I/O stream classes</h6>
+<img src="img_5.png">
+</div> 
+
+## Interacting with Users
+
+### READING INPUT AS A STREAM
+`System.in` returns an InputStream and is used to retrieve text input from the user.
+
+      BufferedReader bufferedReader = new BufferedReader(new InputStream(System.in));
+      String text = bufferedReader.readLine();
+      System.out.println(text);
+
+### CLOSING SYSTEM STREAMS
+You might have noticed that we never created or closed
+System.out, System.err, and System.in when we used them. In
+fact, these are the only I/O streams in the entire chapter that
+we did not use a try‐with‐resources block on!
+
+Because these are static objects, the System streams are shared
+by the entire application. The JVM creates and opens them for
+us. They can be used in a try‐with‐resources statement or by
+calling close(), although closing them is not recommended.
+Closing the System streams makes them permanently.
+
+
+_What do you think the following code snippet prints?_
+
+      try (var out = System.out) {
+      }
+      System.out.println("Hello"); 
+
+> Nothing. It prints nothing. Remember, the methods of
+PrintStream do not throw any checked exceptions and rely on
+the checkError() to report errors, so they fail silently.
+
+
+### ACQUIRING INPUT WITH CONSOLE
+
+The java.io.Console class is specifically designed to handle
+user interactions. After all, System.in and System.out are just
+raw streams, whereas Console is a class with numerous
+methods centered around user input.\
+The Console class is a singleton because it is accessible only
+from a factory method and only one instance of it is created by
+the JVM. For example, if you come across code on the exam
+such as the following, it does not compile, since the
+constructors are all private
+
+      Console c = new Console(); // DOES NOT COMPILE
+
+      Console console = System.console();
+         if (console != null) {
+            String userInput = console.readLine();
+            console.writer().println("You entered: " + userInput);
+         } else {
+            System.err.println("Console not available");
+      }
+
+The Console class includes access to two streams for reading
+and writing data.
+   
+      public Reader reader()
+      public PrintWriter writer()
+<br>
+
+      Console console = System.console();
+      console.writer().format(new Locale("fr", "CA"), "Hello
+      World");
+> Unlike the print stream classes, Console does not include
+an overloaded format() method that takes a Locale
+instance. Instead, Console relies on the system locale. Of
+course, you could always use a specific Locale by
+retrieving the Writer object and passing your own Locale
+instance.
+
+
+### readLine() and readPassword()
+
+The Console class includes four methods for retrieving regular
+text data from the user.
+
+      public String readLine()
+      public String readLine(String fmt, Object… args)
+
+      public char[] readPassword()
+      public char[] readPassword(String fmt, Object… args)
+
+The readPassword() methods are similar to the readLine()
+method with two important differences.
+
+* The text the user types is not echoed back and displayed on the screen as they are typing.
+* The data is returned as a char[] instead of a String.
+
+> The first feature improves security by not showing the
+password on the screen if someone happens to be sitting next
+to you. The second feature involves preventing passwords from
+entering the String pool
