@@ -182,8 +182,6 @@ f
 6src/main/java/org/medron/concurrency/pack7/Wallet.java,0\4\04903863640222a82a2a56c832216348da0fa559
 c
 3src/main/java/org/medron/concurrency/pack8/Zoo.java,b\8\b8a72620bf82750f8b4272d9225128967e3f6e58
-^
-.src/main/java/org/medron/classdesign/README.md,f\7\f733c360ab78d1584a2d4c8c65234cfc41246b5d
 o
 ?src/main/java/org/medron/concurrency/pack10/LionPenManager.java,6\5\65a8a0ebf534f7a7a6aaee4067ccfea88a918d3e
 f
@@ -512,3 +510,9 @@ Z
 -src/main/java/org/medron/ıo/TestConsole.java,5\8\588a37c1ece58f2a7a9d3b61bedbb3c835b203ec
 a
 1src/main/java/org/medron/ıo/pack4/DemoFinal.java,a\7\a7c4491f5d9a2b51eddcf8e2881adbaaacee0237
+V
+&src/main/java/org/medron/ıo/README.md,3\5\357a499e535c1d577716556f10d3aa9d02468874
+]
+-src/main/java/org/medron/ıo/pack4/Test1.java,e\3\e355e21a99467462e8b2329c67bda36b1ef56504
+Z
+*src/main/java/org/medron/ıo/pack4/zoo.txt,7\f\7f2a8ba8dbcedefcf5e5754baa39b164dba3e6ab
