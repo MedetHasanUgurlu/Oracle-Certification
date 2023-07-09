@@ -506,3 +506,9 @@ Z
 *src/main/java/org/medron/ıo/pack3/zoo.txt,d\b\db3d0cb018764c86137eb7d3aab5f62587966bc1
 \
 ,src/main/java/org/medron/ıo/pack3/main.java,f\4\f49c79d9aa8c059cb1db626a6babb9bf138be66e
+]
+-src/main/java/org/medron/ıo/TestConsole.java,5\8\588a37c1ece58f2a7a9d3b61bedbb3c835b203ec
+a
+1src/main/java/org/medron/ıo/pack4/DemoFinal.java,a\7\a7c4491f5d9a2b51eddcf8e2881adbaaacee0237
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d

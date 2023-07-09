@@ -87,18 +87,23 @@ Using close() method is enough. However, we prefer using try with resource.
     
 
 ### mark() and reset()
+we have an InputStream instance whose next
+values are LION.
+
+<br>
 
     public void readData(InputStream is) throws IOException {
-    System.out.print((char) is.read()); // L
-    if (is.markSupported()) {
-    is.mark(100); // Marks up to 100 bytes
-    System.out.print((char) is.read()); // I
-    System.out.print((char) is.read()); // O
-    is.reset(); // Resets stream to position before I
-    }
-    System.out.print((char) is.read()); // I
-    System.out.print((char) is.read()); // O
-    System.out.print((char) is.read()); // N
+      System.out.print((char) is.read()); // L
+
+      if (is.markSupported()) {
+         is.mark(100); // Marks up to 100 bytes
+         System.out.print((char) is.read()); // I
+         System.out.print((char) is.read()); // O
+         is.reset(); // Resets stream to position before I
+      }
+      System.out.print((char) is.read()); // I
+      System.out.print((char) is.read()); // O
+      System.out.print((char) is.read()); // N
     }
 
 ## WHY USE THE BUFFERED CLASSES?
