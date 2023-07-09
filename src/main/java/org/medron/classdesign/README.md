@@ -281,7 +281,7 @@ BECHG
   must use a return type that is covariant with the return type of
   the inherited method.
 <br>
-* 
+
       public class Rhino {
         protected CharSequence getName() {
           return "rhino";
