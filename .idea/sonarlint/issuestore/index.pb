@@ -518,7 +518,5 @@ Z
 .src/main/java/org/medron/classdesign/README.md,f\7\f733c360ab78d1584a2d4c8c65234cfc41246b5d
 [
 +src/main/java/org/medron/corejava/README.md,5\e\5e923fe9656a62644c2880bbf46ac3c5953ce9d0
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 ]
 -src/main/java/org/medron/nıo2/pack/Test.java,5\0\503c93e330e017ef8272f5b408d11a3877850bdb

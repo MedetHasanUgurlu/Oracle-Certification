@@ -22,7 +22,7 @@ directory. For instance symbolic link from
 /zoo/favorite to /zoo/cats/lion.
 
 <div align="center">
-<img src="img.png">
+<img src="pack3/img.png">
 </div>
 
 ### CREATING PATH
@@ -93,13 +93,13 @@ symbol is a reserved series of characters that have special
 meaning within some file systems.
 
 <div align="center">
-<img src="img_1.png">
-<img src="img_2.png">
+<img src="pack3/img_1.png">
+<img src="pack3/img_2.png">
 </div>
 
 #### Providing Optional Arguments
 <div align="center">
-<img src="img_4.png">
+<img src="pack3/img_4.png">
 </div>
 
     Path path = Paths.get("schedule.xml");
@@ -339,7 +339,7 @@ apply normalize() to some of our previous paths.
 
 
 <div align="center">
-<img src="img_5.png">
+<img src="pack3/img_5.png">
 </div>
 
 ## Operating on Files and Directories
@@ -533,7 +533,7 @@ large, then you may trigger an OutOfMemoryError trying to load
 all of it into memory.
 
 <div align="center">
-<img src="img_6.png">
+<img src="pack3/img_6.png">
 </div>
 
 > All of these methods except exists() declare IOException.
@@ -641,7 +641,7 @@ and iterate over all of its descendants until some condition is
 met or there are no more elements over which to iterate.
 
 <div align="center">
-<img src="img_8.png">
+<img src="pack3/img_8.png">
 </div>
 
 ### Selecting a Search Strategy
@@ -659,7 +659,7 @@ used to limit how many levels (or hops) from the root the
 search is allowed to go.
 
 <div align="center">
-<img src="img_9.png">
+<img src="pack3/img_9.png">
 </div>
 
 > For the exam, you don't have to understand the details of each
@@ -734,13 +734,13 @@ that points to `/birds`.
 
 
 <div align="center">
-<img src="img_10.png">
+<img src="pack3/img_10.png">
 </div>
 
 **What happens if we try to traverse this tree and follow all
 symbolic links, starting with `/birds/robin`?**
 <div align="center">
-<img src="img_11.png">
+<img src="pack3/img_11.png">
 </div>
 
 After walking a distance of 1 from the start, we hit the symbolic
@@ -826,4 +826,4 @@ so the `filter()` method is not available.
 In this table, file refers to an instance of the
 java.io.File class, while path and otherPath refer to instances
 of the NIO.2 Path interface.
-![img_13.png](img_13.png)
+![img_13.png](pack3/img_13.png)
