@@ -496,8 +496,6 @@ f
 .src/main/java/org/medron/annotations/README.md,8\b\8b8ebfe75771596b9d4746f23b599b68cabc7c22
 ^
 .src/main/java/org/medron/concurrency/README.md,f\2\f204ccf0c6bbd696540abad605b730544f042504
-[
-+src/main/java/org/medron/corejava/README.md,5\e\5e923fe9656a62644c2880bbf46ac3c5953ce9d0
 `
 0src/main/java/org/medron/corejava/pack/Test.java,9\5\953f59667d5e56eb0f6f1d41a7e2796ce3db18f5
 Z
@@ -508,11 +506,17 @@ Z
 -src/main/java/org/medron/ıo/TestConsole.java,5\8\588a37c1ece58f2a7a9d3b61bedbb3c835b203ec
 a
 1src/main/java/org/medron/ıo/pack4/DemoFinal.java,a\7\a7c4491f5d9a2b51eddcf8e2881adbaaacee0237
-9
-	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 Z
 *src/main/java/org/medron/ıo/pack4/zoo.txt,7\f\7f2a8ba8dbcedefcf5e5754baa39b164dba3e6ab
 V
 &src/main/java/org/medron/ıo/README.md,3\5\357a499e535c1d577716556f10d3aa9d02468874
 ]
 -src/main/java/org/medron/ıo/pack4/Test1.java,e\3\e355e21a99467462e8b2329c67bda36b1ef56504
+[
++src/main/java/org/medron/nıo2/pack/foo.txt,d\b\db5b1d3645e33f605fad0c8dfb2368c44cfb3cff
+[
++src/main/java/org/medron/nıo2/pack2/X.java,5\4\5444781e92a75ce6084245518bb7e3aca941b83e
+^
+.src/main/java/org/medron/nıo2/pack2/Main.java,8\f\8fa45140b0b3acb1d3f96fb33b61abc6e612ef53
+^
+.src/main/java/org/medron/classdesign/README.md,f\7\f733c360ab78d1584a2d4c8c65234cfc41246b5d

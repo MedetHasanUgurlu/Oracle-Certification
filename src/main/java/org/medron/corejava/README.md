@@ -98,7 +98,9 @@
 * For strings/characters, numbers are smaller than letters.
 * For strings/characters, uppercase is smaller than lowercase.
 
-    
+<br>
+
+
     Arrays.compare(new int{1,2,3},new int{1,2,4}) //-1
 
     int[][] a;
@@ -118,6 +120,7 @@
   wrapper class. You do need to know these methods. The parse
   methods, such as parseInt(), return a primitive, and the
   valueOf() method returns a wrapper class.
+<br>
 
 
     int primitive = Integer.parseInt("123");
@@ -134,6 +137,7 @@
   missing point as (0,0) since that refers to an actual
   location off the coast of Africa where the user could
   theoretically be.
+<br>
 
 
     String[] array = { "hawk", "robin" }; // [hawk, robin]
