@@ -130,8 +130,6 @@ y
 Isrc/main/java/org/medron/exceptionsassertionslocalization/pack2/Main.java,2\1\21d068b54d0334cb1b045b0a59bf97ea9eaea43e
 l
 <src/main/java/org/medron/genericsandendcapsulation/README.md,a\d\ad8dbda16c8e77f1f98abc80357024f420dee026
-\
-,src/main/java/org/medron/exception/README.md,4\5\45b277764f85958db20ad8c3b0b8d4da894c5453
 „
 Tsrc/main/java/org/medron/exceptionsassertionslocalization/pack/CustomFileReader.java,f\f\ffe27643e3c8187163e6c8b5f30f537a9961b4b6
 x
