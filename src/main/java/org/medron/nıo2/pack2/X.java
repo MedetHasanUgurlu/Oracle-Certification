@@ -8,4 +8,5 @@ public interface X {
     static int multiple(int x){
         return x*2;
     }
+
 }

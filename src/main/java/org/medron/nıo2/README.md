@@ -335,6 +335,13 @@ apply normalize() to some of our previous paths.
     var p3 = Path.of("../../fish.txt");
     System.out.println(p3.normalize()); // ../../fish.txt
 
+
+
+
+<div align="center">
+<img src="img_5.png">
+</div>
+
 ## Operating on Files and Directories
 
 Most of the methods we covered in the Path interface operate
@@ -383,3 +390,440 @@ copy means that the files and subdirectories within the
 directory are not copied. A deep copy means that the entire tree
 is copied, including all of its content and subdirectories. 
 
+### Copying and Replacing Files
+if the target already exists, the copy() method will
+throw an exception. You can change this behavior by providing
+the StandardCopyOption enum value REPLACE_EXISTING to the
+method. The following method call will overwrite the movie.txt
+file if it already exists.
+
+    Files.copy(Paths.get("book.txt"), Paths.get("movie.txt"), StandardCopyOption.REPLACE_EXISTING);
+
+### Copying Files with I/O Streams
+The Files class includes two copy() methods that operate with
+I/O streams.
+
+    public static long copy(InputStream in, Path target,CopyOption… options) throws IOException
+    public static long copy(Path source, OutputStream out) throws IOException
+
+The first method reads the contents of a stream and writes the
+output to a file. The second method reads the contents of a file
+and writes the output to a stream. They are quite convenient if
+you need to quickly read/write data from/to disk.
+
+    try (var is = new FileInputStream("source-data.txt")) {
+    // Write stream data to a file
+        Files.copy(is, Paths.get("/mammals/wolf.txt"));
+    }
+    Files.copy(Paths.get("/fish/clown.xsl"), System.out);
+
+### Copying Files into a Directory
+
+    var file = Paths.get("food.txt");
+    var directory = Paths.get("/enclosure");
+    Files.copy(file, directory);
+
+_**Result**_\
+throws an exception
+
+> The command tries to create a new file, named /enclosure. Since
+the path /enclosure already exists, an exception is thrown at
+runtime. \
+> if the directory did not exist, then it would
+create a new file with the contents of food.txt, but it would be
+called /enclosure.
+
+**_Correct Way_**
+
+    var file = Paths.get("food.txt");
+    var directory = Paths.get("/enclosure/food.txt");
+    Files.copy(file, directory);
+
+
+> You also define directory using the resolve() method we saw
+earlier, which saves you from having to write the filename
+twice.
+
+    var directory = Paths.get("/enclosure").resolve(file.getFileName());
+
+### MOVING OR RENAMING PATHS WITH MOVE()
+
+The Files class provides a useful method for moving or
+renaming files and directories.
+
+    public static Path move(Path source, Path target, CopyOption… options) throws IOException
+
+Sample Code
+
+    Files.move(Path.of("c:\\zoo"), Path.of("c:\\zoo-new"));
+    Files.move(Path.of("c:\\user\\addresses.txt"),
+    Path.of("c:\\zoo-new\\addresses2.txt"));
+
+The first example renames the zoo directory to a zoo‐new
+directory, keeping all of the original contents from the source
+directory. The second example moves the addresses.txt file
+from the directory user to the directory zoo‐new, and it renames
+it to addresses2.txt.
+
+### Similarities between move() and copy()
+ike copy(), move() requires REPLACE_EXISTING to overwrite the
+target if it exists, else it will throw an exception.\
+copy(), move() will not put a file in a directory if the source is a
+file and the target is a directory. Instead, it will create a new file
+with the name of the directory.
+
+### Performing an Atomic Move
+**An atomic move** is one in which a file is moved within the file
+system as a single indivisible operation. If the file system does not support this
+feature, an AtomicMoveNotSupportedException will be thrown.
+
+    Files.move(Path.of("mouse.txt"), Path.of("gerbil.txt"),StandardCopyOption.ATOMIC_MOVE);
+
+### delete() AND deleteIfExist()
+    public static void delete(Path path) throws IOException
+    public static boolean deleteIfExists(Path path) throws IOException
+
+The `delete()` method throws an exception if the path
+does not exist, while the deleteIfExists() method returns true
+if the delete was successful, and false otherwise.
+
+    Files.delete(Paths.get("/vulture/feathers.txt"));
+    Files.deleteIfExists(Paths.get("/pigeon"));
+
+### newBufferedReader and newBufferedWriter()
+NIO.2 includes two convenient methods for working with I/O
+streams.
+
+    public static BufferedReader newBufferedReader(Path path) throws IOException
+    public static BufferedWriter newBufferedWriter(Path path,OpenOption… options) throws IOException
+
+`newBufferedReader()`, reads the file specified at the Path location using a BufferedReader object.
+
+    var path = Path.of("/animals/gopher.txt");
+    try (var reader = Files.newBufferedReader(path)) {
+        String currentLine = null;
+        while((currentLine = reader.readLine()) != null)
+        System.out.println(currentLine);
+    }
+
+`newBufferedWriter()`, writes to a file specified at the Path location using a BufferedWriter.
+
+    var list = new ArrayList<String>();
+    list.add("Smokey");
+    list.add("Yogi");
+    var path = Path.of("/animals/bear.txt");
+    try (var writer = Files.newBufferedWriter(path)) {
+        for(var line : list) {
+            writer.write(line);
+            writer.newLine();
+        }
+    }
+
+### readAllLines()
+The Files class includes a convenient method for turning the lines of a file into a List.
+
+    public static List<String> readAllLines(Path path) throws IOException
+
+var path = Path.of("/animals/gopher.txt");
+final List<String> lines = Files.readAllLines(path);
+lines.forEach(System.out::println);
+
+> List<String> storing all the contents of the file in memory at once. If the file is significantly
+large, then you may trigger an OutOfMemoryError trying to load
+all of it into memory.
+
+<div align="center">
+<img src="img_6.png">
+</div>
+
+> All of these methods except exists() declare IOException.
+
+
+## Managing File Attributes
+A file
+attribute is data about a file within the system, such as its size
+and visibility, that is not part of the file contents.
+
+### DISCOVERING FILE ATTRIBUTES
+
+### isDirectory(), isSymbolicLink(), and isRegularFile()
+
+Java defines a **_regular file_** as one that can contain
+content, as opposed to a symbolic link, directory, resource, or
+other nonregular file that may be present in some operating
+systems. 
+
+    System.out.print(Files.isDirectory(Paths.get("/canine/fur.jpg")));
+    System.out.print(Files.isSymbolicLink(Paths.get("/canine/coyote")));
+    System.out.print(Files.isRegularFile(Paths.get("/canine/types.txt")));
+
+
+### isHidden(), isReadable(), isWritable(), and isExecutable()
+
+    System.out.print(Files.isHidden(Paths.get("/walrus.txt")));
+    System.out.print(Files.isReadable(Paths.get("/seal/baby.png")));
+    System.out.print(Files.isWritable(Paths.get("dolphin.txt")));
+    System.out.print(Files.isExecutable(Paths.get("whale.png")));
+
+### size()
+The size returned by this method represents the conceptual size
+of the data, and this may differ from the actual size on the
+persistent storage device.
+
+    System.out.print(Files.size(Paths.get("/zoo/animals.txt")));
+
+### Understanding Attribute and View Types
+
+<div align="center">
+<table>
+<thead style="font-weight: bold">The attributes and view types</thead>
+<th>Attributes interface</th>
+<th>View interface</th>
+<th>Description</th>
+<tr>
+    <td>BasicFileAttribute</td>
+    <td>BasicFileAttributeView</td>
+    <td>Basic set ıf attributes supported by all file systems.</td>
+</tr>
+<tr>
+    <td>DosFileAttributes</td>
+    <td>DosFileAttributeView</td>
+    <td>Basic set of attributes along with those supported by DOS/Windows-based systems</td>
+</tr>
+<tr>
+    <td>PosixFileAttributes</td>
+    <td>PosixFileAttributeView</td>
+    <td>Basic set of attributes along with those supported by POSIX sytems, such as UNIX, Linux, Mac, etc.</td>
+</tr>
+</table>
+</div>
+
+## Applying Functional Programming
+The Files class includes
+some incredibly useful Stream API methods that operate on
+files, directories, and directory trees.
+
+### LISTING DIRECTORY CONTENTS
+Files method lists the contents of a directory.
+
+    public static Stream<Path> list(Path dir) throws IOException
+
+The `Files.list()` is similar to the java.io.File method
+`listFiles()`, except that it returns a `Stream<Path>` rather than a
+`File[]`. _Since streams use lazy evaluation, this means the
+method will load each path element as needed, rather than the
+entire directory at once._
+
+    try (Stream<Path> s = Files.list(Path.of("/home"))) {
+    s.forEach(System.out::println);
+    }
+
+> Files.copy() method and showed that it only
+performed a shallow copy of a directory. We can use the
+Files.list() to perform a deep copy.
+
+    public void copyPath(Path source, Path target) {
+        try {
+            Files.copy(source, target);
+            if(Files.isDirectory(source))
+                try (Stream<Path> s = Files.list(source)) {
+                    s.forEach(p -> copyPath(p,target.resolve(p.getFileName())));
+            }
+        } catch(IOException e) {
+        // Handle exception
+        }
+    }
+
+### TRAVERSING A DIRECTORY TREE
+Traversing a directory, also referred to as walking a directory
+tree, is the process by which you start with a parent directory
+and iterate over all of its descendants until some condition is
+met or there are no more elements over which to iterate.
+
+<div align="center">
+<img src="img_8.png">
+</div>
+
+### Selecting a Search Strategy
+
+There are two common strategies associated with walking a
+directory tree: a **depth‐first search** and a **breadth‐first search.**
+
+_A depth‐first search_ traverses the structure from the root to an
+arbitrary leaf and then navigates back up toward the root,
+traversing fully down any paths it skipped along the way.
+
+_The search depth_ is the distance from the root to current node. To
+prevent endless searching, Java includes a search depth that is
+used to limit how many levels (or hops) from the root the
+search is allowed to go.
+
+<div align="center">
+<img src="img_9.png">
+</div>
+
+> For the exam, you don't have to understand the details of each
+search strategy that Java employs; you just need to be aware
+that the NIO.2 Streams API methods use depth‐first searching
+with a depth limit, which can be optionally changed.
+
+
+### walk()
+That's enough background information; let's get to more Steam
+API methods. The Files class includes two methods for walking
+the directory tree using a depth‐first search.
+
+    public static Stream<Path> walk(Path start, FileVisitOption… options) throws IOException
+    public static Stream<Path> walk(Path start, int maxDepth, FileVisitOption… options) throws IOException
+
+The first
+`walk()` method relies on a default maximum depth of
+`Integer.MAX_VALUE`, while the overloaded version allows the
+user to set a maximum depth. This is useful in cases where the
+file system might be large and we know the information we are
+looking for is near the root.
+
+    private long getSize(Path p) {
+        try {
+            return Files.size(p);
+        } catch (IOException e) {
+            // Handle exception
+        }
+        return 0L;
+    }
+
+    public long getPathSize(Path source) throws IOException {
+        try (var s = Files.walk(source)) {
+            return s.parallel().filter(p -> !Files.isDirectory(p)).mapToLong(this::getSize).sum();
+        }
+    }
+
+> The getSize() helper method is needed because Files.size()
+declares IOException, and we'd rather not put a try/ catch
+block inside a lambda expression.
+
+    var size = getPathSize(Path.of("/fox/data"));
+    System.out.format("Total Size: %.2f megabytes", (size/1000000.0));
+
+_**Result**_\
+Total Directory Tree Size: 15.30 megabytes
+
+### Applying a Depth Limit
+
+    try (var s = Files.walk(source, 5)) {...
+
+
+### Avoiding Circular Paths
+Many of our earlier NIO.2 methods traverse symbolic links by
+default, with a `NOFOLLOW_LINKS` used to disable this behavior.
+The walk() method is different in that it does not follow
+symbolic links by default and requires the `FOLLOW_LINKS` option
+to be enabled. We can alter our `getPathSize()` method to
+enable following symbolic links by adding the _FileVisitOption_.
+
+    try (var s = Files.walk(source, FileVisitOption.FOLLOW_LINKS)) {
+    ...
+> When traversing a directory tree, your program needs to be
+careful of symbolic links if enabled. For example, if our process
+comes across a symbolic link that points to the root directory of
+the file system, then every file in the system would be searched!
+
+Let's say we had a directory tree as shown
+in picture with the symbolic link `/birds/robin/allBirds`
+that points to `/birds`.
+
+
+<div align="center">
+<img src="img_10.png">
+</div>
+
+**What happens if we try to traverse this tree and follow all
+symbolic links, starting with `/birds/robin`?**
+<div align="center">
+<img src="img_11.png">
+</div>
+
+After walking a distance of 1 from the start, we hit the symbolic
+link `/birds/robin/allBirds` and go back to the top of the
+directory tree /birds. That's OK because we haven't visited
+`/birds` yet, so there's no cycle yet!\
+Unfortunately, at depth 2, we encounter a cycle. We've already
+visited the `/birds/robin directory` on our first step, and now
+we're encountering it again. If the process continues, we'll be
+doomed to visit the directory over and over again.
+
+### find()
+In the previous example, we applied a filter to the Stream<Path>
+object to filter the results, although NIO.2 provides a more
+convenient method.
+
+    public static Stream<Path> find(Path start,int maxDepth,BiPredicate<Path,BasicFileAttributes> matcher,FileVisitOption… options) throws IOException
+
+> The `find()` method behaves in a similar manner as the `walk()`
+method, except that it takes a BiPredicate to filter the data. It
+also requires a depth limit be set. Like `walk()`, `find()` also
+supports the `FOLLOW_LINK` option.
+
+    Path path = Paths.get("/bigcats");
+    long minSize = 1_000;
+    try (var s = Files.find(path, 10,(p, a) -> a.isRegularFile() && p.toString().endsWith(".java") && a.size() > minSize)) {
+        s.forEach(System.out::println);
+    }
+### lines()
+
+we presented `Files.readAllLines()` and
+commented that using it to read a very large file could result in
+an OutOfMemoryError problem. Luckily, NIO.2 solves this
+problem with a Stream API method.
+
+    public static Stream<String> lines(Path path) throws IOException
+
+> The contents of the file are read and processed lazily, which
+means that only a small portion of the file is stored in memory
+at any given time.
+
+    Path path = Paths.get("/fish/sharks.log");
+    try (var s = Files.lines(path)) {
+        s.forEach(System.out::println);
+    }
+we can leverage other stream methods for a more powerful example.
+
+    Path path = Paths.get("/fish/sharks.log");
+    try (var s = Files.lines(path)) {
+        s.filter(f -> f.startsWith("WARN:")).map(f -> f.substring(5)).forEach(System.out::println);
+    }
+
+**_INPUT_**\
+_INFO:Server starting\
+DEBUG:Processes available = 10\
+WARN:No database could be detected\
+DEBUG:Processes available reset to 0\
+WARN:Performing manual recovery\
+INFO:Server successfully started_
+
+**_RESULT_**\
+No database could be detected\
+Performing manual recovery
+
+
+### Files.readAllLines() vs Files.readLines()
+    Files.readAllLines(Paths.get("birds.txt")).forEach(System.out::println);
+    Files.lines(Paths.get("birds.txt")).forEach(System.out::println);
+The first line reads the entire file into memory and
+performs a print operation on the result, while the second
+line lazily processes each line and prints it as it is read.
+The advantage of the second code snippet is that it does
+not require the entire file to be stored in memory at any
+time.
+
+
+    Files.readAllLines(Paths.get("birds.txt")).filter(s -> s.length()> 2).forEach(System.out::println); //DOES NOT COMPILE
+> The `readAllLines()` method returns a List, not a Stream,
+so the `filter()` method is not available.
+
+
+## Comparing Legacy java.io.File and NIO.2
+In this table, file refers to an instance of the
+java.io.File class, while path and otherPath refer to instances
+of the NIO.2 Path interface.
+![img_13.png](img_13.png)
