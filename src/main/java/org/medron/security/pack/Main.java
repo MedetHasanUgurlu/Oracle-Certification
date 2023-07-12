@@ -14,8 +14,18 @@ public class Main {
 //        favorites.clear();
 //        System.out.println(animal.getFavoriteFoodsCount());
 
-        Console console = System.console();
-        String dir = console.readLine();
-        System.out.println(dir);
+
+
+        FoodOrder foodOrder = new FoodOrder("Water",3);
+        FoodOrder foodOrder2 = new FoodOrder("Cola",2);
+        System.out.println(FoodOrder.total(List.of(foodOrder2,foodOrder)));
+
+        HackerHarryFoodOrder hackerHarryFoodOrder = new HackerHarryFoodOrder("Water",3);
+        HackerHarryFoodOrder hackerHarryFoodOrder2 = new HackerHarryFoodOrder("Cola",2);
+        System.out.println(HackerHarryFoodOrder.total(List.of(hackerHarryFoodOrder2,hackerHarryFoodOrder)));
+
+
+
+
     }
 }
