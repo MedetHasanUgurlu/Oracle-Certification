@@ -248,3 +248,169 @@ about it being exposed later.
 
 ### LIMITING FILE ACCESS
 
+    grant {
+        permission java.io.FilePermission
+        "C:\\water\\fish.txt",
+        "read";
+    };
+
+This policy gives the programmer permission to read, but not
+update, the fish.txt file. 
+
+## Serializing and Deserializing Objects
+
+Imagine we are storing data in an Employee record. We want to
+write this data to a file and read this data back into memory,
+but we want to do so without writing any potentially sensitive
+data to disk.
+
+>  Java skips calling the constructor
+when deserializing an object. This means it is important not to
+rely on the constructor for custom validation logic.
+
+
+
+    import java.io.*;
+    public class Employee implements Serializable {
+        private String name;
+        private int age;
+        // Constructors/getters/setters
+    }
+
+### SPECIFYING WHICH FIELDS TO SERIALIZE
+
+Our zoo has decided that employee age information is sensitive
+and shouldn't be written to disk.
+
+you can specify fields to be serialized in an array.
+
+    private static final ObjectStreamField[] serialPersistentFields = { new ObjectStreamField("name", String.class) };
+
+You can think of serialPersistentFields as the opposite of
+transient. The former is a whitelist of fields that should be
+serialized, while the latter is a blacklist of fields that should not.
+
+### CUSTOMIZING THE SERIALIZATION PROCESS
+Security may demand custom serialization. In our case, we got
+a new requirement to add the Social Security number to our
+object.
+
+Unlike age, we do need to
+serialize this information. However, we don't want to store the
+Social Security number in plain text, so we need to write some
+custom code.
+
+    import java.io.*;
+    public class Employee implements Serializable {
+        private String name;
+        private String ssn;
+        private int age;
+        
+        // Constructors/getters/setters
+        private static final ObjectStreamField[] serialPersistentFields = { new ObjectStreamField("name", String.class), new ObjectStreamField("ssn", String.class) };
+        
+        private static String encrypt(String input) {
+            // Implementation omitted
+        }
+        private static String decrypt(String input) {
+            // Implementation omitted
+        }
+        
+        private void writeObject(ObjectOutputStream s) throws Exception {
+            ObjectOutputStream.PutField fields = s.putFields();
+            fields.put("name", name);
+            fields.put("ssn", encrypt(ssn));
+            s.writeFields();
+        }
+        private void readObject(ObjectInputStream s) throws Exception {
+            ObjectInputStream.GetField fields = s.readFields();
+            this.name = (String)fields.get("name", null);
+            this.ssn = decrypt((String)fields.get("ssn", null));
+        }
+    }
+
+### PRE/POST-SERIALIZATION PROCESSING
+
+Suppose our zoo employee application is having a problem with
+duplicate records being created for each employee. They decide
+that they want to maintain a list of all employees in memory
+and only create users as needed. Furthermore, each employee's
+name is guaranteed to be unique. Unlikely in practice we know,
+but this is a special zoo!
+From what you learned about concurrent collections and factory methods, we can accomplish
+this with a private constructor and factory method.
+
+    import java.io.*;
+    import java.util.Map;
+    import java.util.concurrent.ConcurrentHashMap;
+    
+    public Employee{
+      private int id;
+      private String name;
+      private Employee(){
+      }
+      
+      private static Map<String,Emplpyee> pool = new ConcurrentHashMap<>();
+      
+      public synchronized static Employee(String name){
+          if(pool.get(name)== null){ 
+              Employee e  = new Employee();
+              e.setName(name);
+              pool.put(name,e);
+              return e;
+          }
+          return pool.get(name);
+          
+      }
+   }
+
+### readResolve()
+When someone reads the data
+from the disk, it deserializes it into a new object, not the one in
+memory pool. This could result in two users holding different
+versions of the Employee in memory!
+
+Enter the readResolve() method. When this method is present,
+it is run after the readObject() method and is capable of
+replacing the reference of the object returned by
+deserialization.
+
+<br>
+
+
+      import java.io.*;
+      import java.util.Map;
+      import java.util.concurrent.ConcurrentHashMap;
+      public class Employee implements Serializable {
+         …
+         public synchronized Object readResolve() throws ObjectStreamException {
+            var existingEmployee = pool.get(name);
+            if(pool.get(name) == null) {
+               // New employee not in memory
+               pool.put(name, this);
+               return this;
+            } else {
+               // Existing user already in memory
+               existingEmployee.name = this.name;
+               existingEmployee.ssn = this.ssn;
+               return existingEmployee;
+             }
+         }
+      }
+> Notice that we added the `synchronized` modifier to this method.
+Java allows any method modifiers (except `static`) for the
+`readResolve()` method including any access modifier. This rule
+applies to `writeReplace()`, which is up next.
+
+### writeReplace()
+
+      import java.io.*;
+         import java.util.Map;
+         import java.util.concurrent.ConcurrentHashMap;
+         public class Employee implements Serializable {
+         …
+         public Object writeReplace() throws ObjectStreamException {
+         var e = pool.get(name);
+         return e != null ? e : this;
+         }
+      }
