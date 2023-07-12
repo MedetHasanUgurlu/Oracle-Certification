@@ -1,59 +1,32 @@
+# Method and Encapsulation
 
-![img.png](img.png)
+## Method
 
-<br>
+### Name
+    public void walk1(){...} COMPILE
+    public void 2walk(){...} DOES NOT COMPILE
+    public walk3 void(){...} DOES NOT COMPILE
+    public void walk_$3(){...} DOES NOT COMPILE
+    public void _(){...} DOES NOT COMPILE
+    public void(){...} DOES NOT COMPILE
 
-```html    
-<span style="color: red">sadas</span>
-<p style="font-family: Unispace">
-public void walk1(int... nums){} <br>
-public void walk1(int start,int... nums){} <br>
-public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
-public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
-</p>
-```
-> public void walk1(int... nums){} <br>
-public void walk1(int start,int... nums){} <br>
-public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
-public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
+### varargs
 
-<br>
+A varargs parameter must
+be the last element in a method’s parameter list. This means
+you are allowed to have only one varargs parameter per
+method.
 
+    public void walk1(int... nums){} 
+    public void walk1(int start,int... nums){}
+    public void walk1(int... nums,int start){} DOES NOT COMPILE
+    public void walk1(int... start,int... nums){} DOES NOT COMPILE
 
-
-$$
-\Gamma(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-$$
-
-<br>
-
-* VarArgs
-
-  A varargs parameter must
-  be the last element in a method’s parameter list. This means
-  you are allowed to have only one varargs parameter per
-  method.
-![img_1.png](img_1.png)
-
-<br>
-
-<div style="padding: 25px;margin: 5px;background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(200,219,63,1) 100%)">
-<p style="font-family: Unispace">
-public void walk1(int... nums){} <br>
-public void walk1(int start,int... nums){} <br>
-public void walk1(int... nums,int start){} <span style="color: red">DOES NOT COMPILE</span> <br>
-public void walk1(int... start,int... nums){} <span style="color: red">DOES NOT COMPILE</span> <br>
-</p>
-
-
-</div>
-<br>
-
-****
-* private: Only accessible within the same class
-* Default (package-private) access: private plus other classes in the same package
-* protected: Default access plus child classes
-* public: protected plus classes in the other packages
+### Access Modifiers
+`private`: Only accessible within the same class \
+`Default (package-private)` access: private plus other classes in the same package\
+`protected`: Default access plus child classes\
+`public`: protected plus classes in the other packages
 
 
 Remember to look at the reference type for a variable
@@ -65,12 +38,13 @@ happens to be null. Don’t be fooled!
 We hope you answered 5. There is only one count variable since
 it is static. It is set to 4, then 6, and finally winds up as 5. All
 the Koala variables are just distractions.
-Koala.count = 4;
-Koala koala1 = new Koala();
-Koala koala2 = new Koala();
-koala1.count = 6;
-koala2.count = 5;
-System.out.println(Koala.count);
+
+    Koala.count = 4;
+    Koala koala1 = new Koala();
+    Koala koala2 = new Koala();
+    koala1.count = 6;
+    koala2.count = 5;
+    System.out.println(Koala.count);
 
 The same thing happens for static methods. There is one
 copy of the code. Parameters and local variables go on the

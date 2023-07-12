@@ -98,8 +98,6 @@ o
 0src/main/java/org/medron/annotations/pack/x.java,1\d\1d2dab3a81a4bd8d0b6bf52b59bc497915a4c562
 q
 Asrc/main/java/org/medron/annotations/png/images/package-info.java,d\2\d2008a8ebb3f227d84993aaf9c75170011c8d1e2
-i
-9src/main/java/org/medron/medhodandencapsulation/README.md,f\0\f00e9140722f87a3e6e13a60bcd7501f6787a4b5
 e
 5src/main/java/org/medron/annotations/pack/Hazard.java,8\6\86798140221126d8b284dc434a9c741f813ae1ef
 w
