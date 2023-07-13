@@ -34,8 +34,6 @@ e
 5src/main/java/org/medron/classdesign/pack8/Eagle.java,5\1\5185661cd87292bf46c6b247ca8910caee2906c2
 g
 7src/main/java/org/medron/classdesign/pack/Employee.java,1\0\102208dcf92d4c02221e8d386db9960f89666613
-r
-Bsrc/main/java/org/medron/medhodandencapsulation/pack/Employee.java,9\e\9e73bccc1fbb1e08f0f9738e2e70b8da42c2b0e4
 c
 3src/main/java/org/medron/classdesign/pack/Fish.java,8\8\884becad74963d0232e7350e70c40765dab10615
 j
@@ -510,8 +508,6 @@ Z
 *src/main/java/org/medron/ıo/pack4/zoo.txt,7\f\7f2a8ba8dbcedefcf5e5754baa39b164dba3e6ab
 [
 +src/main/java/org/medron/nıo2/pack/foo.txt,d\b\db5b1d3645e33f605fad0c8dfb2368c44cfb3cff
-^
-.src/main/java/org/medron/classdesign/README.md,f\7\f733c360ab78d1584a2d4c8c65234cfc41246b5d
 [
 +src/main/java/org/medron/corejava/README.md,5\e\5e923fe9656a62644c2880bbf46ac3c5953ce9d0
 ]
@@ -524,3 +520,13 @@ X
 .src/main/java/org/medron/nıo2/pack2/Main.java,8\f\8fa45140b0b3acb1d3f96fb33b61abc6e612ef53
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+b
+2src/main/java/org/medron/security/pack/Animal.java,4\8\48c9603fa8ccc775043e691e78f4eebf5987ca77
+\
+,src/main/java/org/medron/exception/README.md,4\5\45b277764f85958db20ad8c3b0b8d4da894c5453
+e
+5src/main/java/org/medron/security/pack/FoodOrder.java,0\b\0b8d4be2bf8ac2f7d21dbe51bc75ea213928079a
+p
+@src/main/java/org/medron/security/pack/HackerHarryFoodOrder.java,8\0\80c23db9862f8fe418da162b1090ca0acafb4d86
+`
+0src/main/java/org/medron/security/pack/Main.java,0\5\0535863d7e8d400ed07cf06b70f6c48bd7aa96cd
