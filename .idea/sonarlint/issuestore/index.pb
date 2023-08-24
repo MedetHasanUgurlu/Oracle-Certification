@@ -485,8 +485,6 @@ Z
 f
 6src/main/java/org/medron/advancedclassdesign/README.md,9\9\99963347ca96ade464e353177bbb2b0ab276a36f
 ^
-.src/main/java/org/medron/annotations/README.md,8\b\8b8ebfe75771596b9d4746f23b599b68cabc7c22
-^
 .src/main/java/org/medron/concurrency/README.md,f\2\f204ccf0c6bbd696540abad605b730544f042504
 `
 0src/main/java/org/medron/corejava/pack/Test.java,9\5\953f59667d5e56eb0f6f1d41a7e2796ce3db18f5
@@ -506,8 +504,6 @@ Z
 *src/main/java/org/medron/ıo/pack4/zoo.txt,7\f\7f2a8ba8dbcedefcf5e5754baa39b164dba3e6ab
 [
 +src/main/java/org/medron/nıo2/pack/foo.txt,d\b\db5b1d3645e33f605fad0c8dfb2368c44cfb3cff
-[
-+src/main/java/org/medron/corejava/README.md,5\e\5e923fe9656a62644c2880bbf46ac3c5953ce9d0
 ]
 -src/main/java/org/medron/nıo2/pack/Test.java,5\0\503c93e330e017ef8272f5b408d11a3877850bdb
 [
@@ -528,3 +524,13 @@ p
 @src/main/java/org/medron/security/pack/HackerHarryFoodOrder.java,8\0\80c23db9862f8fe418da162b1090ca0acafb4d86
 `
 0src/main/java/org/medron/security/pack/Main.java,0\5\0535863d7e8d400ed07cf06b70f6c48bd7aa96cd
+[
++src/main/java/org/medron/security/README.md,8\c\8cb1f7d61c1adadc93236f33a8fd26b7cdfa6265
+^
+.src/main/java/org/medron/classdesign/README.md,f\7\f733c360ab78d1584a2d4c8c65234cfc41246b5d
+o
+?src/main/java/org/medron/medhodandencapsulation/pack4/Bird.java,4\c\4c80775934bb1d55644031751680338bf6176d4a
+o
+?src/main/java/org/medron/medhodandencapsulation/pack4/Duck.java,8\2\82eab0639384f643d4be98a8e1503a3cb787c841
+o
+?src/main/java/org/medron/medhodandencapsulation/pack4/Main.java,c\9\c9865b2db25f194d92c2dd5fe01bd2213d805b9d

@@ -15,12 +15,12 @@ manage data about our application.
   will still compile and run, albeit with potentially different
   behavior at runtime.
 
-* marker annotation, since it does not contain any elements
+marker annotation, since it does not contain any elements
 <br>
 
 >    public @interface Exercise {    
     }  
-* We have mixed. That is fine.
+We have mixed. That is fine.
 
 
 
@@ -69,7 +69,7 @@ Remember, parentheses are optional only if no values are included.
     }
   
 
-> ![img.png](png/images/img.png)
+
 
 * For an element to be optional, rather than required, it must
   include a default value. Let's update our annotation to include
