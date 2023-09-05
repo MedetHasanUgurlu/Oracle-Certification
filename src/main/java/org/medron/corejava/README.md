@@ -4,9 +4,12 @@
 _“You take the blue pill – the story ends, you wake up in your bed and believe whatever you want to believe. You take the red pill – you stay in Wonderland and I show you how deep the rabbit-hole goes.”_
 ###### 'Morpheus'
 *****    
-    1. If both operands are numeric, + means numeric addition.
-    2. If either operand is a String, + means concatenation.
-    3. The expression is evaluated left to right.    
+
+1. If both operands are numeric, + means numeric addition.
+2. If either operand is a String, + means concatenation.
+3. The expression is evaluated left to right.    
+
+<br>
 
     System.out.println(1 + 2); // 3
     System.out.println("a" + "b"); // ab
@@ -14,9 +17,12 @@ _“You take the blue pill – the story ends, you wake up in your bed and belie
     System.out.println(1 + 2 + "c"); // 3c
     System.out.println("c" + 1 + 2); // c12
     
-    ® Once a String object is created, it is not allowed to change. It
+<br>
+
+® Once a String object is created, it is not allowed to change. It
     cannot be made larger or smaller, and you cannot change one
     of the characters inside it.
+<br>
 
     String string = "animals";
     System.out.println(string.substring(3)); // mals
@@ -28,7 +34,9 @@ _“You take the blue pill – the story ends, you wake up in your bed and belie
     System.out.println(string.substring(3, 2)); // throws exception
     System.out.println(string.substring(3, 8)); // throws exception
 
-    Unlike the String class, StringBuilder is not immutable.
+    
+Unlike the String class, StringBuilder is not immutable.
+
 
     StringBuilder stringBuilder = new StringBuilder();
     for(char a = 'a';a<='z';a++){
@@ -42,20 +50,24 @@ _“You take the blue pill – the story ends, you wake up in your bed and belie
     sb.delete(1, 3); // sb = adef
     sb.deleteCharAt(5); // throws an exception
 
-    » Replace method include delete firstly delete method called then set value.
+    
+» Replace method include delete firstly delete method called then set value.
     StringBuilder builder = new StringBuilder("pigeon dirty");
     builder.replace(3, 6, "sty");
     System.out.println(builder); // pigsty dirty
 
-    » Remember that Strings are immutable and literals are pooled.
+
+» Remember that Strings are immutable and literals are pooled.
     The JVM created only one literal in memory. x and y both point
     to the same location in memory; therefore, the statement
-    outputs true. It gets even trickier.
+    outputs true. It gets even trickier
+
     String x = "Hello World";
     String z = " Hello World".trim();
     System.out.println(x == z); // false
 
-    » You can use intern adding sstring in pool.     
+» You can use intern adding string in pool. 
+
     String name = "Hello World";
     String name2 = new String("Hello World").intern();
     System.out.println(name == name2); // true
