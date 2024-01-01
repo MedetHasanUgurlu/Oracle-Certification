@@ -4,8 +4,8 @@ t	java:S120"ZRename this package name to match the regular expression '^[a-z_
 java:S1130	"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(œû¿Ø
 Q	java:S125
 "<This block of commented-out lines of code should be removed.(òš Ø
-E	java:S106"+Replace this use of System.out by a logger.(í¸æõûÿÿÿÿ
-@	java:S106"+Replace this use of System.out by a logger.(º£½Ž
+E	java:S106"+Replace this use of System.out by a logger.(í¸æõûÿÿÿÿ
+@	java:S106"+Replace this use of System.out by a logger.(º£½Ž
 F
 java:S1128"0Remove this unused import 'java.nio.file.Files'.(‚ƒü
 E

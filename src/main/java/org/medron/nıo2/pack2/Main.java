@@ -15,6 +15,8 @@ public class Main {
 
 
 
+
+
         String s = "ABCDEFGHJKLMNOPRSTVYZX";
         System.out.println(s.substring(3,6));
         System.out.println(s.substring(3));
