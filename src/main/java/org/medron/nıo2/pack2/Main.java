@@ -13,6 +13,8 @@ public class Main {
 //            System.out.println(stream.toString());
 //        }
 
+
+
         String s = "ABCDEFGHJKLMNOPRSTVYZX";
         System.out.println(s.substring(3,6));
         System.out.println(s.substring(3));
