@@ -71,6 +71,7 @@ variables must be assigned a value.
       }
     }
 
+<br>
 * We can assign a null value to final instance
   variables, so long as they are explicitly set.
 
