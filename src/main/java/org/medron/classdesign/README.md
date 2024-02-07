@@ -61,7 +61,8 @@ variables must be assigned a value.
  
     
 
-    public class Car {
+
+  public class Car {
       private String name;
       private String surName;
       {
