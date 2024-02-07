@@ -116,7 +116,7 @@ variables must be assigned a value.
 * Final değeri başta initialize etmeye gerek yok lakin static fieldi initialize etmek zorundasun.
   <br>
 
-
+```
     public class Home {
       private final int room ;
 
@@ -132,6 +132,8 @@ variables must be assigned a value.
       Home home = new Home();
       }
     }
+
+```
 **Result**
 
 Home static \
