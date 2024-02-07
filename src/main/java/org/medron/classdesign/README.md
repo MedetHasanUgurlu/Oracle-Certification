@@ -59,9 +59,8 @@ variables must be assigned a value.
 
 * THİS İS NO ARGS CONSTRUCTOR
  <br>
-    
 
-
+```
   public class Car {
       private String name;
       private String surName;
@@ -70,7 +69,7 @@ variables must be assigned a value.
       System.out.println("I am no args constructor.");
       }
     }
-
+```
 <br>
 * We can assign a null value to final instance
   variables, so long as they are explicitly set.
