@@ -1,7 +1,7 @@
 # MODULES
 
 ***
-Benefits of Modules\
+**Benefits of Modules\
 Better access control: In addition to the levels of access control covered in Chapter 5,
 “Methods,” you can have packages that are only accessible to other packages in
 the module.\
