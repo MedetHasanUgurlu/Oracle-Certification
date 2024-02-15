@@ -119,12 +119,12 @@ Semophere controls the amount of thread which uses methods.\
 * AtomicInteger
 * AtomicLong
 
-
+```
     private AtomicInteger sheepCount = new AtomicInteger(0);
     private void incrementAndReport() {
         System.out.print(sheepCount.incrementAndGet()+" ");
     }
-
+```
 ### SYNCHRONIZING ON METHODS
 > two methods are the same.
 <div align="center">
