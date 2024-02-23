@@ -1,6 +1,6 @@
 # Oracle-Certification
 
-***
+
 
 ![2376015.jpg](./2376015.jpg)
 ***
