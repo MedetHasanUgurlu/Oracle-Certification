@@ -4,7 +4,7 @@
 **Kino Loy** 
 
 
-## Writeing Simple Lambda
+## Writing Simple Lambda
 These two lines do the exact same thing.
 
     a -> a.canHop()
