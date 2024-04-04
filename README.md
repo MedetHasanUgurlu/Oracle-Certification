@@ -3,7 +3,8 @@
 
 
 ![2376015.jpg](./2376015.jpg)
-***
+
+
 * [Core Java APIs](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/corejava)
 * [Lambdas and Functional Interfaces](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/lambdaandfunctionalinterface)
 * [Methods and Encapsulation](https://github.com/MedetHasanUgurlu/Oracle-Certification/tree/master/src/main/java/org/medron/medhodandencapsulation)
